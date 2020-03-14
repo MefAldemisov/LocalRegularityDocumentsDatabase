@@ -1,4 +1,19 @@
+html {
+  font-size: 1.47vw;
+}
+body {
+  /* max-width: 1920px; */
+  min-width: 320px;
+  box-sizing: border-box;
+  color: #fff; /*The most common by the elements*/
+  font-family: "Roboto", sans-serif;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 .container {
-    width: 30%;
-    margin-top: 20vh;
+  width: 30%;
+  margin-top: 20vh;
 }

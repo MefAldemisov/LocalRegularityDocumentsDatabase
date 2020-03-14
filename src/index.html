@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
 
+<head>
+	<title>Local Regularity Documents</title>
+	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<header class="symbolic">
+		<nav>
+			<ul>
+				<li id="logo">
+					<img class="iu_logo" src="images/IU_logo_black.png" alt="logo of Innopolis University">
+				</li>
+				<li id="my" class="clickbel">My Documents</li>
+				<li id="search" class="clickbel">Search Documents</li>
+				<li id="load" class="clickbel">Load Documents</li>
+				<li id="change">Change lang</li>
+			</ul>
+		</nav>
+	</header>
+	<main id="content">
+		<!-- Loads by the user's click -->
+	</main>
+	<script>
+		$(function () {
+			$("#content").load("search_docks.html");
+		});
+		$(".clickbel").click(function(){
+			$("#content").load(this.id+"_docks.html");
+		})
+	</script>
+	<footer class="symbolic"></footer>
 </body>
+
 </html>

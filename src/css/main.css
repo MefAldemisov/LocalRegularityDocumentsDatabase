@@ -1,0 +1,47 @@
+/* Default settings */
+html {
+  font-size: 1.47vw;
+}
+body {
+  /* max-width: 1920px; */
+  min-width: 320px;
+  box-sizing: border-box;
+  color: #12152a; /*The most common by the elements*/
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.7rem;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/* Header - footter*/
+.symbolic {
+  background-color: #edf1f5;
+  min-height: 2rem;
+}
+.iu_logo {
+  width: 6rem;
+}
+ul {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+li {
+    font-size: 1rem;
+  padding: 0.5rem;
+  flex-shrink: 1;
+  display: inline;
+}
+li:hover {
+  background-color: #c5d9e7;
+}
+/* Main part */
+main {
+  padding-top: 1rem;
+  margin: auto;
+  width: 60%;
+}
