@@ -1,13 +1,4 @@
 <form id="search_form" class="search_form">
-    <!-- Parameters:
-    Владелец (owner, creator);
-    Дата создания документа;
-    Дата вступления в силу;
-    Дата окончания действия;
-    К каким департаментам (отделам) относится;
-    Каким группам лиц доступен;
-    Количество страниц;
-    -->
     <h2>Search parameters</h2>
     <div class="row">
         <div class="col input-group mb-3 ">
@@ -58,15 +49,16 @@
                 <span class="input-group-text">Department</span>
             </div>
             <select name="sort by" class="input-group-text custom-select">
-                <option selected value="name">Document name</option>
-                <option value="owner">Owner of the document</option>
-                <option value="date">Date of createion</option>
-                <option value="start_valid">Date of start of being valid</option>
-                <option value="validity date">Validity date</option>
-                <option value="department">Department</option>
-                <option value="size">Size of the document</option>
-                <option value="peolple">Amount of mentioned people</option>
+                <option selected value="name">All</option>
+                <option value="owner">Развития университета</option>
+                <option value="date">Проектной и научно-исследовательской деятельности</option>
+                <option value="start_valid">Довузовского образования</option>
+                <option value="validity date">Связей с общественностью</option>
+                <option value="department">Правовых вопросов</option>
+                <option value="size">Качества образования</option>
+                <option value="peolple">Административной политики и информатизации</option>
             </select>
+                <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
         </div>
         <div class=" col input-group mb-3">
             <div class="input-group-prepend">
@@ -76,7 +68,6 @@
         </div>
     </div>
 
-    <!-- TODO multiple select + get all departments names -->
     <button type="submit" class="btn btn-success btn-block" id="search_form_btn">
         <span class="fa fa-search"></span>
         Search
@@ -108,6 +99,9 @@
     </div>
 </form>
 <script>
+    $("form").submit(function(event){
+        event.preventDefault()
+    })
     function switch_filter_and_sort_forms(){
         $("#search_form").toggleClass("hidden")
         $("#filter_form").toggleClass("hidden")
