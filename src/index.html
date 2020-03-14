@@ -23,10 +23,16 @@
 				<li id="logo">
 					<img class="iu_logo" src="images/IU_logo_black.png" alt="logo of Innopolis University">
 				</li>
-				<li id="my" class="clickbel">My Documents</li>
-				<li id="search" class="clickbel">Search Documents</li>
-				<li id="load" class="clickbel">Load Documents</li>
-				<li id="change">Language:<span id="lang_marker">EN</span></li>
+				<li id="my" class="clickbel navigation">My Documents</li>
+				<li id="search" class="clickbel navigation">Search Documents</li>
+				<li id="load" class="clickbel navigation">Load Documents</li>
+				<li id="change"><span id="lang_text" class="navigation">Language:</span>
+					<select id="lang_marker">
+						<option class="lang_label">EN</option>
+						<option class="lang_label">RU</option>
+						<option class="lang_label">TAT</option>
+					</select>
+				</li>
 			</ul>
 		</nav>
 	</header>
@@ -40,7 +46,9 @@
 		$(".clickbel").click(function () {
 			$("#content").load(this.id + "_docks.html");
 		})
+
 	</script>
+	<script src="js/lang.js"></script>
 	<footer class="symbolic"></footer>
 </body>
 

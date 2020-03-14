@@ -25,16 +25,19 @@ body {
 }
 ul {
   margin: auto;
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: baseline;
 }
 li {
-    font-size: 1rem;
   padding: 0.5rem;
   flex-shrink: 1;
   display: inline;
+}
+.navigation {
+  font-size: 0.7rem;
 }
 .clickbel:hover {
   background-color: #c5d9e7;
@@ -43,11 +46,19 @@ li {
 .hidden {
     display: none;
 }
+#lang_marker {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+#lang_marker:hover {
+  font-weight: 600;
+}
 /* Main part */
 main {
   padding-top: 1rem;
   margin: auto;
-  width: 60%;
+  width: 70%;
 }
 /* Search part */
 /* TODO: remove */
