@@ -3,7 +3,7 @@
 - [x] remove default styles (reset)
 - [x] custom fonts from Inno standard
 - [x] implement the page changing
-- [ ] implement document search line using bootstrap
+- [x] implement document search line using bootstrap
 - [ ] implement My document page (generate sample docks and add random name/surname addition): 
 - [ ] implement language changing
 - [ ] mobile oprimization

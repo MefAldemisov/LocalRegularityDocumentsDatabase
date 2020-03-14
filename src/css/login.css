@@ -1,19 +1,12 @@
-html {
-  font-size: 1.47vw;
+.login_container {
+  margin: auto;
+  display: inline-block;
+  width: 30vw;
+  margin-bottom: 20vh;
 }
-body {
-  /* max-width: 1920px; */
-  min-width: 320px;
-  box-sizing: border-box;
-  color: #fff; /*The most common by the elements*/
-  font-family: "Roboto", sans-serif;
-}
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-.container {
-  width: 30%;
-  margin-top: 20vh;
+span,
+button{
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.6rem;
+  font-size: 0.6rem !important;
 }

@@ -45,3 +45,10 @@ main {
   margin: auto;
   width: 60%;
 }
+/* Search part */
+.search_form {
+    padding-bottom: 70vh;
+}
+form * {
+    font-size: 0.6rem !important;
+}

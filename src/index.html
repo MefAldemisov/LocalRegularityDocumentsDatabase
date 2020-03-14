@@ -4,8 +4,15 @@
 <head>
 	<title>Local Regularity Documents</title>
 	<link rel="stylesheet" href="css/reset.css" type="text/css">
+	<link rel="stylesheet" href="css/fonts.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -27,10 +34,10 @@
 	</main>
 	<script>
 		$(function () {
-			$("#content").load("search_docks.html");
+			$("#content").load("login.html");
 		});
-		$(".clickbel").click(function(){
-			$("#content").load(this.id+"_docks.html");
+		$(".clickbel").click(function () {
+			$("#content").load(this.id + "_docks.html");
 		})
 	</script>
 	<footer class="symbolic"></footer>

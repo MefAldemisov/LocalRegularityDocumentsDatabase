@@ -1,7 +1,20 @@
-<h1>Search Documents</h1>
-<form>
-    <label>Enter your request:
-        <input type="text">
-    </label>
-    <button type="submit">Search</button>
+<form class="search_form">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" class="btn btn-success">
+                <span class="fa fa-search"></span>
+                Search
+            </button>
+        </div>
+        <input type="text" class="form-control" placeholder="Enter your request">
+        <div class="input-group-append">
+            <span class="input-group-text">Sort by</span>
+            <select name="sort by" class="input-group-text custom-select">
+                <option selected value="name">Document name</option>
+                <option value="validity date">Validity date</option>
+                <option value="date">Date of createion</option>
+                <option value="peolple">Amount of mentioned people</option>
+            </select>
+        </div>
+    </div>
 </form>
