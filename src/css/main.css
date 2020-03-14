@@ -36,8 +36,9 @@ li {
   flex-shrink: 1;
   display: inline;
 }
-li:hover {
+.clickbel:hover {
   background-color: #c5d9e7;
+  cursor: pointer;
 }
 .hidden {
     display: none;
@@ -55,5 +56,5 @@ form {
 }
 #search_form *, 
 #filter_form * {
-    font-size: 0.6rem !important;
+    font-size: 0.6rem;
 }
