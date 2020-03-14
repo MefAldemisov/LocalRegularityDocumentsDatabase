@@ -1,20 +1,121 @@
-<form class="search_form">
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <button type="submit" class="btn btn-success">
-                <span class="fa fa-search"></span>
-                Search
-            </button>
+<form id="search_form" class="search_form">
+    <!-- Parameters:
+    Владелец (owner, creator);
+    Дата создания документа;
+    Дата вступления в силу;
+    Дата окончания действия;
+    К каким департаментам (отделам) относится;
+    Каким группам лиц доступен;
+    Количество страниц;
+    -->
+    <h2>Search parameters</h2>
+    <div class="row">
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Document owner</span>
+            </div>
+            <input type="text" class="form-control">
         </div>
-        <input type="text" class="form-control" placeholder="Enter your request">
-        <div class="input-group-append">
-            <span class="input-group-text">Sort by</span>
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Document type</span>
+            </div>
+            <input type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Date of document creation</span>
+            </div>
+            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Date of document last eddition</span>
+            </div>
+            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Date of start of the document validity</span>
+            </div>
+            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+        <div class="col input-group mb-3 ">
+            <div class="input-group-prepend">
+                <span class="input-group-text">End of validity date</span>
+            </div>
+            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Department</span>
+            </div>
             <select name="sort by" class="input-group-text custom-select">
                 <option selected value="name">Document name</option>
-                <option value="validity date">Validity date</option>
+                <option value="owner">Owner of the document</option>
                 <option value="date">Date of createion</option>
+                <option value="start_valid">Date of start of being valid</option>
+                <option value="validity date">Validity date</option>
+                <option value="department">Department</option>
+                <option value="size">Size of the document</option>
                 <option value="peolple">Amount of mentioned people</option>
             </select>
         </div>
+        <div class=" col input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Page amount</span>
+            </div>
+            <input type="number" class="form-control">
+        </div>
+    </div>
+
+    <!-- TODO multiple select + get all departments names -->
+    <button type="submit" class="btn btn-success btn-block" id="search_form_btn">
+        <span class="fa fa-search"></span>
+        Search
+    </button>
     </div>
 </form>
+
+
+<!-- TODO: make it hidden before request is formed -->
+<form id="filter_form" class="hidden">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-success" type="submit">Sort by</button>
+        </div>
+        <!-- <div class="input-group-append"> -->
+        <select name="sort by" class="input-group-text custom-select">
+            <option selected value="name">Document name</option>
+            <option value="owner">Owner of the document</option>
+            <option value="date">Date of createion</option>
+            <option value="start_valid">Date of start of being valid</option>
+            <option value="validity date">Validity date</option>
+            <option value="department">Department</option>
+            <option value="size">Size of the document</option>
+            <option value="peolple">Amount of mentioned people</option>
+        </select>
+        <div class="input-group-append">
+            <button id="next_request_btn" class="btn btn-primary">Next request</button>
+        </div>
+    </div>
+</form>
+<script>
+    function switch_filter_and_sort_forms(){
+        $("#search_form").toggleClass("hidden")
+        $("#filter_form").toggleClass("hidden")
+    }
+    $("#search_form_btn").click(function () {
+        switch_filter_and_sort_forms()
+    })
+    $("#next_request_btn").click(function(){
+        switch_filter_and_sort_forms()
+    })
+</script>

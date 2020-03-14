@@ -39,6 +39,9 @@ li {
 li:hover {
   background-color: #c5d9e7;
 }
+.hidden {
+    display: none;
+}
 /* Main part */
 main {
   padding-top: 1rem;
@@ -46,9 +49,11 @@ main {
   width: 60%;
 }
 /* Search part */
-.search_form {
-    padding-bottom: 70vh;
+/* TODO: remove */
+form {
+    padding-bottom: 75vh; 
 }
-form * {
+#search_form *, 
+#filter_form * {
     font-size: 0.6rem !important;
 }

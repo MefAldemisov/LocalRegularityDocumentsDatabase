@@ -4,8 +4,10 @@
 - [x] custom fonts from Inno standard
 - [x] implement the page changing
 - [x] implement document search line using bootstrap
-- [ ] implement My document page (generate sample docks and add random name/surname addition): 
-- [ ] implement language changing
+- [x] update search trems on search pase
+- [ ] implement My document page (generate sample docks and add random name/surname addition) + separate added and mentioned parts 
+- [ ] implement language changing [Link on the chosen solution](https://stackoverflow.com/questions/46008760/how-to-build-multiple-language-website-using-pure-html-js-jquery)
+- [ ] login js (reques by python) [Link, which can help](https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript/)
 - [ ] mobile oprimization
 - [ ] check cross-browsering
 
