@@ -1,9 +1,10 @@
+// removes some browser issues
 $.ajaxPrefilter(function (options, original_Options, jqXHR) {
     options.async = true
 })
-
-let current_lang = "en"
-
+// variable, that tracs current language
+let current_lang 
+// request for laguage dictionary + lang update
 function getLanguage(lang_label) {
     $.ajax({
         url: 'js/langs/' + lang_label + '.json',
@@ -16,7 +17,7 @@ function getLanguage(lang_label) {
         }
     })
 }
-
+// change laguage by click
 $("#lang_marker").change(function () {
     getLanguage(this.value.toLowerCase())
 })

@@ -12,6 +12,7 @@
 - [x] show, what is clickble by changing of the coursour
 - [ ] mobile oprimization
 - [ ] check cross-browsering
+- [x] take default language from the browsers default laguage
 
 ## Default colours:
 
