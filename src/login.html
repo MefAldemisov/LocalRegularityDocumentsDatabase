@@ -1,19 +1,43 @@
 <div class="container login_container">
-	<form action="">
+	<form action="" class="was-validated">
 		<h5 id="login_title">Please, confirm your identity</h5>
 		<div class="input-group mb-3 input-group-sm">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="login_login">Login</span>
 			</div>
-			<input type="text" class="form-control">
+			<input type="text" class="form-control" placeholder="please fill out this field" required>
 		</div>
 		<div class="input-group mb-3 input-group-sm">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="login_password">Password</span>
 			</div>
-			<input type="password" class="form-control">
+			<input type="password" class="form-control" placeholder="please fill out this field" required>
 		</div>
 
 		<button type="submit" class="btn btn-success btn-block" id="login_submit">Submit</button>
 	</form>
+	<script>
+		$("#login_submit").click(function (e) {
+			e.preventDefault()
+		})
+
+		// baisic bootstrap validation TODO: write myself
+			(function () {
+				'use strict';
+				window.addEventListener('load', function () {
+					// Get the forms we want to add validation styles to
+					var forms = document.getElementsByClassName('needs-validation');
+					// Loop over them and prevent submission
+					var validation = Array.prototype.filter.call(forms, function (form) {
+						form.addEventListener('submit', function (event) {
+							if (form.checkValidity() === false) {
+								event.preventDefault();
+								event.stopPropagation();
+							}
+							form.classList.add('was-validated');
+						}, false);
+					});
+				}, false);
+			})();
+	</script>
 </div>

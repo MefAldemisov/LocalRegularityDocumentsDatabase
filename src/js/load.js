@@ -1,5 +1,8 @@
 $(function () {
-    var userLang = navigator.language || navigator.userLanguage; 
+    // load the login page
+    $("#content").load("login.html")
+    // default language of the user's browser
+    const userLang = navigator.language || navigator.userLanguage; 
     switch(userLang[0]) {
         case "r":
             current_lang = "ru"
@@ -7,7 +10,6 @@ $(function () {
         default:
             current_lang = "en"
     }
-    $("#content").load("login.html")
     getLanguage(current_lang)
 });
 $(".clickbel").click(function () {
