@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
 
 <head>
@@ -39,16 +39,8 @@
 	<main id="content">
 		<!-- Loads by the user's click -->
 	</main>
-	<script>
-		$(function () {
-			$("#content").load("login.html");
-		});
-		$(".clickbel").click(function () {
-			$("#content").load(this.id + "_docks.html");
-		})
-
-	</script>
 	<script src="js/lang.js"></script>
+	<script src="js/load.js"></script>
 	<footer class="symbolic"></footer>
 </body>
 

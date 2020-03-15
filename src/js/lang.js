@@ -1,23 +1,22 @@
-var language
-function getLanguage() {
-    (localStorage.getItem('language') == null) ? setLanguage('en') : false
+$.ajaxPrefilter(function (options, original_Options, jqXHR) {
+    options.async = true
+})
+
+let current_lang = "en"
+
+function getLanguage(lang_label) {
     $.ajax({
-        url: 'js/langs/' + localStorage.getItem('language') + '.json',
+        url: 'js/langs/' + lang_label + '.json',
         dataType: 'json', async: false, dataType: 'json',
-        success: function (lang) { language = lang }
-    })  
-}
-function setLanguage(lang) {
-    localStorage.setItem('language', lang)
-    getLanguage()
-    // change words
-    Object.keys(language).forEach(function(key) {
-        $("#" + key).html(language[key])
+        success: function (language_dict) { 
+            Object.keys(language_dict).forEach(function (key) {
+                $("#" + key).html(language_dict[key])
+            })
+            current_lang = lang_label
+        }
     })
 }
 
 $("#lang_marker").change(function () {
-    const lang = this.value.toLowerCase()
-    // change global language
-    setLanguage(lang)
+    getLanguage(this.value.toLowerCase())
 })
