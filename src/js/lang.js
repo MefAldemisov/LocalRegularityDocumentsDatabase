@@ -14,6 +14,7 @@ function getLanguage(lang_label) {
                 $("#" + key).html(language_dict[key])
             })
             current_lang = lang_label
+            $("html").attr("lang", current_lang)
         }
     })
 }

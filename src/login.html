@@ -1,26 +1,23 @@
 <div class="container login_container">
+	<h1 class="hidden">Log in form</h1>
 	<form action="" class="was-validated">
-		<h5 id="login_title">Please, confirm your identity</h5>
+		<h2 id="login_title">Please, confirm your identity</h2>
 		<div class="input-group mb-3 input-group-sm">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="login_login">Login</span>
+				<label  for="login_login_inp" class="input-group-text" id="login_login">Login</label>
 			</div>
-			<input type="text" class="form-control" placeholder="please fill out this field" required>
+			<input id="login_login_inp" type="text" class="form-control" placeholder="please fill out this field" required>
 		</div>
 		<div class="input-group mb-3 input-group-sm">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="login_password">Password</span>
+				<label for="login_pswd_inp" class="input-group-text" id="login_password">Password</label>
 			</div>
-			<input type="password" class="form-control" placeholder="please fill out this field" required>
+			<input id="login_pswd_inp" type="password" class="form-control" placeholder="please fill out this field" required>
 		</div>
 
 		<button type="submit" class="btn btn-success btn-block" id="login_submit">Submit</button>
 	</form>
 	<script>
-		$("#login_submit").click(function (e) {
-			e.preventDefault()
-		})
-
 		// baisic bootstrap validation TODO: write myself
 			(function () {
 				'use strict';
@@ -30,6 +27,7 @@
 					// Loop over them and prevent submission
 					var validation = Array.prototype.filter.call(forms, function (form) {
 						form.addEventListener('submit', function (event) {
+							event.preventDefault();
 							if (form.checkValidity() === false) {
 								event.preventDefault();
 								event.stopPropagation();

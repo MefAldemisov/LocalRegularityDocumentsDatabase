@@ -15,6 +15,12 @@ body {
 *:after {
   box-sizing: border-box;
 }
+.btn-success {
+  /*UI style*/
+  /* background-color: #15b012;  */
+  /* Accessability low treshhold */
+  background-color: #0F870D;
+}
 /* Header - footter*/
 .symbolic {
   background-color: #edf1f5;
@@ -44,7 +50,7 @@ li {
   cursor: pointer;
 }
 .hidden {
-    display: none;
+  display: none;
 }
 #lang_marker {
   cursor: pointer;
@@ -63,9 +69,12 @@ main {
 /* Search part */
 /* TODO: remove */
 form {
-    padding-bottom: 75vh; 
+  padding-bottom: 75vh;
 }
-#search_form *, 
+#search_form *,
 #filter_form * {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
+}
+#str_by {
+  margin: 0;
 }

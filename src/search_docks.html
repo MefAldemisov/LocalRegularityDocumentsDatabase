@@ -1,54 +1,55 @@
+<h1 class="hidden">Document search page</h1>
 <form id="search_form" class="search_form">
     <h2 id="search_search_params">Search parameters</h2>
     <div class="row">
         <div class="col input-group mb-1 ">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_owner">Document owner</span>
+                <label for="srch_owner_inp" class="input-group-text" id="srch_owner">Document owner</label>
             </div>
-            <input type="text" class="form-control">
+            <input id="srch_owner_inp" type="text" class="form-control">
         </div>
         <div class="col input-group mb-1 ">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_type">Document type</span>
+                <label for="srch_type_inp" class="input-group-text" id="srch_type">Document type</label>
             </div>
-            <input type="text" class="form-control">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col input-group mb-1 ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_create">Date of document creation</span>
-            </div>
-            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
-        </div>
-        <div class="col input-group mb-1 ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_last">Date of document last eddition</span>
-            </div>
-            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+            <input id="srch_type_inp" type="text" class="form-control">
         </div>
     </div>
     <div class="row">
         <div class="col input-group mb-1 ">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_start">Date of start of the document validity</span>
+                <label for="srch_create_inp" class="input-group-text" id="srch_create">Date of document creation</label>
             </div>
-            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+            <input id="srch_create_inp" type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
         </div>
         <div class="col input-group mb-1 ">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_end">End of validity date</span>
+                <label for="srch_last_inp" class="input-group-text" id="srch_last">Date of document last eddition</label>
             </div>
-            <input type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+            <input id="srch_last_inp" type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col input-group mb-1 ">
+            <div class="input-group-prepend">
+                <label for="srch_srat_inp" class="input-group-text" id="srch_start">Date of start of the document validity</label>
+            </div>
+            <input id="srch_srat_inp" type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
+        </div>
+        <div class="col input-group mb-1 ">
+            <div class="input-group-prepend">
+                <label for="srch_end_inp" class="input-group-text" id="srch_end">End of validity date</label>
+            </div>
+            <input id="srch_end_inp" type="date" name="creation_date" max="3000-12-31" min="1000-01-01" class="form-control">
         </div>
     </div>
 
     <div class="row">
         <div class="col input-group mb-1">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_dep">Department</span>
+                <label for="srch_dep_inp" class="input-group-text" id="srch_dep">Department</label>
             </div>
-            <select name="sort by" class="input-group-text custom-select">
+            <select id="srch_dep_inp" name="sort by" class="input-group-text custom-select">
                 <option value="owner" id="dep1">University Development</option>
                 <option value="date" id="dep2">Design and research activities</option>
                 <option value="start_valid" id="dep3">Pre-university education</option>
@@ -61,9 +62,9 @@
         </div>
         <div class=" col input-group mb-1">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="srch_pg_num">Page amount</span>
+                <label for="srch_pg_num_inp" class="input-group-text" id="srch_pg_num">Page amount</label>
             </div>
-            <input type="number" class="form-control">
+            <input id="srch_pg_num_inp" type="number" class="form-control">
         </div>
     </div>
 
@@ -76,13 +77,13 @@
 
 
 <!-- TODO: make it hidden before request is formed -->
-<form id="filter_form" class="hidden">
+<form id="filter_form" class="">
     <div class="input-group mb-1">
         <div class="input-group-prepend">
-            <button class="btn btn-success" type="submit" id="str_by">Sort by</button>
+            <button class="btn btn-success" type="submit" id="str_by_btn"><label id="str_by" for="str_by_inp">Sort by</label></button>
         </div>
         <!-- <div class="input-group-append"> -->
-        <select name="sort by" class="input-group-text custom-select">
+        <select id="str_by_inp" name="sort by" class="input-group-text custom-select">
             <option selected value="name" id="srt_name">Document name</option>
             <option value="owner" id="srt_owner">Owner of the document</option>
             <option value="date" id="srt_crt">Date of createion</option>
@@ -93,7 +94,7 @@
             <option value="peolple" id="srt_ment">Amount of mentioned people</option>
         </select>
         <div class="input-group-append">
-            <button id="next_request_btn" class="btn btn-primary">Next request</button>
+            <button id="next_request_btn" class="btn btn-success">Next request</button>
         </div>
     </div>
 </form>
