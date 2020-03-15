@@ -1,7 +1,6 @@
 $(function () {
     // load the login page
-    // $("#content").load("login.html")
-    $("#content").load("search_docks.html")
+    $("#content").load("login.html")
     // default language of the user's browser
     const userLang = navigator.language || navigator.userLanguage
     switch (userLang[0]) {
