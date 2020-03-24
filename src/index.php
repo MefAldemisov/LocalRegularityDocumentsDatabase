@@ -55,11 +55,9 @@
 				<li id="logo">
 					<img class="iu_logo" src="images/IU_logo_black.png" alt="logo of Innopolis University">
 				</li>
-				<?php echo isset($_POST['id']) ? ` 
 				<li id="my" class="clickbel navigation">My Documents</li>
 				<li id="search" class="clickbel navigation">Search Documents</li>
 				<li id="load" class="clickbel navigation">Load Documents</li>
-				` : ''; ?>
 				<li id="change"><label for="lang_marker" id="lang_text" class="navigation">Language:</label>
 					<select id="lang_marker">
 						<option class="lang_label">EN</option>
