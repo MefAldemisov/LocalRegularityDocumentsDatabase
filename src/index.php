@@ -40,13 +40,14 @@
 		echo '<p>Not logged in</p>';
 		echo '<p><a href="' . $authorize_url . '">Log In</a></p>';
 	}
-	function http($url, $params=false) {
+	function http($url, $params = false)
+	{
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		if($params)
-		  curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+		if ($params)
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
 		return json_decode(curl_exec($ch));
-	  }
+	}
 	?>
 	<header class="symbolic">
 		<nav>
