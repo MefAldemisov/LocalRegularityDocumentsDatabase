@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+	<title>Local Regularity Documents</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="HeaderFriendly" content="true">
+	<meta name="MobileOptimized" content="width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="Local regularity documents search">
+
+	<link rel="stylesheet" href="../static/css/reset.css" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type=text/javascript
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script type=text/javascript src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../static/css/fonts.css" type="text/css">
+
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/mobile.css">
+</head>
+
+<body>
+	<header class="symbolic">
+		<nav>
+			<ul>
+				<li id="logo">
+					<!-- <img class="iu_logo" src="../static/images/IU_logo_black.png"
+						alt="logo of Innopolis University"> -->
+					<img class="iu_logo" src="{{ url_for('static', filename='images/IU_logo_black.png') }}" alt="">
+				</li>
+				{%if id > 0%}
+				<li id="my" class="clickbel navigation">My Documents</li>
+				<li id="search" class="clickbel navigation">Search Documents</li>
+				<li id="load" class="clickbel navigation">Load Documents</li>
+				<li class="clickbel navigation"><a href="{{ url_for('logout') }}">Logout</a></li>
+				{%endif%}
+				<li id="change"><label for="lang_marker" id="lang_text" class="navigation">Language:</label>
+					<select id="lang_marker">
+						<option class="lang_label">EN</option>
+						<option class="lang_label">RU</option>
+						<option class="lang_label">TAT</option>
+					</select>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main id="content">
+		<!-- Loads by the user's click -->
+	</main>
+	<script type=text/javascript>
+		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+		console.log({{id}})
+		$ID = {{id}}
+	</script>
+	<script type=text/javascript src="../static/js/lang.js"></script>
+	<!-- <script type=text/javascript src="{{ url_for('static', filename='js/lang.js') }}"></script> -->
+	<script type=text/javascript src="{{ url_for('static', filename='js/load.js') }}"></script>
+	<footer class="symbolic"></footer>
+</body>
+
+</html>

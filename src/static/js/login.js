@@ -1,6 +1,6 @@
 // baisic bootstrap validation TODO: write myself
 (".needs-validation").on("submit", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     if (form.checkValidity() === false) {
         event.preventDefault()
         event.stopPropagation()

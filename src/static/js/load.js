@@ -1,18 +1,23 @@
+
 $(function () {
     // load the login page
-    $("#content").load("login.html")
+    if ($ID > 0) {
+        $("#content").load(`${$SCRIPT_ROOT}static/html/my_docks.html`)
+    } else {
+        $("#content").load(`${$SCRIPT_ROOT}static/html/login.html`)
+    }
     // default language of the user's browser
     const userLang = navigator.language || navigator.userLanguage
     switch (userLang[0]) {
         case "r":
             current_lang = "ru"
-            break
+            breaktype = "script/"
         default:
             current_lang = "en"
     }
     getLanguage(current_lang)
 })
 $(".clickbel").click(function () {
-    $("#content").load(this.id + "_docks.html")
+    $("#content").load(`${$SCRIPT_ROOT}/static/html/${this.id}_docks.html`)
     getLanguage(current_lang)
 })

@@ -7,7 +7,7 @@ let current_lang
 // request for laguage dictionary + lang update
 function getLanguage(lang_label) {
     $.ajax({
-        url: 'js/langs/' + lang_label + '.json',
+        url: `${$SCRIPT_ROOT}static/js/langs/${lang_label}.json`,
         dataType: 'json', async: false, dataType: 'json',
         success: function (language_dict) {
             Object.keys(language_dict).forEach(function (key) {
