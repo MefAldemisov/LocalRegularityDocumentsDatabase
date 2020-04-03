@@ -1,19 +1,9 @@
 ## TODO:
 
-- [x] remove default styles (reset)
-- [x] custom fonts from Inno standard
-- [x] implement the page changing
-- [x] implement document search line using bootstrap
-- [x] update search trems on search pase
-- [x] find the list of departments and add it where it should be
-- [ ] *implement My document page (generate sample docks and add random name/surname addition) + separate added and mentioned parts 
-- [x] implement language changing [Link on the chosen solution](https://stackoverflow.com/questions/46008760/how-to-build-multiple-language-website-using-pure-html-js-jquery)
-- [ ] *login js (reques python) [Link, which can help](https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript/)
-- [x] show, what is clickble by changing of the coursour
+- [ ] add logout to the dictionary
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering
-- [x] take default language from the browsers default laguage
 
 ## Default colours:
 

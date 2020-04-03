@@ -18,6 +18,8 @@ $(function () {
     getLanguage(current_lang)
 })
 $(".clickbel").click(function () {
-    $("#content").load(`${$SCRIPT_ROOT}/static/html/${this.id}_docks.html`)
-    getLanguage(current_lang)
+    if (this.id) {
+        $("#content").load(`${$SCRIPT_ROOT}/static/html/${this.id}_docks.html`)
+        getLanguage(current_lang)
+    }
 })
