@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<!-- production version, optimized for size and speed -->
+	<script type=text/javascript src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 	<script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type=text/javascript
@@ -30,9 +32,7 @@
 		<nav>
 			<ul>
 				<li id="logo">
-					<!-- <img class="iu_logo" src="../static/images/IU_logo_black.png"
-						alt="logo of Innopolis University"> -->
-					<img class="iu_logo" src="{{ url_for('static', filename='images/IU_logo_black.png') }}" alt="">
+					<img class="iu_logo" src="../static/images/IU_logo_black.png" alt="logo of Innopolis University">
 				</li>
 				{%if id > 0%}
 				<li id="my" class="clickbel navigation">My Documents</li>
@@ -53,13 +53,15 @@
 	<main id="content">
 		<!-- Loads by the user's click -->
 	</main>
+	<!-- Testing of Vue js -->
+	<script>
+		Vue.options.delimiters = ['<%', '%>'];
+	</script>
 	<script type=text/javascript>
 		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-		console.log({{id}})
 		$ID = {{id}}
 	</script>
 	<script type=text/javascript src="../static/js/lang.js"></script>
-	<!-- <script type=text/javascript src="{{ url_for('static', filename='js/lang.js') }}"></script> -->
 	<script type=text/javascript src="{{ url_for('static', filename='js/load.js') }}"></script>
 	<footer class="symbolic"></footer>
 </body>

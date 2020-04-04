@@ -1,4 +1,3 @@
-
 $(function () {
     // load the login page
     if ($ID > 0) {

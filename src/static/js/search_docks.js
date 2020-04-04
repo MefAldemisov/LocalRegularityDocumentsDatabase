@@ -1,16 +1,11 @@
-$("form").submit(function(event){
-    event.preventDefault()
-})
-
-function switch_filter_and_sort_forms(){
-    $("#search_form").toggleClass("hidden")
-    $("#filter_form").toggleClass("hidden")
-}
-
-$("#search_form_btn").click(function () {
-    switch_filter_and_sort_forms()
-})
-
-$("#next_request_btn").click(function(){
-    switch_filter_and_sort_forms()
+search_holdes = new Vue ({
+    el: "#search_holder",
+    data: {
+        search_mode: true
+    },
+    methods: {
+        change_form: function () {
+            this.search_mode = !this.search_mode
+        }
+    }
 })

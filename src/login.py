@@ -10,7 +10,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-   return redirect(url_for("login"))
+    return redirect(url_for("login"))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -19,7 +20,7 @@ def login():
     account = {"id": -5, "username": "None"}
     # Check if "username" and "password" POST requests exist (user submitted form)
     if request.method == 'POST':
-    #  and 'username' in request.form and 'password' in request.form:
+        #  and 'username' in request.form and 'password' in request.form:
         # Create variables for easy access
         # username = request.form['username']
         # password = request.form['password']
@@ -40,6 +41,7 @@ def login():
     # Show the login form with message (if any)
     return render_template('index.html', msg=msg, id=account["id"])
 
+
 @app.route('/logout')
 def logout():
     # Remove session data, this will log the user out
@@ -47,9 +49,12 @@ def logout():
     session.pop('id', None)
     session.pop('username', None)
     # Redirect to login page
-    
+
     return redirect(url_for("login"))
 
+
 if __name__ == "__main__":
-        app.secret_key = os.urandom(12)
-        app.run(debug=True, host='127.0.0.2', port=6614)
+    # This replaces your existing "app = Flask(__name__)"
+    app.secret_key = os.urandom(12)
+    app.run(debug=True, host='127.0.0.1', port=6611)
+
