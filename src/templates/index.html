@@ -29,43 +29,49 @@
 
 <body>
 	<header class="symbolic">
-		<nav>
+		<nav id="navigation">
 			<ul>
 				<li id="logo">
 					<img class="iu_logo" src="../static/images/IU_logo_black.png" alt="logo of Innopolis University">
 				</li>
 				{%if id > 0%}
-				<li id="my" class="clickbel navigation">My Documents</li>
-				<li id="search" class="clickbel navigation">Search Documents</li>
-				<li id="load" class="clickbel navigation">Load Documents</li>
+				<li id="my" class="clickbel navigation" @click="set('my')">My Documents</li>
+				<li id="search" class="clickbel navigation" @click="set('search')">Search Documents</li>
+				<li id="load" class="clickbel navigation" @click="set('load')">Load Documents</li>
 				<li class="clickbel navigation"><a href="{{ url_for('logout') }}">Logout</a></li>
 				{%endif%}
 				<li id="change"><label for="lang_marker" id="lang_text" class="navigation">Language:</label>
-					<select id="lang_marker">
+					<select id="lang_marker" v-model="current_lang" @change="changeLang">
 						<option class="lang_label">EN</option>
 						<option class="lang_label">RU</option>
 						<option class="lang_label">TAT</option>
 					</select>
+					<span><% current_lang %></span>
 				</li>
 			</ul>
 		</nav>
 	</header>
 	<main id="content">
-		<!-- Loads by the user's click -->
+		<div v-if="my">
+			<div id="my_docks_comp"></div>
+		</div>
+		<div v-if="search">
+			<div id="srch_docks_comp"></div>
+		</div>
+		<div v-if="load">
+			<div id="load_docks_comp"></div>
+		</div>
 	</main>
-	<!-- Testing of Vue js -->
-	<script>
-		Vue.options.delimiters = ['<%', '%>'];
-	</script>
+	<footer class="symbolic"></footer>
+	<script src="../../../dist/app.bundle.js"></script>
 	<script type=text/javascript>
-		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-		$SCRIPT_ROOT = "../"
-		// $ID = {{id}} :  {{id}} ? 23
-		$ID = 23
-		console.log($ID)
+			// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+			$SCRIPT_ROOT = "../"
+			// $ID = {{id}} :  {{id}} ? 23
+			$ID = 23
 	</script>
 	<script type=text/javascript src="../static/js/load.js"></script>
-	<footer class="symbolic"></footer>
+
 </body>
 
 </html>
