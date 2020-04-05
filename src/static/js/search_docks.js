@@ -1,4 +1,4 @@
-search_holdes = new Vue ({
+new Vue({
     el: "#search_holder",
     data: {
         search_mode: true
