@@ -58,8 +58,11 @@
 		Vue.options.delimiters = ['<%', '%>'];
 	</script>
 	<script type=text/javascript>
-		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-		$ID = {{id}}
+		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+		$SCRIPT_ROOT = "../"
+		// $ID = {{id}} :  {{id}} ? 23
+		$ID = 23
+		console.log($ID)
 	</script>
 	<script type=text/javascript src="../static/js/load.js"></script>
 	<footer class="symbolic"></footer>
