@@ -2,7 +2,19 @@
 
 ## Project for SP course
 
-## How to use
+## HowTo compile frontend:
+
+1. Install dependencies
+```
+npm install
+```
+2. Compile the files
+
+```
+npm run build
+```
+
+## How to use backend
 
 1. Open the derictory of the project via terminal
 2. Run
