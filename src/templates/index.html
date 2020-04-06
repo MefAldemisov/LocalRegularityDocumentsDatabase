@@ -36,14 +36,16 @@
 		$.ajaxPrefilter(function (options, original_Options, jqXHR) {
 			options.async = true
 		})
-		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-		$SCRIPT_ROOT = "../"
-		$LOGOUT_LINK = "#"
-		// $ID = {{id}} :  {{id}} ? 23
-		$ID = 23
-		// LOGOUT = {{ url_for('logout') }}
+		new Vue({
+  			delimiters: ['<%', '%>']
+		})
+		// global variables from server side
+		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+		$LOGOUT_LINK = "{{ url_for('logout') }}" ? "{{ url_for('logout') }}" : "#"
+		$ID = {{id}} ?  {{id}} : 23
+		console.log($ID)
 	</script>
-	<script src="../../../dist/app.bundle.js"></script>
+	<script type="text/javascript" src="../static/dev/build.js"></script>
 </body>
 
 </html>

@@ -112,7 +112,7 @@ export default {
     },
     created: function() {
         // set current tab
-        if ($ID > 0) {
+        if (this.user_id > 0) {
             this.display_mode = "my";
         } else {
             this.display_mode = "login";

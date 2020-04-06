@@ -4,7 +4,7 @@
   "description": "Connection betweeb curtain components",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
-    "build": "webpack src/static/js/main.js --output ./dist/app.bundle.js --mode development"
+    "build": "webpack"
   },
   "keywords": [
     "vue"

@@ -1,8 +1,9 @@
 ## TODO:
 
 - [x] add logout to the dictionary
-- [ ] return to frontend-backend communication
-- [x] fix issue with image loading
+- [x] return to frontend-backend communication
+- [ ] fix issue with image loading
+- [ ] smart css insertion
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering

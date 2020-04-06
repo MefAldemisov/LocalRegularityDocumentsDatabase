@@ -4,8 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin.js') // плагин дл
 module.exports = {
     entry: path.resolve(__dirname, 'src') + '/static/js/main.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
+        path: path.resolve(__dirname, './src/static/dev/'),
+        publicPath: '/src/static/dev/',
         filename: 'build.js'
     },
     module: {

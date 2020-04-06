@@ -56,5 +56,4 @@ def logout():
 if __name__ == "__main__":
     # This replaces your existing "app = Flask(__name__)"
     app.secret_key = os.urandom(12)
-    app.run(debug=True, host='127.0.0.1', port=6625)
-
+    app.run(debug=True, host='127.0.0.1', port=6629)
