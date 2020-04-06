@@ -33,14 +33,17 @@
 	<footer class="symbolic"></footer>
 
 	<script type=text/javascript>
+		Vue.options.delimiters = ['<%', '%>']
+		// removes some browser issues
+		$.ajaxPrefilter(function (options, original_Options, jqXHR) {
+			options.async = true
+		})
 		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
 		$SCRIPT_ROOT = "../"
 		// $ID = {{id}} :  {{id}} ? 23
 		$ID = 23
 	</script>
-	<script type=text/javascript src="../static/js/load.js"></script>
 	<script src="../../../dist/app.bundle.js"></script>
-
 </body>
 
 </html>

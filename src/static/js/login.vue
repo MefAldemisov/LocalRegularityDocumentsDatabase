@@ -1,4 +1,5 @@
-<div class="container login_container">
+<template>
+    <div class="container login_container">
 	<h1 class="hidden">Log in form</h1>
 	<form id="login_form" method="POST" class="was-validated">
 		<h2 id="login_title">Please, confirm your identity</h2>
@@ -19,5 +20,23 @@
 
 		<button type="submit" class="btn btn-success btn-block" id="login_submit">Submit</button>
 	</form>
-	<script type=text/javascript src="../static/js/login.js"></script>
 </div>
+</template>
+<script>
+
+// form action modifier
+const link = window.location.href.split("?")[0] // to rempve GET part if it is
+$("#login_form").attr("action", link)
+// baisic bootstrap validation TODO: write myself
+$("#login_form").on("submit", function (event) {
+    if (form.checkValidity() === false) {
+        event.preventDefault()
+        event.stopPropagation()
+    }
+    form.classList.add('was-validated')
+})
+
+export default {
+    name: "LoginForm"
+}
+</script>

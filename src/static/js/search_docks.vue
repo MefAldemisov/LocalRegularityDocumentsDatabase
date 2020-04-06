@@ -164,7 +164,7 @@
 
 <script>
 export default {
-    name: "srch_docks_comp",
+    name: "SearchDocks",
     data: function() {
         return { search_mode: true };
     },

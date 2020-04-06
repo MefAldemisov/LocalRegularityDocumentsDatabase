@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-    name: "mo_docks_comp",
+    name: "MyDocks",
     data: function() {
         return {
             id: 1 // default value

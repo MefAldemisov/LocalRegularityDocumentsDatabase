@@ -38,21 +38,25 @@
         </header>
         <main id="content">
             <div v-if="display_mode === 'my'">
-                <my_docks_comp></my_docks_comp>
+                <MyDocks/>
             </div>
             <div v-if="display_mode === 'search'">
-                <srch_docks_comp></srch_docks_comp>
+                <SearchDocks/>
             </div>
             <div v-if="display_mode === 'load'">
-                <load_docks_comp></load_docks_comp>
+                <DockLoader/>
+            </div>
+            <div v-if="display_mode === 'login'">
+                <LoginForm/>
             </div>
         </main>
     </div>
 </template>
 <script>
-import srch_docks_comp from "./search_docks.vue";
-import my_docks_comp from "./my_docks.vue";
-import load_docks_comp from "./load_docks.vue";
+import SearchDocks from "./search_docks.vue";
+import MyDocks from "./my_docks.vue";
+import DockLoader from "./load_docks.vue";
+import LoginForm from "./login.vue";
 
 function getLanguage(lang_label) {
     lang_label = lang_label.toLowerCase();
@@ -108,9 +112,10 @@ export default {
         getLanguage(this.selected);
     },
     components: {
-        srch_docks_comp,
-        my_docks_comp,
-        load_docks_comp
+        SearchDocks,
+        MyDocks,
+        DockLoader,
+        LoginForm
     }
 };
 </script>

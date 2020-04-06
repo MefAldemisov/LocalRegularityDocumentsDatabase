@@ -6,6 +6,6 @@
 </template>
 <script>
 export default {
-    name: "load_doacks_comp"
+    name: "DockLoader"
 };
 </script>

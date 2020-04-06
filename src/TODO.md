@@ -2,6 +2,7 @@
 
 - [ ] add logout to the dictionary
 - [ ] return to frontend-backend communication
+- [ ] fix issue with image loading
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering
