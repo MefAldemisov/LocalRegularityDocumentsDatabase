@@ -6,11 +6,10 @@
                     <li id="logo">
                         <img
                             class="iu_logo"
-                            src="../images/IU_logo_black.png"
+                            src="../../images/IU_logo_black.png"
                             alt="logo of Innopolis University"
                         />
                     </li>
-                    <!-- {%if id > 0%} -->
                     <li
                         v-if="user_id > 0"
                         id="my"
@@ -32,7 +31,6 @@
                     <li v-if="user_id > 0" class="clickbel navigation">
                         <a v-bind:href=logout_link>Logout</a>
                     </li>
-                    <!-- {%endif%} -->
                     <li id="change">
                         <label for="lang_marker" id="lang_text" class="navigation">Language:</label>
                         <select id="lang_marker" v-model="selected" @change="changeLang()">
@@ -104,19 +102,12 @@ export default {
             langs: ["EN", "RU", "TAT"]
         };
     },
-    // computed: {
-    //     has_rights: function() {
-    //         return user_id > 0
-    //     }
-    // },
     methods: {
         set: function(mode) {
             this.display_mode = mode;
             getLanguage(this.selected);
         },
         changeLang: function() {
-            console.log(this.user_id);
-            console.log(this.selected);
             getLanguage(this.selected);
         }
     },
