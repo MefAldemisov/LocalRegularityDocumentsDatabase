@@ -170,8 +170,7 @@ export default {
     },
     methods: {
         change_form: function() {
-            console.log(this.search_mode)
-            // this.search_mode = !this.search_mode;
+            this.search_mode = !this.search_mode;
         }
     }
 };

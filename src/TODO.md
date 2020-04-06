@@ -1,6 +1,7 @@
 ## TODO:
 
 - [ ] add logout to the dictionary
+- [ ] return to frontend-backend communication
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering

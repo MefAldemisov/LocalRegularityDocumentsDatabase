@@ -19,10 +19,23 @@ module.exports = {
                     'vue-style-loader',
                     'css-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
+            },
         ]
     },
     plugins: [
         new VueLoaderPlugin()
-    ]
+    ],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        },
+    },
 }

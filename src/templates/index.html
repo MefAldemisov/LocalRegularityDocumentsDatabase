@@ -28,43 +28,10 @@
 </head>
 
 <body>
-	<header class="symbolic">
-		<nav id="navigation">
-			<ul>
-				<li id="logo">
-					<img class="iu_logo" src="../static/images/IU_logo_black.png" alt="logo of Innopolis University">
-				</li>
-				<!-- {%if id > 0%} -->
-				<li id="my" class="clickbel navigation" @click="set('my')">My Documents</li>
-				<li id="search" class="clickbel navigation" @click="set('search')">Search Documents</li>
-				<li id="load" class="clickbel navigation" @click="set('load')">Load Documents</li>
-				<li class="clickbel navigation"><a href="{{ url_for('logout') }}">Logout</a></li>
-				<!-- {%endif%} -->
-				<li id="change">
-					<label for="lang_marker" id="lang_text" class="navigation">Language:</label>
-					<select id="lang_marker" v-model="selected" @change="changeLang()">
-						<option class="lang_label" v-for="lang in langs" v-bind:value="lang.name"> <% lang.name %>
-						</option>
-					</select>
-				</li>
-			</ul>
-
-		</nav>
-	</header>
-	<main id="content">
-
-		<div v-if="my">
-			<div id="my_docks_comp"></div>
-		</div>
-		<div v-if="search">
-			<div id="srch_docks_comp"></div>
-		</div>
-		<div v-if="load">
-			<div id="load_docks_comp"></div>
-		</div>
-	</main>
+	<div id="page_with_slider">
+	</div>
 	<footer class="symbolic"></footer>
-	<script src="../../../dist/app.bundle.js"></script>
+
 	<script type=text/javascript>
 		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
 		$SCRIPT_ROOT = "../"
@@ -72,6 +39,7 @@
 		$ID = 23
 	</script>
 	<script type=text/javascript src="../static/js/load.js"></script>
+	<script src="../../../dist/app.bundle.js"></script>
 
 </body>
 
