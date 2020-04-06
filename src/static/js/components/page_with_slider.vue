@@ -25,7 +25,7 @@
                         @click="set('load')"
                     >Load Documents</li>
                     <li v-if="user_id > 0" class="clickbel navigation">
-                        <a v-bind:href="logout_link">Logout</a>
+                        <a v-bind:href="logout_link" id="logout">Logout</a>
                     </li>
                     <li id="change">
                         <label for="lang_marker" id="lang_text" class="navigation">Language:</label>
