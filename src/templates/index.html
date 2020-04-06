@@ -34,24 +34,25 @@
 				<li id="logo">
 					<img class="iu_logo" src="../static/images/IU_logo_black.png" alt="logo of Innopolis University">
 				</li>
-				{%if id > 0%}
+				<!-- {%if id > 0%} -->
 				<li id="my" class="clickbel navigation" @click="set('my')">My Documents</li>
 				<li id="search" class="clickbel navigation" @click="set('search')">Search Documents</li>
 				<li id="load" class="clickbel navigation" @click="set('load')">Load Documents</li>
 				<li class="clickbel navigation"><a href="{{ url_for('logout') }}">Logout</a></li>
-				{%endif%}
-				<li id="change"><label for="lang_marker" id="lang_text" class="navigation">Language:</label>
-					<select id="lang_marker" v-model="current_lang" @change="changeLang">
-						<option class="lang_label">EN</option>
-						<option class="lang_label">RU</option>
-						<option class="lang_label">TAT</option>
+				<!-- {%endif%} -->
+				<li id="change">
+					<label for="lang_marker" id="lang_text" class="navigation">Language:</label>
+					<select id="lang_marker" v-model="selected" @change="changeLang()">
+						<option class="lang_label" v-for="lang in langs" v-bind:value="lang.name"> <% lang.name %>
+						</option>
 					</select>
-					<span><% current_lang %></span>
 				</li>
 			</ul>
+
 		</nav>
 	</header>
 	<main id="content">
+
 		<div v-if="my">
 			<div id="my_docks_comp"></div>
 		</div>
@@ -65,10 +66,10 @@
 	<footer class="symbolic"></footer>
 	<script src="../../../dist/app.bundle.js"></script>
 	<script type=text/javascript>
-			// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-			$SCRIPT_ROOT = "../"
-			// $ID = {{id}} :  {{id}} ? 23
-			$ID = 23
+		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+		$SCRIPT_ROOT = "../"
+		// $ID = {{id}} :  {{id}} ? 23
+		$ID = 23
 	</script>
 	<script type=text/javascript src="../static/js/load.js"></script>
 

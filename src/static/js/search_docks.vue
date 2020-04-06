@@ -1,7 +1,7 @@
 <template>
     <div id="search_holder">
         <h1 class="hidden">Document search page</h1>
-        <form id="search_form" class="search_form" @submit.prevent v-if="search_mode">
+        <form id="search_form" class="search_form" @submit.prevent="change_form" v-if="search_mode">
             <h2 id="search_search_params">Search parameters</h2>
             <div class="row">
                 <div class="col input-group mb-1">
@@ -128,13 +128,12 @@
                 type="submit"
                 class="btn btn-success btn-block"
                 id="search_form_btn"
-                @click.prevent="change_form"
             >
                 <span class="fa fa-search"></span>
                 <span id="srch_srch_btn">Search</span>
             </button>
         </form>
-        <form id="filter_form" @submit.prevent v-else>
+        <form id="filter_form" @submit.prevent="change_form" v-else>
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
                     <button class="btn btn-success" type="submit" id="str_by_btn">
@@ -171,7 +170,8 @@ export default {
     },
     methods: {
         change_form: function() {
-            this.search_mode = !this.search_mode;
+            console.log(this.search_mode)
+            // this.search_mode = !this.search_mode;
         }
     }
 };
