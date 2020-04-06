@@ -4,11 +4,7 @@
             <nav class="symbolic">
                 <ul>
                     <li id="logo">
-                        <img
-                            class="iu_logo"
-                            src="../../images/IU_logo_black.png"
-                            alt="logo of Innopolis University"
-                        />
+                        <img class="iu_logo" :src="img_path" alt="logo of Innopolis University" />
                     </li>
                     <li
                         v-if="user_id > 0"
@@ -29,7 +25,7 @@
                         @click="set('load')"
                     >Load Documents</li>
                     <li v-if="user_id > 0" class="clickbel navigation">
-                        <a v-bind:href=logout_link>Logout</a>
+                        <a v-bind:href="logout_link">Logout</a>
                     </li>
                     <li id="change">
                         <label for="lang_marker" id="lang_text" class="navigation">Language:</label>
@@ -66,6 +62,7 @@ import SearchDocks from "./search_docks.vue";
 import MyDocks from "./my_docks.vue";
 import DockLoader from "./load_docks.vue";
 import LoginForm from "./login.vue";
+import UI_logo from "../../images/IU_logo_black.png";
 
 function getLanguage(lang_label) {
     lang_label = lang_label.toLowerCase();
@@ -87,19 +84,21 @@ function getLanguage(lang_label) {
 export default {
     name: "PageWithSlider",
     props: {
-        user_id : {
+        user_id: {
             type: Number,
             default: 23
-        }, 
+        },
         logout_link: {
             type: String,
             default: "#"
-        }},
+        }
+    },
     data: function() {
         return {
             selected: "",
             display_mode: "my",
-            langs: ["EN", "RU", "TAT"]
+            langs: ["EN", "RU", "TAT"],
+            img_path: UI_logo
         };
     },
     methods: {
