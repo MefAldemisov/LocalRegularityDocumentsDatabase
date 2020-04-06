@@ -28,20 +28,20 @@
 </head>
 
 <body>
-	<div id="page_with_slider">
+	<div id="page_with_slider" logout_link="#" user_id="23">
 	</div>
 	<footer class="symbolic"></footer>
-
 	<script type=text/javascript>
-		Vue.options.delimiters = ['<%', '%>']
 		// removes some browser issues
 		$.ajaxPrefilter(function (options, original_Options, jqXHR) {
 			options.async = true
 		})
 		// $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
 		$SCRIPT_ROOT = "../"
+		$LOGOUT_LINK = "#"
 		// $ID = {{id}} :  {{id}} ? 23
 		$ID = 23
+		// LOGOUT = {{ url_for('logout') }}
 	</script>
 	<script src="../../../dist/app.bundle.js"></script>
 </body>

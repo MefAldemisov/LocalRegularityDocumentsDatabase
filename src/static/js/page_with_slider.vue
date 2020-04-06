@@ -11,15 +11,26 @@
                         />
                     </li>
                     <!-- {%if id > 0%} -->
-                    <li id="my" class="clickbel navigation" @click="set('my')">My Documents</li>
                     <li
+                        v-if="user_id > 0"
+                        id="my"
+                        class="clickbel navigation"
+                        @click="set('my')"
+                    >My Documents</li>
+                    <li
+                        v-if="user_id > 0"
                         id="search"
                         class="clickbel navigation"
                         @click="set('search')"
                     >Search Documents</li>
-                    <li id="load" class="clickbel navigation" @click="set('load')">Load Documents</li>
-                    <li class="clickbel navigation">
-                        <!-- <a href="{{ url_for('logout') }}">Logout</a> -->
+                    <li
+                        v-if="user_id > 0"
+                        id="load"
+                        class="clickbel navigation"
+                        @click="set('load')"
+                    >Load Documents</li>
+                    <li v-if="user_id > 0" class="clickbel navigation">
+                        <a v-bind:href=logout_link>Logout</a>
                     </li>
                     <!-- {%endif%} -->
                     <li id="change">
@@ -38,16 +49,16 @@
         </header>
         <main id="content">
             <div v-if="display_mode === 'my'">
-                <MyDocks/>
+                <MyDocks />
             </div>
             <div v-if="display_mode === 'search'">
-                <SearchDocks/>
+                <SearchDocks />
             </div>
             <div v-if="display_mode === 'load'">
-                <DockLoader/>
+                <DockLoader />
             </div>
             <div v-if="display_mode === 'login'">
-                <LoginForm/>
+                <LoginForm />
             </div>
         </main>
     </div>
@@ -77,6 +88,15 @@ function getLanguage(lang_label) {
 
 export default {
     name: "PageWithSlider",
+    props: {
+        user_id : {
+            type: Number,
+            default: 23
+        }, 
+        logout_link: {
+            type: String,
+            default: "#"
+        }},
     data: function() {
         return {
             selected: "",
@@ -84,12 +104,18 @@ export default {
             langs: ["EN", "RU", "TAT"]
         };
     },
+    // computed: {
+    //     has_rights: function() {
+    //         return user_id > 0
+    //     }
+    // },
     methods: {
         set: function(mode) {
             this.display_mode = mode;
             getLanguage(this.selected);
         },
         changeLang: function() {
+            console.log(this.user_id);
             console.log(this.selected);
             getLanguage(this.selected);
         }
