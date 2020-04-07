@@ -20,9 +20,11 @@ npm run build
 2. Run
 
 ```cd src/```
+
 3. Start server using
 ```python3 login.py```
-4. Open the link `http://127.0.0.2:6614/` in your browser
+
+4. Open the required link in your browser
 
 ### Authors
 
