@@ -40,9 +40,17 @@
   			delimiters: ['<%', '%>']
 		})
 		// global variables from server side
-		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
-		$LOGOUT_LINK = "{{ url_for('logout') }}" ? "{{ url_for('logout') }}" : "#"
-		$ID = {{id}} ?  {{id}} : 23
+		try{
+			eval("let check = {{id}}")
+			$LOGOUT_LINK = "{{ url_for('logout') }}"
+			$IMG_LINK = "{{ url_for('static', filename='images/IU_logo_black.png' ) }}"
+			$ID = parseInt("{{id}}") 
+
+		} catch (err) {
+			$LOGOUT_LINK = "#"
+			$IMG_LINK = ""
+			$ID = 23
+		}
 		console.log($ID)
 	</script>
 	<script type="text/javascript" src="../static/dev/build.js"></script>

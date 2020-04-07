@@ -4,7 +4,7 @@
             <nav class="symbolic">
                 <ul>
                     <li id="logo">
-                        <img class="iu_logo" :src="img_path" alt="logo of Innopolis University" />
+                        <img class="iu_logo" :src="img_link" alt="logo of Innopolis University" />
                     </li>
                     <li
                         v-if="user_id > 0"
@@ -91,6 +91,10 @@ export default {
         logout_link: {
             type: String,
             default: "#"
+        },
+        img_link: {
+            type: String,
+            default: UI_logo
         }
     },
     data: function() {
@@ -98,7 +102,6 @@ export default {
             selected: "",
             display_mode: "my",
             langs: ["EN", "RU", "TAT"],
-            img_path: UI_logo
         };
     },
     methods: {
