@@ -1,3 +1,16 @@
+<style>
+/* Search part */
+form {
+    padding-bottom: 75vh;
+}
+.search_form *,
+.filter_form * {
+    font-size: 0.7rem;
+}
+.str_by {
+    margin: 0;
+}
+</style>
 <template>
     <div id="search_holder">
         <h1 class="hidden">Document search page</h1>
@@ -124,20 +137,16 @@
                     <input id="srch_pg_num_inp" type="number" class="form-control" />
                 </div>
             </div>
-            <button
-                type="submit"
-                class="btn btn-success btn-block"
-                id="search_form_btn"
-            >
+            <button type="submit" class="btn btn-success btn-block" id="search_form_btn">
                 <span class="fa fa-search"></span>
                 <span id="srch_srch_btn">Search</span>
             </button>
         </form>
-        <form id="filter_form" @submit.prevent="change_form" v-else>
+        <form id="filter_form" class="filter_form" @submit.prevent="change_form" v-else>
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
                     <button class="btn btn-success" type="submit" id="str_by_btn">
-                        <label id="str_by" for="str_by_inp">Sort by</label>
+                        <label id="str_by" class="str_by" for="str_by_inp">Sort by</label>
                     </button>
                 </div>
                 <select id="str_by_inp" name="sort by" class="input-group-text custom-select">

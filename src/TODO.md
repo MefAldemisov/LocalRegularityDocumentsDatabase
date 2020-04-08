@@ -3,7 +3,7 @@
 - [x] add logout to the dictionary
 - [x] return to frontend-backend communication
 - [x] fix issue with image loading
-- [ ] smart css insertion
+- [x] smart css insertion
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering

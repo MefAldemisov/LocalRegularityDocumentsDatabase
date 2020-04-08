@@ -1,3 +1,55 @@
+<style>
+.iu_logo {
+    width: 6rem;
+}
+ul {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+li {
+    padding: 0.5rem;
+    flex-shrink: 1;
+    display: inline;
+}
+.logout:link,
+.logout:visited,
+.logout:hover,
+.logout:active {
+    text-decoration: none;
+}
+.logout {
+    color: inherit;
+    pointer-events: none;
+}
+.navigation {
+    font-size: 0.7rem;
+}
+.clickbel:hover {
+    background-color: #c5d9e7;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+.lang_marker {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+.lang_marker:hover {
+    font-weight: 600;
+}
+/* Main part */
+main {
+    padding-top: 1rem;
+    margin: auto;
+    width: 70%;
+}
+</style>
 <template>
     <div>
         <header>
@@ -25,11 +77,11 @@
                         @click="set('load')"
                     >Load Documents</li>
                     <li v-if="user_id > 0" class="clickbel navigation">
-                        <a v-bind:href="logout_link" id="logout">Logout</a>
+                        <a v-bind:href="logout_link" id="logout" class="logout">Logout</a>
                     </li>
                     <li id="change">
                         <label for="lang_marker" id="lang_text" class="navigation">Language:</label>
-                        <select id="lang_marker" v-model="selected" @change="changeLang()">
+                        <select id="lang_marker" class="lang_marker" v-model="selected" @change="changeLang()">
                             <option
                                 class="lang_label"
                                 v-for="lang in langs"
@@ -101,7 +153,7 @@ export default {
         return {
             selected: "",
             display_mode: "my",
-            langs: ["EN", "RU", "TAT"],
+            langs: ["EN", "RU", "TAT"]
         };
     },
     methods: {
