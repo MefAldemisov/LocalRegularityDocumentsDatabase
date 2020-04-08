@@ -3,8 +3,6 @@ from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
 
-
-# app = Flask(__name__) # to make the app run without any
 app = Flask(__name__)
 
 
@@ -21,11 +19,7 @@ def login():
     # Check if "username" and "password" POST requests exist (user submitted form)
     if request.method == 'POST':
         #  and 'username' in request.form and 'password' in request.form:
-        # Create variables for easy access
-        # username = request.form['username']
-        # password = request.form['password']
-        # Check if account exists using MySQL
-        # Fetch one record and return result
+        # Here should be connection with database
         account = {"id": 23, "username": "Admin"}
         # If account exists in accounts table in out database
         if account:
@@ -33,8 +27,6 @@ def login():
             session['loggedin'] = True
             session['id'] = account['id']
             session['username'] = account['username']
-            # Redirect to home page
-            # return 'Logged in successfully!'
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
@@ -49,7 +41,6 @@ def logout():
     session.pop('id', None)
     session.pop('username', None)
     # Redirect to login page
-
     return redirect(url_for("login"))
 
 
