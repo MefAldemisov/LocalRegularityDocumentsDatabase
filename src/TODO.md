@@ -24,3 +24,7 @@
 |light-purple|#9681F2|
 |purple|#826BE9|
 |yellow|#FFE302|
+
+## Useful links
+
+[PDF and ajax](https://stackoverflow.com/questions/14559060/display-pdf-using-an-ajax-call)
