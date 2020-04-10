@@ -4,6 +4,7 @@
 - [x] return to frontend-backend communication
 - [x] fix issue with image loading
 - [x] smart css insertion
+- [ ] fix language issue
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering

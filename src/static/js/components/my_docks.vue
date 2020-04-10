@@ -1,36 +1,26 @@
 <style>
-.caousel-inner {
-    border: 1px solid black;
-    background-color: #c5d9e7;
-}
-iframe {
-    margin: 0 15%;
-    width: 70%;
-    height: 100%;
-}
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-    background-color: black;
-}
 </style>
 <template>
     <div>
         <h1 class="hidden">Page with documents of the user</h1>
         <h3>Hello, user with id {{ id }}</h3>
         <h2>Documents, where my name is mentioned:</h2>
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active targetDiv"></div>
-                <div class="carousel-item targetDiv"></div>
+        <div id="page">
+            <div class="page-content">
+                <DocumentVuewer />
+                <!-- <DocumentVuewer /> -->
             </div>
-
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
+            <div class="mt-3">
+                <h6 class="text-center">Navigation</h6>
+                <b-pagination-nav
+                    base-url="#"
+                    align="center"
+                    v-model="currentPage"
+                    :total-rows="2"
+                    :per-page="perPage"
+                    aria-controls="my-table"
+                ></b-pagination-nav>
+            </div>
         </div>
 
         <h2>Documents uploaded by me</h2>
@@ -38,21 +28,7 @@ iframe {
     </div>
 </template>
 <script>
-const filename =
-    "../static/pdf/sprint_2_slides_B18-04_LocalRegularityDocumentsDatabase.pdf";
-$(function(e) {
-    jQuery.ajax({
-        type: "GET",
-        processData: false,
-        url: filename,
-        contentType: "application/xml; charset=utf-8",
-        success: function(data) {
-            var iframe = $("<iframe>");
-            iframe.attr("src", filename);
-            $(".targetDiv").append(iframe);
-        }
-    });
-});
+import DocumentVuewer from "./dock_vuewer.vue";
 
 export default {
     name: "MyDocks",
@@ -60,6 +36,9 @@ export default {
         return {
             id: 1 // default value
         };
+    },
+    components: {
+        DocumentVuewer
     }
 };
 </script>
