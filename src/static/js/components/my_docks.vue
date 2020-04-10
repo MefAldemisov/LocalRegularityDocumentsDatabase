@@ -6,10 +6,9 @@
         <h3>Hello, user with id {{ id }}</h3>
         <h2>Documents, where my name is mentioned:</h2>
         <Representation />
-
         <h2>Documents uploaded by me</h2>
         <!-- make a carousel -->
-        <Representation />>
+        <Representation />
     </div>
 </template>
 <script>

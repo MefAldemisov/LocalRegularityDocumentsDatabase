@@ -5,6 +5,7 @@
 - [x] fix issue with image loading
 - [x] smart css insertion
 - [ ] fix language issue
+- [ ] connect representation component with slider
 - [ ] login form validation
 - [ ] mobile oprimization
 - [ ] check cross-browsering
