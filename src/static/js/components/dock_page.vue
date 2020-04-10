@@ -1,6 +1,6 @@
 <template>
     <div class="page-content">
-        <DocumentVuewer class="my-3 shadow-sm " v-for="n in n_docks" :key="n" />
+        <DocumentVuewer class="my-3 shadow-sm" v-for="i in info" :info="i" :key="i.id" />
     </div>
 </template>
 <script>
@@ -9,17 +9,12 @@ import DocumentVuewer from "./dock_vuewer.vue";
 export default {
     name: "Page",
     props: {
-        n_docks: {
-            default: 1,
-            type: Number
+        info: {
+            type: Array,
+            required: true
         }
     },
-    // create: function() {
-    //     let i;
-    //     for (i = 0; i < this.n_docks; i++) {
-    //         $(".page-content").add("");
-    //     }
-    // },
+    mounted() {},
     components: {
         DocumentVuewer
     }
