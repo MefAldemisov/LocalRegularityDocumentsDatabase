@@ -30,7 +30,9 @@ iframe {
             </div>
         </div>
         <div class="col full_height shadow p-4 my-1 bg-white rounded">
-            <div id="target" class="mx-1 full_height"></div>
+            <div id="target" class="mx-1 full_height">
+                <iframe></iframe>
+            </div>
         </div>
     </div>
 </template>
@@ -86,9 +88,7 @@ export default {
             contentType: "application/xml; charset=utf-8",
             success: function(data) {
                 console.log(this.pdf_link);
-                var iframe = $("<iframe>");
-                iframe.attr("src", pdf_link);
-                $("#target").append(iframe);
+                $("iframe").attr("src", pdf_link);
             },
             error: function() {
                 console.log("error");
