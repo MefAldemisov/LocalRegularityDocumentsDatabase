@@ -18,7 +18,6 @@ class Document(models.Model):
     name = models.TextField()
     doc_size = models.IntegerField()
     doc_format = models.TextField()
-    type = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now_add=True)
     effect_date = models.DateTimeField(auto_now_add=True)
