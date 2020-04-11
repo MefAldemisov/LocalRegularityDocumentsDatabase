@@ -31,7 +31,7 @@
 <script>
 import Page from "./dock_page.vue";
 
-const response = [
+const RESPONSE = [
     {
         id: 1,
         owner: 2,
@@ -76,9 +76,18 @@ const response = [
 
 export default {
     name: "Representation",
+    props: {
+        response: {
+            default: function() {return RESPONSE},
+            type: Array
+        },
+        n_docks: {
+            default: 2,
+            type: Number
+        }
+    },
     data: function() {
         return {
-            n_docks: 2,
             currentPage: 1
         };
     },
@@ -87,12 +96,12 @@ export default {
             let index = 1;
             let i = 0;
             let result = [
-                { index: 1, info: response.slice(i, i + this.n_docks) }
+                { index: 1, info: this.response.slice(i, i + this.n_docks) }
             ];
-            for (i = this.n_docks; i < response.length; i += this.n_docks) {
+            for (i = this.n_docks; i < this.response.length; i += this.n_docks) {
                 result.push({
                     index: index + 1,
-                    info: response.slice(i, i + this.n_docks)
+                    info: this.response.slice(i, i + this.n_docks)
                 });
                 index++;
             }
