@@ -10,11 +10,9 @@
                 <span id="srch_srch_btn">Search</span>
             </button>
         </form>
-        <Representation />
     </div>
 </template>
 <script>
-import Representation from "../represent/dock_representation.vue";
 import Params from "./param_selector.vue";
 
 export default {
@@ -25,7 +23,6 @@ export default {
         }
     },
     components: {
-        Representation,
         Params
     }
 };

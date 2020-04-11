@@ -165,10 +165,10 @@ export default {
     methods: {
         set: function(mode) {
             this.display_mode = mode;
-            getLanguage(this.selected);
+            // getLanguage(this.selected);
         },
         changeLang: function() {
-            getLanguage(this.selected);
+            // getLanguage(this.selected);
         }
     },
     created: function() {
@@ -186,7 +186,7 @@ export default {
             default:
                 this.selected = "EN";
         }
-        getLanguage(this.selected);
+        // getLanguage(this.selected);
     },
     components: {
         SearchDocks,

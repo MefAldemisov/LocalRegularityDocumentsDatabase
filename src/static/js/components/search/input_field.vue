@@ -23,14 +23,6 @@ export default {
             type: String
         }
 
-    },
-    // max="3000-12-31"
-    // min="1000-01-01"
-                    
-    // data: function(){
-    //     return {
-
-    //     };
-    // }
+    }
 }
 </script>
