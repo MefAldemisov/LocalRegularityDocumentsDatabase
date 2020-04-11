@@ -1,17 +1,21 @@
 <template>
     <div>
-            <Page v-for="i in info" :info="i.info" :key="i.index" />
-            <div class="mt-3">
-                <h6 class="text-center">Navigation</h6>
-                <b-pagination-nav
-                    v-model="currentPage"
-                    :total-rows="rows"
-                    :per-page="n_docks"
-                    aria-controls="page"
-                    align="center"
-                ></b-pagination-nav>
-            </div>
+        <Page v-for="i in info" :info="i.info" v-show="currentPage == i.index" :key="i.index" />
+        <div class="mt-3">
+            <h6 class="text-center">Current page: {{currentPage}}</h6>
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <span  id="link-prev" class="page-link" @click="changePage(currentPage - 1)">Previous</span>
+                </li>
+                <li class="page-item" v-for="n in pages" :key="n">
+                    <span class="page-link" href="#" @click="changePage(n)">{{n}}</span>
+                </li>
+                <li class="page-item">
+                    <span id="link-next" class="page-link" @click="changePage(currentPage + 1)">Next</span>
+                </li>
+            </ul>
         </div>
+    </div>
 </template>
 <script>
 import Page from "./dock_page.vue";
@@ -64,8 +68,7 @@ export default {
     data: function() {
         return {
             n_docks: 2,
-            currentPage: 1,
-            rows: 2
+            currentPage: 1
         };
     },
     computed: {
@@ -73,20 +76,31 @@ export default {
             let index = 1;
             let i = 0;
             let result = [
-                { index: 0, info: response.slice(i, i + this.n_docks) }
+                { index: 1, info: response.slice(i, i + this.n_docks) }
             ];
             for (i = this.n_docks; i < response.length; i += this.n_docks) {
-                result.concat({
-                    index: index,
+                result.push({
+                    index: index + 1,
                     info: response.slice(i, i + this.n_docks)
                 });
                 index++;
             }
             return result;
+        },
+        pages: function() {
+            return this.info.length;
         }
     },
     components: {
         Page
+    },
+    methods: {
+        changePage(pageNum) {
+            if (pageNum > 0 && pageNum < this.pages + 1) {
+                this.currentPage = pageNum;
+            }
+            // TODO: add disabled class
+        }
     }
 };
 </script>

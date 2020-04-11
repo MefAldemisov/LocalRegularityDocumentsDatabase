@@ -5,12 +5,9 @@
 ### How to use backend
 
 1. Open the derictory of the project via terminal
-2. Run
+2. Run ```cd src/```
 
-```cd src/```
-
-3. Start server using
-```python3 login.py```
+3. Start server using ```python3 login.py```
 
 4. Open the required link in your browser
 
