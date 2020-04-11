@@ -15,6 +15,9 @@ iframe {
     display: flex;
     flex-wrap: wrap;
 }
+.btn-secondary {
+    background-color: #0f870d;
+}
 </style>
 <template>
     <div class="row core">
@@ -22,7 +25,9 @@ iframe {
             <div class="my-2 mx-2 my-auto">
                 <div class="my-2 row input-group input-group-sm">
                     <div class="input-group-prepend">
-                        <button class="py-1 btn btn-secondary" title="downolad"><i class="fas fa-file"></i></button>
+                        <button class="py-1 btn btn-secondary" title="downolad">
+                            <i class="fas fa-file"></i>
+                        </button>
                     </div>
                     <input
                         type="text"

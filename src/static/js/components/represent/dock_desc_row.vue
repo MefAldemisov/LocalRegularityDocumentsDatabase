@@ -2,8 +2,12 @@
 .form-control[readonly] {
     background-color: white;
 }
-.form-control:focus{
-border-color:#ced4da;box-shadow: none
+.form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+.input-group-text {
+    background-color: #edf1f5;
 }
 </style>
 <template>
@@ -11,7 +15,13 @@ border-color:#ced4da;box-shadow: none
         <div class="input-group-prepend">
             <span class="input-group-text">{{text}}</span>
         </div>
-        <input type="text" class="col form-control" :value="controller" :title="controller" readonly />
+        <input
+            type="text"
+            class="col form-control"
+            :value="controller"
+            :title="controller"
+            readonly
+        />
     </div>
 </template>
 <script>

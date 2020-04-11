@@ -6,7 +6,7 @@
 - [x] smart css insertion
 - [ ] fix language issue
 - [ ] fix colours of UI (Representation component)
-- [ ] fix design of selected tabs
+- [x] fix design of selected tabs
 - [ ] add language to the new components and fields of forms
 - [x] connect representation component with slider
 - [ ] login form validation
@@ -18,7 +18,7 @@
 |Colour Name| Colour|
 |-----------|-------|
 |black| #12152A|
-|dark blue| 194288|
+|dark-blue| 194288|
 |blue| #0071CE|
 |green|#15B012|
 |blue-gray|#C5D9E7|
