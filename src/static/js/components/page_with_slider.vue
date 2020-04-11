@@ -8,12 +8,13 @@ ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 li {
+    height: 100%;
     padding: 0.5rem;
     flex-shrink: 1;
-    display: inline;
+    display: inline-block;
 }
 .logout:link,
 .logout:visited,
@@ -28,8 +29,10 @@ li {
 .navigation {
     font-size: 0.7rem;
 }
+.active,
 .clickbel:hover {
-    background-color: #c5d9e7;
+    font-weight: 900;
+    font-size: 1.2rem;
     cursor: pointer;
 }
 .hidden {
@@ -61,18 +64,21 @@ main {
                     <li
                         v-if="user_id > 0"
                         id="my"
+                        :class="{'active': display_mode=='my'}"
                         class="clickbel navigation"
                         @click="set('my')"
                     >My Documents</li>
                     <li
                         v-if="user_id > 0"
                         id="search"
+                        :class="{'active': display_mode=='search'}"
                         class="clickbel navigation"
                         @click="set('search')"
                     >Search Documents</li>
                     <li
                         v-if="user_id > 0"
                         id="load"
+                        :class="{'active': display_mode=='load'}"
                         class="clickbel navigation"
                         @click="set('load')"
                     >Load Documents</li>
