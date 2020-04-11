@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import Representation from './dock_representation.vue'
+import Representation from './represent/dock_representation.vue'
 export default {
     name: "MyDocks",
     data: function() {
