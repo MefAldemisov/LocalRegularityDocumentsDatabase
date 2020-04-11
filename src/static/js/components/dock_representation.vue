@@ -1,3 +1,14 @@
+<style>
+.page-item {
+    padding: 0;
+}
+.page-link {
+    color: black;
+}
+.pagination {
+    width: 100%;
+}
+</style>
 <template>
     <div>
         <Page v-for="i in info" :info="i.info" v-show="currentPage == i.index" :key="i.index" />

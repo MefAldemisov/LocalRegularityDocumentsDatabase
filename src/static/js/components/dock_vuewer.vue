@@ -21,8 +21,8 @@ iframe {
         <div class="col">
             <div class="my-2 mx-2 my-auto">
                 <div class="my-2 row input-group input-group-sm">
-                    <div class="col-1 input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-file"></i></span>
+                    <div class="input-group-prepend">
+                        <button class="py-1 btn btn-secondary" title="downolad"><i class="fas fa-file"></i></button>
                     </div>
                     <input
                         type="text"

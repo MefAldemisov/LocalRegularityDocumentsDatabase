@@ -1,9 +1,15 @@
 <style>
+.form-control[readonly] {
+    background-color: white;
+}
+.form-control:focus{
+border-color:#ced4da;box-shadow: none
+}
 </style>
 <template>
     <div class="my-1 row input-group input-group-sm">
-        <div class="col input-group-prepend">
-            <span class="col input-group-text">{{text}}</span>
+        <div class="input-group-prepend">
+            <span class="input-group-text">{{text}}</span>
         </div>
         <input type="text" class="col form-control" :value="controller" :title="controller" readonly />
     </div>
