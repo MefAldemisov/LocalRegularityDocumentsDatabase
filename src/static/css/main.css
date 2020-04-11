@@ -19,7 +19,15 @@ body {
   /*UI style*/
   /* background-color: #15b012;  */
   /* Accessability low treshhold */
+  color: #fff;
   background-color: #0f870d;
+}
+.bg-success {
+  /*UI style*/
+  /* background-color: #15b012;  */
+  /* Accessability low treshhold */
+  color: #fff;
+  background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
 }
 /* Header - footter*/
 .symbolic {

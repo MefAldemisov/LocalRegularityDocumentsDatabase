@@ -5,10 +5,12 @@
 - [x] fix issue with image loading
 - [x] smart css insertion
 - [ ] fix language issue
-- [ ] add language to the new components
-- [ ] connect representation component with slider
+- [ ] fix colours of UI (Representation component)
+- [ ] fix design of selected tabs
+- [ ] add language to the new components and fields of forms
+- [x] connect representation component with slider
 - [ ] login form validation
-- [ ] mobile oprimization
+- [ ] mobile (and TAB!!!) oprimization
 - [ ] check cross-browsering
 
 ## Default colours:
