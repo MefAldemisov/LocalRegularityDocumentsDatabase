@@ -1,4 +1,4 @@
-from .serializers import DocumentSerializer, OwnerSerializer
+from .serializers import DocumentPostSerializer, DocumentGetSerializer, OwnerSerializer
 from .models import Document, Owner
 from rest_framework import generics
 from pprint import pprint
@@ -10,7 +10,7 @@ class DocumentsList(generics.ListCreateAPIView):
     Create a new document
     """
     queryset = Document.objects.all()
-    serializer_class = DocumentSerializer
+    serializer_class = DocumentPostSerializer
 
 
 class DocumentDetails(generics.RetrieveUpdateDestroyAPIView):
@@ -18,7 +18,7 @@ class DocumentDetails(generics.RetrieveUpdateDestroyAPIView):
     Retrieve, update or delete a document instance.
     """
     queryset = Document.objects.all()
-    serializer_class = DocumentSerializer
+    serializer_class = DocumentGetSerializer
 
 class OwnerList(generics.ListCreateAPIView):
     """

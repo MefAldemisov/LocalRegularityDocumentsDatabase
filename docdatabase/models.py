@@ -14,11 +14,15 @@ class Document(models.Model):
     """
     Documents model
     """
-    owner = models.CharField() # Changed to Charfield
+    owner = models.TextField()
     name = models.TextField()
-    type = models.TextField() # There is no need in this field, will be deleted on the next sprint
+    doc_size = models.IntegerField()
+    doc_format = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now_add=True)
     effect_date = models.DateTimeField(auto_now_add=True)
     expiration_date = models.DateTimeField(auto_now_add=True)
+    department = models.TextField()
+    mentioned_people = models.ManyToManyField(Owner)
+    amount_of_mentioned = models.IntegerField()
     document = models.FileField(upload_to=MEDIA_ROOT)
