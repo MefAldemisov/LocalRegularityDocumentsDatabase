@@ -16,7 +16,7 @@ class Document(models.Model):
     """
     owner = models.TextField()
     name = models.TextField()
-    doc_size = models.IntegerField()
+    doc_size = models.IntegerField(blank=True)
     doc_format = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(auto_now_add=True)
@@ -24,5 +24,5 @@ class Document(models.Model):
     expiration_date = models.DateTimeField(auto_now_add=True)
     department = models.TextField()
     mentioned_people = models.ManyToManyField(Owner)
-    amount_of_mentioned = models.IntegerField()
+    amount_of_mentioned = models.IntegerField(blank=True)
     document = models.FileField(upload_to=MEDIA_ROOT)
