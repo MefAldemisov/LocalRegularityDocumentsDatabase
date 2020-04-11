@@ -20,8 +20,8 @@ input[type="file"] {
                 </div>
                 <input @change="previewFiles" id="srch_file_inp" type="file" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-success btn-block" id="search_form_btn">
-                <span id="srch_srch_btn">Upload document data</span>
+            <button type="submit" class="btn btn-success btn-block">
+                Upload document data
             </button>
         </form>
     </div>

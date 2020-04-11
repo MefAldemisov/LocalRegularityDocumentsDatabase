@@ -5,7 +5,7 @@
 - [x] fix issue with image loading
 - [x] smart css insertion
 - [ ] fix language issue
-- [ ] fix colours of UI (Representation component)
+- [x] fix colours of UI (Representation component)
 - [x] fix design of selected tabs
 - [ ] add language to the new components and fields of forms
 - [x] connect representation component with slider
