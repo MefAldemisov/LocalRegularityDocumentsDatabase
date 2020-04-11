@@ -20,7 +20,18 @@ iframe {
     <div class="row core">
         <div class="col">
             <div class="my-2 mx-2 my-auto">
-                <doc_desc_row text="Document name" :controller="info.name"></doc_desc_row>
+                <div class="my-2 row input-group input-group-sm">
+                    <div class="col-1 input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-file"></i></span>
+                    </div>
+                    <input
+                        type="text"
+                        class="form-control"
+                        :value="info.name"
+                        :title="info.name"
+                        readonly
+                    />
+                </div>
                 <doc_desc_row text="Owner" :controller="info.owner"></doc_desc_row>
                 <doc_desc_row text="Type" :controller="info.type"></doc_desc_row>
                 <doc_desc_row text="Creation date" :controller="dt_created"></doc_desc_row>
