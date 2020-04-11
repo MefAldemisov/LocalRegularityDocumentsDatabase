@@ -59,7 +59,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Document
-        fields = ['id', 'owner', 'name', 'type', 'created', 'last_update', 'effect_date', 'expiration_date', 'document']
+        fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'amount_of_mentioned', 'document']
 
     def to_representation(self, instance):
         """
@@ -73,5 +73,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         f = f.read()
         f = encodebytes(f)
         data['document'] = f
+        data['amount_of_mentioned'] = len(data['mentioned_people'])
+        data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
         return data
 

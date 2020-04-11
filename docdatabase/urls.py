@@ -6,5 +6,5 @@ urlpatterns = [
     path('documents/<int:pk>/', views.DocumentDetails.as_view()),
     path('owners/', views.OwnerList.as_view()),
     path('owners/<int:pk>/', views.OwnerDetails.as_view()),
-    # path('docowner/<int:pk>/', views.Test.as_view()),
+    path('docowner/<str:pk>/', views.Test.as_view()),
 ]

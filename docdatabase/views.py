@@ -1,6 +1,10 @@
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .serializers import DocumentPostSerializer, DocumentGetSerializer, OwnerSerializer
 from .models import Document, Owner
-from rest_framework import generics
+from rest_framework import generics, status
 from pprint import pprint
 
 # Create your views here.
@@ -37,20 +41,20 @@ class OwnerDetails(generics.RetrieveUpdateDestroyAPIView):
 """
 Some of the unused methods just for fun
 """
-# class Test(APIView):
-#
-#     def get(self, request, *args, **kwargs):
-#         documents = Document.objects.filter(owner=self.kwargs['pk'])
-#         serializer = DocumentSerializer(documents, many=True)
-#         return Response(serializer.data, status=status.HTTP_200_OK)
-#
-# @api_view(['GET'])
-# def DocumentOwner(request, pk):
-#     if request.method == 'GET':
-#         owner = Document.objects.get(owner=pk, many=True)
-#         documents = owner.file_set
-#         serializer = DocumentSerializer(data=documents, many=True)
-#         if serializer.is_valid():
-#             print(serializer.data)
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class Test(APIView):
+
+    def get(self, request, *args, **kwargs):
+        documents = Document.objects.filter(owner=self.kwargs['pk'])
+        serializer = DocumentGetSerializer(documents, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def DocumentOwner(request, pk):
+    if request.method == 'GET':
+        owner = Document.objects.get(owner=pk, many=True)
+        documents = owner.file_set
+        serializer = DocumentGetSerializer(data=documents, many=True)
+        if serializer.is_valid():
+            print(serializer.data)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
