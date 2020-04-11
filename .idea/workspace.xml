@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="344b3ae2-05f1-469e-8fa6-ca0da0336f63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docdatabase/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/docdatabase/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docdatabase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/docdatabase/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docdatabase/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/docdatabase/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docdatabase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/docdatabase/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docdatabase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/docdatabase/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docdatabase/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docdatabase/migrations/__init__.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,42 +105,58 @@
       <workItem from="1586504368716" duration="941000" />
       <workItem from="1586546029116" duration="2600000" />
       <workItem from="1586606350796" duration="37000" />
-      <workItem from="1586623684991" duration="1454000" />
+      <workItem from="1586623684991" duration="2091000" />
     </task>
+    <task id="LOCAL-00001" summary="Some changes to the database: more fields for the files, 2 serializers for getting data and posting data">
+      <created>1586625503143</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586625503143</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Some changes to the database: more fields for the files, 2 serializers for getting data and posting data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes to the database: more fields for the files, 2 serializers for getting data and posting data" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586625131183">
+    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586625595633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586625131183" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586624837938">
+    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1586625595633" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586625695870">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586624837938" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586625695870" />
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1586625501566">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586625501566" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1586623791992">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586623791992" />
-    <state width="1877" height="341" key="GridCell.Tab.0.bottom" timestamp="1586624790282">
+    <state width="1877" height="341" key="GridCell.Tab.0.bottom" timestamp="1586625514683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586624790282" />
-    <state width="1877" height="341" key="GridCell.Tab.0.center" timestamp="1586624790282">
+    <state width="1877" height="341" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586625514683" />
+    <state width="1877" height="341" key="GridCell.Tab.0.center" timestamp="1586625514683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586624790282" />
-    <state width="1877" height="341" key="GridCell.Tab.0.left" timestamp="1586624790282">
+    <state width="1877" height="341" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586625514683" />
+    <state width="1877" height="341" key="GridCell.Tab.0.left" timestamp="1586625514683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586624790282" />
-    <state width="1877" height="341" key="GridCell.Tab.0.right" timestamp="1586624790282">
+    <state width="1877" height="341" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586625514683" />
+    <state width="1877" height="341" key="GridCell.Tab.0.right" timestamp="1586625514683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="341" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586624790282" />
+    <state width="1877" height="341" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586625514683" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1586546935486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
