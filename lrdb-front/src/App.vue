@@ -104,9 +104,9 @@ main {
 	</div>
 </template>
 <script>
-import SearchDocks from "./views/search_docks.vue";
-import MyDocks from "./views/my_docks.vue";
-import DockLoader from "./views/load_docks.vue";
+import SearchDocs from "./views/search_docs.vue";
+import MyDocs from "./views/my_docs.vue";
+import DocLoader from "./views/load_docs.vue";
 import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
 // let $ = require("jquery");
@@ -114,9 +114,9 @@ import UI_logo from "./assets/images/IU_logo_black.png";
 export default {
 	name: "App",
 	components: {
-		SearchDocks,
-		MyDocks,
-		DockLoader,
+		SearchDocs,
+		MyDocs,
+		DocLoader,
 		LoginForm
 	},
 	props: {

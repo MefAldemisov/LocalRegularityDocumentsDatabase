@@ -64,7 +64,7 @@ class="mx-1 full_height">
   </div>
 </template>
 <script>
-import doc_desc_row from "./dock_desc_row.vue";
+import doc_desc_row from "./doc_desc_row.vue";
 // let $ = require("jquery");
 
 // const pdf_link = "../../assets/images/UI_logo_back.png";

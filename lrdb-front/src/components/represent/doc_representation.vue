@@ -45,7 +45,7 @@ href="#" @click="changePage(n)">{{ n }}</span>
   </div>
 </template>
 <script>
-import Page from "./dock_page.vue";
+import Page from "./doc_page.vue";
 
 const RESPONSE = [
   {
@@ -102,7 +102,7 @@ export default {
       },
       type: Array
     },
-    n_docks: {
+    n_docs: {
       default: 2,
       type: Number
     }
@@ -117,12 +117,12 @@ export default {
       let index = 1;
       let i = 0;
       let result = [
-        { index: 1, info: this.response.slice(i, i + this.n_docks) }
+        { index: 1, info: this.response.slice(i, i + this.n_docs) }
       ];
-      for (i = this.n_docks; i < this.response.length; i += this.n_docks) {
+      for (i = this.n_docs; i < this.response.length; i += this.n_docs) {
         result.push({
           index: index + 1,
-          info: this.response.slice(i, i + this.n_docks)
+          info: this.response.slice(i, i + this.n_docs)
         });
         index++;
       }

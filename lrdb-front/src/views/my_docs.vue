@@ -13,9 +13,9 @@
   </div>
 </template>
 <script>
-import Representation from "../components/represent/dock_representation.vue";
+import Representation from "../components/represent/doc_representation.vue";
 export default {
-  name: "MyDocks",
+  name: "MyDocs",
   components: { Representation },
   data: function() {
     return { id: 1 };

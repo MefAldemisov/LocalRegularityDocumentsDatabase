@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import DocumentVuewer from "./dock_vuewer.vue";
+import DocumentVuewer from "./doc_vuewer.vue";
 
 export default {
   name: "Page",

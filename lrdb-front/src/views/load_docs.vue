@@ -42,7 +42,7 @@ class="btn btn-success btn-block">
 import Params from "../components/search/param_selector.vue";
 
 export default {
-  name: "DockLoader",
+  name: "DocLoader",
   components: {
     Params
   },

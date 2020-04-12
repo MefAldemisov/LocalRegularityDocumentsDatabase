@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Search from "../components/search/search_docks_page.vue";
+import Search from "../components/search/search_docs_page.vue";
 import FilterPage from "../components/search/filter.vue";
 
 const RESP = [
@@ -63,7 +63,7 @@ const RESP = [
 ];
 
 export default {
-    name: "SearchDocks",
+    name: "SearchDocs",
     components: {
         Search,
         FilterPage

@@ -60,7 +60,7 @@ class="str_by" for="str_by_inp">{{$t('str_by')}}</label>
   </div>
 </template>
 <script>
-import Representation from "../represent/dock_representation.vue";
+import Representation from "../represent/doc_representation.vue";
 
 export default {
   name: "FilterPage",

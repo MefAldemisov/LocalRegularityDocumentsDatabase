@@ -1,8 +1,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import SearchDocks from "../views/search_docks.vue"
-import MyDocks from "../views/my_docks.vue"
-import DockLoader from "../views/load_docks.vue"
+import SearchDocs from "../views/search_docs.vue"
+import MyDocs from "../views/my_docs.vue"
+import DocLoader from "../views/load_docs.vue"
 import LoginForm from "../views/login.vue"
 
 Vue.use(VueRouter)
@@ -11,12 +11,12 @@ const routes = [
   {
     path: "/my_docs",
     name: "MyDocs",
-    component: MyDocks
+    component: MyDocs
   },
   {
     path: "/search",
     name: "Search",
-    component: SearchDocks
+    component: SearchDocs
   },
   {
     path: "/login",
@@ -26,7 +26,7 @@ const routes = [
   {
     path: "/load",
     name: "Load",
-    component: DockLoader
+    component: DocLoader
   }
 ]
 
