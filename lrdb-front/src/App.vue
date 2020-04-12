@@ -116,11 +116,11 @@ main {
     </div>
 </template>
 <script>
-import SearchDocks from "./search_docks.vue";
-import MyDocks from "./my_docks.vue";
-import DockLoader from "./load_docks.vue";
-import LoginForm from "./login.vue";
-import UI_logo from "../../images/IU_logo_black.png";
+import SearchDocks from "./views/search_docks.vue";
+import MyDocks from "./views/my_docks.vue";
+import DockLoader from "./views/load_docks.vue";
+import LoginForm from "./views/login.vue";
+import UI_logo from "./assets/images/IU_logo_black.png";
 
 function getLanguage(lang_label) {
     lang_label = lang_label.toLowerCase();

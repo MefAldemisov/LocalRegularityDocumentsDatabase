@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import Search from "./search/search_docks_page.vue";
-import FilterPage from "./search/filter.vue";
+import Search from "../components/search/search_docks_page.vue";
+import FilterPage from "../components/search/filter.vue";
 
 const RESP = [
     {

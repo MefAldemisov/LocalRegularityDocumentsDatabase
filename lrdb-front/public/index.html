@@ -9,7 +9,7 @@
 	<meta name="MobileOptimized" content="width">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="description" content="Local regularity documents search">
-	<link rel="stylesheet" href="../static/css/reset.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../src/assets/css/reset.css" >
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- production version, optimized for size and speed -->
@@ -18,15 +18,15 @@
 	<script type=text/javascript
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script type=text/javascript src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../static/css/fonts.css" type="text/css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/mobile.css">
+	<link rel="stylesheet" type="text/css" href="../src/assets/css/fonts.css" >
+	<link rel="stylesheet" type="text/css" href="../src/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="../src/assets/css/mobile.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
 <body>
-	<div id="page_with_slider" logout_link="#" user_id="23">
+	<div id="app" logout_link="#" user_id="23">
 	</div>
 	<footer class="symbolic"></footer>
 	<script type=text/javascript>
@@ -34,23 +34,23 @@
 		$.ajaxPrefilter(function (options, original_Options, jqXHR) {
 			options.async = true
 		})
-		new Vue({
-  			delimiters: ['<%', '%>']
-		})
-		// global variables from server side
-		try{
-			eval("let check = {{id}}")
-			$LOGOUT_LINK = "{{ url_for('logout') }}"
-			$IMG_LINK = "{{ url_for('static', filename='images/IU_logo_black.png' ) }}"
-			$ID = parseInt("{{id}}") 
-		} catch (err) {
-			$LOGOUT_LINK = "#"
-			$IMG_LINK = ""
-			$ID = 23
-		}
-		console.log($ID)
+	// 	new Vue({
+  	// 		delimiters: ['<%', '%>']
+	// 	})
+	// 	// global variables from server side
+	// 	try{
+	// 		eval("let check = {{id}}")
+	// 		$LOGOUT_LINK = "{{ url_for('logout') }}"
+	// 		$IMG_LINK = "{{ url_for('static', filename='images/IU_logo_black.png' ) }}"
+	// 		$ID = parseInt("{{id}}") 
+	// 	} catch (err) {
+	// 		$LOGOUT_LINK = "#"
+	// 		$IMG_LINK = ""
+	// 		$ID = 23
+	// 	}
+	// 	console.log($ID)
 	</script>
-	<script type="text/javascript" src="../static/dev/build.js"></script>
+	<!-- <script type="text/javascript" src="../static/dev/build.js"></script> -->
 </body>
 
 </html>

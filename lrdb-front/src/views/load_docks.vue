@@ -27,8 +27,7 @@ input[type="file"] {
     </div>
 </template>
 <script>
-import Params from "./search/param_selector.vue";
-import input_field from "./search/input_field.vue";
+import Params from "../components/search/param_selector.vue";
 
 export default {
     name: "DockLoader",
@@ -43,8 +42,7 @@ export default {
         }
     },
     components: {
-        Params,
-        input_field
+        Params
     }
 };
 </script>
