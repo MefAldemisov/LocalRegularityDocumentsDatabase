@@ -1,23 +1,19 @@
 <template>
   <div class="col input-group mb-1">
     <div class="input-group-prepend">
-      <label :for="name"
+      <label :for="inp_name"
 class="input-group-text" id="srch_owner">
-        {{ label }}
+        {{ $t(name) }}
       </label>
     </div>
     <input
-:id="name" :type="type" class="form-control" />
+:id="inp_name" :type="type" class="form-control" />
   </div>
 </template>
 <script>
 export default {
   name: "InputField",
   props: {
-    label: {
-      required: true,
-      type: String
-    },
     type: {
       default: "text",
       type: String
@@ -26,6 +22,11 @@ export default {
       required: true,
       type: String
     }
-  }
+  },
+  computed:{
+    inp_name: function(){
+        return this.name + "_inp"
+      }
+    }
 };
 </script>

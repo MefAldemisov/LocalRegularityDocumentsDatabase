@@ -3,8 +3,8 @@
   <div>
     <form id="search_form"
 class="search_form" @submit.prevent="done">
-      <h2 id="search_search_params">
-        Search parameters
+      <h2>
+        {{$t('search_search_params')}}
       </h2>
       <Params />
       <button
@@ -13,7 +13,7 @@ class="search_form" @submit.prevent="done">
         class="btn btn-success btn-block"
       >
         <span class="fa fa-search" />
-        <span id="srch_srch_btn">Search</span>
+        <span>{{$t('srch_srch_btn')}}</span>
       </button>
     </form>
   </div>

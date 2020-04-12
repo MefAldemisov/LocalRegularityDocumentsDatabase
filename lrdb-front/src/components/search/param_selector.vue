@@ -3,49 +3,42 @@
   <div>
     <div class="row">
       <input_field
-name="srch_name_inp" type="text"
-label="Document name"
+name="srch_name" type="text"
 />
     </div>
     <div class="row">
       <input_field
-name="srch_owner_inp" type="text"
-label="Document owner"
+name="srch_owner" type="text"
 />
       <input_field
-name="srch_type_inp" type="text"
-label="Document type"
+name="srch_type" type="text"
 />
     </div>
     <div class="row">
       <input_field
-        name="srch_create_inp"
+        name="srch_create"
         type="date"
-        label="Date of document creation"
       />
       <input_field
-        name="srch_last_inp"
+        name="srch_last"
         type="date"
-        label="Date of document last eddition"
       />
     </div>
     <div class="row">
       <input_field
-        name="srch_start_inp"
+        name="srch_start"
         type="date"
-        label="Date of start of the document validity"
       />
       <input_field
-        name="srch_end_inp"
+        name="srch_end"
         type="date"
-        label="End of validity date"
       />
     </div>
     <div class="row">
       <div class="col input-group mb-1">
         <div class="input-group-prepend">
-          <label for="srch_dep_inp" class="input-group-text" id="srch_dep"
-            >Department</label
+          <label for="srch_dep_inp" class="input-group-text"
+            >{{$t("srch_dep")}}</label
           >
         </div>
         <select
@@ -55,14 +48,13 @@ label="Document type"
         >
           <option v-for="d in departments"
 value="d.val" :key="d.val">
-            {{ d.name }}
+            {{$t(d.val) }}
           </option>
         </select>
         <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
       </div>
       <input_field
-name="srch_pg_num_inp" type="number"
-label="Page amount"
+name="srch_pg_num" type="number"
 />
     </div>
   </div>

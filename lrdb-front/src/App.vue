@@ -70,28 +70,28 @@ main {
 						active-class="active"
 						class="clickbel navigation"
 						to="/my_docs"
-					>My Documents</router-link>
+					>{{$t('my')}}</router-link>
 					<router-link
 						tag="li"
 						v-if="user_id > 0"
 						active-class="active"
 						class="clickbel navigation"
 						to="/search"
-					>Search Documents</router-link>
+					>{{$t('search')}}s</router-link>
 					<router-link
 						tag="li"
 						v-if="user_id > 0"
 						active-class="active"
 						class="clickbel navigation"
 						to="/load"
-					>Load Documents</router-link>
+					>{{$t('load')}}</router-link>
 
 					<li v-if="user_id > 0" class="clickbel navigation">
-						<a id="logout" :href="logout_link" class="logout">Logout</a>
+						<a :href="logout_link" class="logout">{{$t('logout')}}</a>
 					</li>
 					<li id="change">
-						<label id="lang_text" for="lang_marker" class="navigation">Language:</label>
-						<select id="lang_marker" v-model="selected" class="lang_marker">
+						<label id="lang_text" for="lang_marker" class="navigation">{{$t('lang_text')}}</label>
+						<select id="lang_marker" v-model="selected" class="lang_marker" @change="changeLang">
 							<option v-for="lang in langs" :key="lang" class="lang_label" :value="lang">{{ lang }}</option>
 						</select>
 					</li>
@@ -138,15 +138,13 @@ export default {
 			selected: "",
 			langs: ["EN", "RU", "TAT"]
 		};
+	},
+	methods: {
+		changeLang: function(){
+				this.$i18n.locale = this.selected.toLowerCase()	
+		}
 	}
-	// created: function() {
-	//     // set current tab
-	//     if (this.user_id > 0) {
-	//         this.display_mode = "my";
-	//     } else {
-	//         this.display_mode = "login";
-	//     }
-	//     // default language of the user's browser
+	// default language of the user's browser
 	//     const userLang = navigator.language || navigator.userLanguage;
 	//     switch (userLang[0]) {
 	//         case "r":
@@ -155,7 +153,5 @@ export default {
 	//         default:
 	//             this.selected = "EN";
 	//     }
-	//     // getLanguage(this.selected);
-	// },
 };
 </script>

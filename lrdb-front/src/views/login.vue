@@ -5,14 +5,14 @@
     </h1>
     <form id="login_form"
 method="POST" class="was-validated">
-      <h2 id="login_title">
-        Please, confirm your identity
+      <h2>
+        {{$t('login_title')}}
       </h2>
       <div class="input-group mb-3 input-group-sm">
         <div class="input-group-prepend">
           <label
 for="login_login_inp"
-class="input-group-text" id="login_login">Login</label>
+class="input-group-text">{{$t('login_login')}}</label>
         </div>
         <input
           id="login_login_inp"
@@ -26,11 +26,10 @@ class="input-group-text" id="login_login">Login</label>
       <div class="input-group mb-3 input-group-sm">
         <div class="input-group-prepend">
           <label
-            id="login_password"
             for="login_pswd_inp"
             class="input-group-text"
             name="password"
-            >Password</label
+            >{{$t('login_password')}}</label
           >
         </div>
         <input
@@ -43,8 +42,8 @@ class="input-group-text" id="login_login">Login</label>
       </div>
 
       <button type="submit"
-class="btn btn-success btn-block" id="login_submit">
-        Submit
+class="btn btn-success btn-block">
+        {{$t('login_submit')}}
       </button>
     </form>
   </div>

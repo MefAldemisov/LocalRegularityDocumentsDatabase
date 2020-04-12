@@ -6,8 +6,8 @@ class="filter_form" @submit.prevent>
         <div class="input-group-prepend">
           <button class="btn btn-success"
 @click="sort_by" id="str_by_btn">
-            <label id="str_by"
-class="str_by" for="str_by_inp">Sort by</label>
+            <label
+class="str_by" for="str_by_inp">{{$t('str_by')}}</label>
           </button>
         </div>
         <select
@@ -15,44 +15,43 @@ class="str_by" for="str_by_inp">Sort by</label>
           v-model="criteria"
           class="input-group-text custom-select"
         >
-          <option id="srt_name" value="name">
-            Document name
+          <option value="name">
+            {{$t('srt_name')}}
           </option>
-          <option id="srt_owner" value="owner">
-            Owner of the document
+          <option value="owner">
+            {{$t('srt_owner')}}
           </option>
-          <option id="srt_crt" value="created">
-            Date of createion
+          <option value="created">
+            {{$t('srt_crt')}}
           </option>
-          <option value="last_update" id="srt_upd"
+          <option value="last_update"
 >
-            Date of the last update
+            {{$t('str_upd')}}
           </option>
-          <option value="start_valid" id="srt_start"
+          <option value="start_valid"
 >
-            Date of start of being valid
+            {{$t('srt_start')}}
           </option>
-          <option id="srt_end" value="validity date">
-            Validity date
+          <option value="validity date">
+            {{$t('str_end')}}
           </option>
-          <option id="srt_dep" value="department">
-            Department
+          <option value="department">
+            {{$t('srt_dep')}}
           </option>
-          <option id="srt_size" value="size">
-            Size of the document
+          <option value="size">
+            {{$t('srt_size')}}
           </option>
-          <option value="peolple" id="srt_ment"
+          <option value="peolple"
 >
-            Amount of mentioned people
+            {{$t('str_ment')}}
           </option>
         </select>
         <div class="input-group-append">
           <button
-            id="next_request_btn"
             class="btn btn-success"
             @click.prevent="done"
           >
-            Next request
+            {{$t('next_request_btn')}}
           </button>
         </div>
       </div>
