@@ -1,5 +1,4 @@
-<style>
-</style>
+<style></style>
 <template>
     <div>
         <form id="search_form" class="search_form" @submit.prevent="done">

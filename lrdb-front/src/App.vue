@@ -64,21 +64,21 @@ main {
                     <li
                         v-if="user_id > 0"
                         id="my"
-                        :class="{'active': display_mode=='my'}"
+                        :class="{ active: display_mode == 'my' }"
                         class="clickbel navigation"
                         @click="set('my')"
                     >My Documents</li>
                     <li
                         v-if="user_id > 0"
                         id="search"
-                        :class="{'active': display_mode=='search'}"
+                        :class="{ active: display_mode == 'search' }"
                         class="clickbel navigation"
                         @click="set('search')"
                     >Search Documents</li>
                     <li
                         v-if="user_id > 0"
                         id="load"
-                        :class="{'active': display_mode=='load'}"
+                        :class="{ active: display_mode == 'load' }"
                         class="clickbel navigation"
                         @click="set('load')"
                     >Load Documents</li>
@@ -87,13 +87,18 @@ main {
                     </li>
                     <li id="change">
                         <label for="lang_marker" id="lang_text" class="navigation">Language:</label>
-                        <select id="lang_marker" class="lang_marker" v-model="selected" @change="changeLang()">
+                        <select
+                            id="lang_marker"
+                            class="lang_marker"
+                            v-model="selected"
+                            @change="changeLang()"
+                        >
                             <option
                                 class="lang_label"
                                 v-for="lang in langs"
                                 v-bind:value="lang"
                                 :key="lang"
-                            >{{ lang}}</option>
+                            >{{ lang }}</option>
                         </select>
                     </li>
                 </ul>
@@ -121,23 +126,24 @@ import MyDocks from "./views/my_docks.vue";
 import DockLoader from "./views/load_docks.vue";
 import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
+// let $ = require("jquery");
 
-function getLanguage(lang_label) {
-    lang_label = lang_label.toLowerCase();
-    $.ajax({
-        // url: `${$SCRIPT_ROOT}static/js/langs/${lang_label}.json`,
-        url: `../static/js/langs/${lang_label}.json`,
-        dataType: "json",
-        async: false,
-        dataType: "json",
-        success: function(language_dict) {
-            Object.keys(language_dict).forEach(function(key) {
-                $("#" + key).html(language_dict[key]);
-            });
-            $("html").attr("lang", lang_label);
-        }
-    });
-}
+// function getLanguage(lang_label) {
+//     lang_label = lang_label.toLowerCase();
+//     $.ajax({
+//         // url: `${$SCRIPT_ROOT}static/js/langs/${lang_label}.json`,
+//         url: `../static/js/langs/${lang_label}.json`,
+//         dataType: "json",
+//         async: false,
+//         dataType: "json",
+//         success: function(language_dict) {
+//             Object.keys(language_dict).forEach(function(key) {
+//                 $("#" + key).html(language_dict[key]);
+//             });
+//             $("html").attr("lang", lang_label);
+//         }
+//     });
+// }
 
 export default {
     name: "PageWithSlider",
@@ -183,6 +189,7 @@ export default {
         switch (userLang[0]) {
             case "r":
                 this.selected = "RU";
+                break;
             default:
                 this.selected = "EN";
         }

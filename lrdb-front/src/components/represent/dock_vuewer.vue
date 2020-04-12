@@ -1,6 +1,5 @@
-
 <style>
-iframe {
+.iframe {
     width: calc(100% - 3rem);
     position: absolute;
     height: calc(100% - 3rem);
@@ -47,15 +46,16 @@ iframe {
         </div>
         <div class="col full_height shadow p-4 my-1 bg-white rounded">
             <div id="target" class="mx-1 full_height">
-                <iframe></iframe>
+                <div class="iframe"></div>
             </div>
         </div>
     </div>
 </template>
 <script>
 import doc_desc_row from "./dock_desc_row.vue";
-const pdf_link =
-    "../static/pdf/sprint_2_slides_B18-04_LocalRegularityDocumentsDatabase.pdf";
+// let $ = require("jquery");
+
+// const pdf_link = "../../assets/images/UI_logo_back.png";
 
 export default {
     name: "DocumentVuewer",
@@ -64,7 +64,8 @@ export default {
     methods: {
         excludeDate: function(date) {
             let [d, other] = date.split("T");
-            let [t, ...z] = other.split(".");
+            let z = other.split(".");
+            let t = z[0];
             return `${d} ${t}`;
         }
     },
@@ -82,20 +83,20 @@ export default {
             return this.excludeDate(this.info.expiration_date);
         }
     },
-    created: function() {
-        jQuery.ajax({
-            type: "GET",
-            processData: false,
-            url: pdf_link,
-            contentType: "application/xml; charset=utf-8",
-            success: function(data) {
-                $("iframe").attr("src", pdf_link);
-            },
-            error: function() {
-                console.log("error");
-            }
-        });
-    },
+    // created: function() {
+    //     $.ajax({
+    //         type: "GET",
+    //         processData: false,
+    //         url: pdf_link,
+    //         contentType: "pdf; charset=utf-8",
+    //         success: function() {
+    //             $(".iframe").attr("src", pdf_link);
+    //         },
+    //         error: function() {
+    //             console.log("error");
+    //         }
+    //     });
+    // },
     components: {
         doc_desc_row
     }

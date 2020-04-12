@@ -13,13 +13,17 @@
     <div>
         <Page v-for="i in info" :info="i.info" v-show="currentPage == i.index" :key="i.index" />
         <div class="mt-3">
-            <h6 class="text-center">Current page: {{currentPage}}</h6>
+            <h6 class="text-center">Current page: {{ currentPage }}</h6>
             <ul class="pagination justify-content-center">
                 <li class="page-item">
-                    <span  id="link-prev" class="page-link" @click="changePage(currentPage - 1)">Previous</span>
+                    <span
+                        id="link-prev"
+                        class="page-link"
+                        @click="changePage(currentPage - 1)"
+                    >Previous</span>
                 </li>
                 <li class="page-item" v-for="n in pages" :key="n">
-                    <span class="page-link" href="#" @click="changePage(n)">{{n}}</span>
+                    <span class="page-link" href="#" @click="changePage(n)">{{ n }}</span>
                 </li>
                 <li class="page-item">
                     <span id="link-next" class="page-link" @click="changePage(currentPage + 1)">Next</span>
@@ -78,7 +82,9 @@ export default {
     name: "Representation",
     props: {
         response: {
-            default: function() {return RESPONSE},
+            default: function() {
+                return RESPONSE;
+            },
             type: Array
         },
         n_docks: {
@@ -98,7 +104,11 @@ export default {
             let result = [
                 { index: 1, info: this.response.slice(i, i + this.n_docks) }
             ];
-            for (i = this.n_docks; i < this.response.length; i += this.n_docks) {
+            for (
+                i = this.n_docks;
+                i < this.response.length;
+                i += this.n_docks
+            ) {
                 result.push({
                     index: index + 1,
                     info: this.response.slice(i, i + this.n_docks)

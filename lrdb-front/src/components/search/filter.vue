@@ -7,11 +7,7 @@
                         <label id="str_by" class="str_by" for="str_by_inp">Sort by</label>
                     </button>
                 </div>
-                <select
-                    id="str_by_inp"
-                    v-model="criteria"
-                    class="input-group-text custom-select"
-                >
+                <select id="str_by_inp" v-model="criteria" class="input-group-text custom-select">
                     <option value="name" id="srt_name">Document name</option>
                     <option value="owner" id="srt_owner">Owner of the document</option>
                     <option value="created" id="srt_crt">Date of createion</option>
@@ -41,7 +37,7 @@ export default {
     name: "FilterPage",
     data: function() {
         return {
-             criteria: ""
+            criteria: ""
         };
     },
     props: { resp: { required: true } },
@@ -51,7 +47,7 @@ export default {
     methods: {
         compareValues: function(key, order = "asc") {
             return function innerSort(a, b) {
-                if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                if (!a[key] || !b[key]) {
                     // property doesn't exist on either object
                     return 0;
                 }
@@ -71,8 +67,8 @@ export default {
         done: function() {
             this.$emit("done");
         },
-        sort_by: function() {   
-            this.resp = this.resp.sort(this.compareValues(this.criteria))
+        sort_by: function() {
+            this.resp = this.resp.sort(this.compareValues(this.criteria));
         }
     }
 };

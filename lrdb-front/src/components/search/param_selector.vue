@@ -1,5 +1,4 @@
-<style>
-</style>
+<style></style>
 <template>
     <div>
         <div class="row">
@@ -27,7 +26,7 @@
                     <label for="srch_dep_inp" class="input-group-text" id="srch_dep">Department</label>
                 </div>
                 <select id="srch_dep_inp" name="sort by" class="input-group-text custom-select">
-                    <option v-for="d in departments" value="d.val" :key="d.val">{{d.name}}</option>
+                    <option v-for="d in departments" value="d.val" :key="d.val">{{ d.name }}</option>
                 </select>
                 <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
             </div>

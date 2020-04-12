@@ -13,16 +13,18 @@ input[type="file"] {
                 <div class="col input-group mb-1">
                     <label
                         for="srch_file_inp"
-                        v-bind:class="{'bg-success':filename}"
+                        v-bind:class="{ 'bg-success': filename }"
                         class="w-100 input-group-text"
                         id="srch_owner"
-                    >Select file <span v-if="filename">:</span>{{filename}}</label>
+                    >
+                        Select file
+                        <span v-if="filename">:</span>
+                        {{ filename }}
+                    </label>
                 </div>
                 <input @change="previewFiles" id="srch_file_inp" type="file" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-success btn-block">
-                Upload document data
-            </button>
+            <button type="submit" class="btn btn-success btn-block">Upload document data</button>
         </form>
     </div>
 </template>
@@ -31,10 +33,10 @@ import Params from "../components/search/param_selector.vue";
 
 export default {
     name: "DockLoader",
-    data: function(){
+    data: function() {
         return {
             filename: ""
-        }
+        };
     },
     methods: {
         previewFiles: function(event) {

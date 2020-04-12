@@ -1,7 +1,7 @@
 <template>
     <div class="col input-group mb-1">
         <div class="input-group-prepend">
-            <label :for="name" class="input-group-text" id="srch_owner">{{label}}</label>
+            <label :for="name" class="input-group-text" id="srch_owner">{{ label }}</label>
         </div>
         <input :id="name" :type="type" class="form-control" />
     </div>
@@ -22,7 +22,6 @@ export default {
             required: true,
             type: String
         }
-
     }
-}
+};
 </script>

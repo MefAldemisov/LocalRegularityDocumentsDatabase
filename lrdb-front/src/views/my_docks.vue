@@ -1,5 +1,4 @@
-<style>
-</style>
+<style></style>
 <template>
     <div>
         <h1 class="hidden">Page with documents of the user</h1>
@@ -12,12 +11,12 @@
     </div>
 </template>
 <script>
-import Representation from '../components/represent/dock_representation.vue'
+import Representation from "../components/represent/dock_representation.vue";
 export default {
     name: "MyDocks",
     data: function() {
-        return {id: 1}
+        return { id: 1 };
     },
-    components: {Representation}
-}
+    components: { Representation }
+};
 </script>
