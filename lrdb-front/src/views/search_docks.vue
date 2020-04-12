@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 .search_form *,
 .filter_form * {
     font-size: 0.7rem;
@@ -10,8 +10,8 @@
 <template>
     <div id="search_holder">
         <h1 class="hidden">Document search page</h1>
-        <Search @done="changeMode" v-if="search_mode" />
-        <FilterPage @done="changeMode" v-else :resp="resp" />
+        <Search v-if="search_mode" @done="changeMode" />
+        <FilterPage v-else @done="changeMode" :resp="resp" />
     </div>
 </template>
 
@@ -64,6 +64,10 @@ const RESP = [
 
 export default {
     name: "SearchDocks",
+    components: {
+        Search,
+        FilterPage
+    },
     data: function() {
         return {
             search_mode: true,
@@ -74,10 +78,6 @@ export default {
         changeMode: function() {
             this.search_mode = !this.search_mode;
         }
-    },
-    components: {
-        Search,
-        FilterPage
     }
 };
 </script>
