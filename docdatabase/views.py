@@ -36,17 +36,10 @@ class OwnerDetails(generics.RetrieveUpdateDestroyAPIView):
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
 
-"""
-Some of the unused methods just for fun
-"""
-class Test(APIView):
-
-    def get(self, request, *args, **kwargs):
-        documents = Document.objects.filter(owner=self.kwargs['pk'])
-        serializer = DocumentGetSerializer(documents, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
 class DocumentOwnerView(generics.ListAPIView):
+    """
+    Retrieve all documents of the user by specifying user name
+    """
     serializer_class = DocumentGetSerializer
     def get_queryset(self):
         return Document.objects.filter(owner=self.kwargs['pk'])

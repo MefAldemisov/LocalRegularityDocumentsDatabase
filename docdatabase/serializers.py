@@ -33,25 +33,9 @@ class DocumentPostSerializer(serializers.ModelSerializer):
         data['document'] = 'OK'
         data['amount_of_mentioned'] = len(data['mentioned_people'])
         data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
+        instance.amount_of_mentioned = len(data['mentioned_people'])
+        instance.doc_size = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
         return data
-
-
-        # pk_list = []
-        #
-        # for name in data['mentioned_people']:
-        #     pk_list.append(Owner.objects.get(name=name)['pk'])
-        #
-        # print(len(pk_list))
-        #
-        # if len(pk_list) > 0:
-        #     path = data['document']
-        #     path = path.split("/")
-        #
-        #     data['document'] = 'OK'
-        #     data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
-        #     return data
-        # else:
-        #     return data
 
 class DocumentGetSerializer(serializers.ModelSerializer):
     """
@@ -73,7 +57,5 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         f = f.read()
         f = encodebytes(f)
         data['document'] = f
-        data['amount_of_mentioned'] = len(data['mentioned_people'])
-        data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
         return data
 
