@@ -87,7 +87,7 @@ main {
 			<nav class="symbolic">
 				<ul>
 					<li id="logo">
-						<img class="iu_logo" :src="img_link" alt="$t('alt_logo')" />
+						<img class="iu_logo" :src="img_link" :alt="alt" />
 					</li>
 					<router-link
 						tag="li"
@@ -135,8 +135,7 @@ import "./assets/css/reset.css"
 import "./assets/css/fonts.css"
 import "./assets/css/main.css"
 import "bootstrap"
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
 // import "./assets/css/modile.css"
 // components
 import SearchDocs from "./views/search_docs.vue";
@@ -144,7 +143,6 @@ import MyDocs from "./views/my_docs.vue";
 import DocLoader from "./views/load_docs.vue";
 import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
-
 
 
 export default {
@@ -172,7 +170,8 @@ export default {
 	data: function() {
 		return {
 			selected: "",
-			langs: ["EN", "RU", "TAT"]
+			langs: ["EN", "RU", "TAT"],
+			alt: "$t('alt_logo')"
 		};
 	},
 	methods: {

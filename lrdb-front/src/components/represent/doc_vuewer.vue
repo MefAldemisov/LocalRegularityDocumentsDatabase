@@ -26,7 +26,7 @@
           <div class="input-group-prepend">
             <button class="py-1 btn btn-secondary"
 :title="$t('download')">
-              <i class="fas fa-file" />
+             <font-awesome-icon icon="file"></font-awesome-icon>
             </button>
           </div>
           <input

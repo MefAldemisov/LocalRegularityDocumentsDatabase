@@ -12,7 +12,7 @@ class="search_form" @submit.prevent="done">
         type="submit"
         class="btn btn-success btn-block"
       >
-        <span class="fa fa-search" />
+        <font-awesome-icon icon="search"></font-awesome-icon>
         <span>{{$t('srch_srch_btn')}}</span>
       </button>
     </form>
