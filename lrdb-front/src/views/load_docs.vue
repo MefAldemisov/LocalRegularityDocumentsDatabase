@@ -8,8 +8,8 @@ input[type="file"] {
     <h1 class="hidden">{{$t("form_load_upd")}}
     </h1>
     <h2>{{$t("load")}}</h2>
-    <form @submit.prevent>
-      <Params />
+    <form @submit.prevent :class="{'was-validated': subm}">
+      <Params :required="req" />
       <div class="row">
         <div class="col input-group mb-1">
           <label
@@ -31,8 +31,10 @@ input[type="file"] {
         />
       </div>
       <button type="submit"
-class="btn btn-success btn-block">
-{{$t("upl_doc_data")}}
+        @submit.prevent="checkForm"
+        @click.prevent="checkForm"
+        class="btn btn-success btn-block">
+        {{$t("upl_doc_data")}}
       </button>
     </form>
   </div>
@@ -47,12 +49,17 @@ export default {
   },
   data: function() {
     return {
-      filename: ""
+      filename: "",
+      req: true,
+      subm: false
     };
   },
   methods: {
     previewFiles: function(event) {
       this.filename = event.target.files[0].name;
+    },
+    checkForm: function(event) {
+      this.subm = true
     }
   }
 };

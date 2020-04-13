@@ -6,8 +6,7 @@ class="input-group-text" id="srch_owner">
         {{ $t(name) }}
       </label>
     </div>
-    <input
-:id="inp_name" :type="type" class="form-control" />
+    <input :id="inp_name" :type="type" class="form-control" :required="required" />
   </div>
 </template>
 <script>
@@ -21,12 +20,23 @@ export default {
     name: {
       required: true,
       type: String
+    },
+    required: {
+      default: false,
+      type: Boolean
+    }
+  },
+  data: {
+    function(){
+      return {
+        val: ""
+      }
     }
   },
   computed:{
     inp_name: function(){
         return this.name + "_inp"
       }
-    }
+  }
 };
 </script>

@@ -4,34 +4,41 @@
     <div class="row">
       <input_field
 name="srch_name" type="text"
+:required="required"
 />
     </div>
     <div class="row">
       <input_field
 name="srch_owner" type="text"
+:required="required"
 />
       <input_field
 name="srch_type" type="text"
+:required="required"
 />
     </div>
     <div class="row">
       <input_field
         name="srch_create"
         type="date"
+        :required="required"
       />
       <input_field
         name="srch_last"
         type="date"
+        :required="required"
       />
     </div>
     <div class="row">
       <input_field
         name="srch_start"
         type="date"
+        :required="required"
       />
       <input_field
         name="srch_end"
         type="date"
+        :required="required"
       />
     </div>
     <div class="row">
@@ -55,6 +62,7 @@ value="d.val" :key="d.val">
       </div>
       <input_field
 name="srch_pg_num" type="number"
+:required="required"
 />
     </div>
   </div>
@@ -66,6 +74,12 @@ export default {
   name: "Params",
   components: {
     input_field
+  },
+  props: {
+    required: {
+      default: false,
+      type: Boolean
+    }
   },
   data: function() {
     return {

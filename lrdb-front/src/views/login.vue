@@ -3,16 +3,13 @@
     <h1 class="hidden">
       {{$t("login_login")}}
     </h1>
-    <form id="login_form"
-method="POST" class="was-validated">
+    <form id="login_form" method="POST" class="was-validated">
       <h2>
         {{$t('login_title')}}
       </h2>
       <div class="input-group mb-3 input-group-sm">
         <div class="input-group-prepend">
-          <label
-for="login_login_inp"
-class="input-group-text">{{$t('login_login')}}</label>
+          <label for="login_login_inp" class="input-group-text">{{$t('login_login')}}</label>
         </div>
         <input
           id="login_login_inp"
