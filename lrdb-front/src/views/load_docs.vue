@@ -5,10 +5,9 @@ input[type="file"] {
 </style>
 <template>
   <div>
-    <h1 class="hidden">
-      Form to load documents or update them
+    <h1 class="hidden">{{$t("form_load_upd")}}
     </h1>
-    <h2>Load Documents</h2>
+    <h2>{{$t("load")}}</h2>
     <form @submit.prevent>
       <Params />
       <div class="row">
@@ -19,7 +18,7 @@ input[type="file"] {
             :class="{ 'bg-success': filename }"
             class="w-100 input-group-text"
           >
-            Select file
+            {{$t("selct_file")}}
             <span v-if="filename">:</span>
             {{ filename }}
           </label>
@@ -33,7 +32,7 @@ input[type="file"] {
       </div>
       <button type="submit"
 class="btn btn-success btn-block">
-        Upload document data
+{{$t("upl_doc_data")}}
       </button>
     </form>
   </div>

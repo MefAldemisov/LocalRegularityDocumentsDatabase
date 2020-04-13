@@ -2,12 +2,11 @@
 <template>
   <div>
     <h1 class="hidden">
-      Page with documents of the user
+      {{$t("page_with_docs_user")}}
     </h1>
-    <h3>Hello, user with id {{ id }}</h3>
-    <h2>Documents, where my name is mentioned:</h2>
+    <h2>{{$t("docs_name_ment")}}</h2>
     <Representation />
-    <h2>Documents uploaded by me</h2>
+    <h2>{{$t("docs_up_by_me")}}</h2>
     <!-- make a carousel -->
     <Representation />
   </div>

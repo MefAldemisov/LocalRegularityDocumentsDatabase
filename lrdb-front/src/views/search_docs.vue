@@ -9,7 +9,7 @@
 </style>
 <template>
     <div id="search_holder">
-        <h1 class="hidden">Document search page</h1>
+        <h1 class="hidden">{{$t("doc_search_page")}}</h1>
         <Search v-if="search_mode" @done="changeMode" />
         <FilterPage v-else @done="changeMode" :resp="resp" />
     </div>

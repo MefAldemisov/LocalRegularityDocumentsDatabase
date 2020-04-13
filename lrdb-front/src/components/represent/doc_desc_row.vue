@@ -13,7 +13,7 @@
 <template>
   <div class="my-1 row input-group input-group-sm">
     <div class="input-group-prepend">
-      <span class="input-group-text">{{ text }}</span>
+      <span class="input-group-text">{{ $t(text) }}</span>
     </div>
     <input
       type="text"

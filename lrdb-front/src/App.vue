@@ -62,7 +62,7 @@ main {
 			<nav class="symbolic">
 				<ul>
 					<li id="logo">
-						<img class="iu_logo" :src="img_link" alt="logo of Innopolis University" />
+						<img class="iu_logo" :src="img_link" alt="$t('alt_logo')" />
 					</li>
 					<router-link
 						tag="li"
@@ -77,7 +77,7 @@ main {
 						active-class="active"
 						class="clickbel navigation"
 						to="/search"
-					>{{$t('search')}}s</router-link>
+					>{{$t('search')}}</router-link>
 					<router-link
 						tag="li"
 						v-if="user_id > 0"
@@ -109,7 +109,6 @@ import MyDocs from "./views/my_docs.vue";
 import DocLoader from "./views/load_docs.vue";
 import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
-// let $ = require("jquery");
 
 export default {
 	name: "App",

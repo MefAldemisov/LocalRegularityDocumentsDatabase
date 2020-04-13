@@ -1,7 +1,7 @@
 <template>
   <div class="container login_container">
     <h1 class="hidden">
-      Log in form
+      {{$t("login_login")}}
     </h1>
     <form id="login_form"
 method="POST" class="was-validated">

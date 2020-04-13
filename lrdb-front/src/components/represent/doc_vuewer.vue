@@ -25,7 +25,7 @@
         <div class="my-2 row input-group input-group-sm">
           <div class="input-group-prepend">
             <button class="py-1 btn btn-secondary"
-title="downolad">
+:title="$t('download')">
               <i class="fas fa-file" />
             </button>
           </div>
@@ -38,20 +38,20 @@ title="downolad">
           />
         </div>
         <doc_desc_row
-text="Owner" :controller="info.owner" />
+text="srch_owner" :controller="info.owner" />
         <doc_desc_row
-text="Type" :controller="info.type" />
+text="srch_type" :controller="info.type" />
         <doc_desc_row
-text="Creation date" :controller="dt_created"
+text="srch_create" :controller="dt_created"
 />
         <doc_desc_row
-text="Last update" :controller="dt_last_update"
+text="srch_upd" :controller="dt_last_update"
 />
         <doc_desc_row
-text="Effect update" :controller="dt_effect_date"
+text="srch_start" :controller="dt_effect_date"
 />
         <doc_desc_row
-text="Expiration date" :controller="dt_expiration_date"
+text="srch_end" :controller="dt_expiration_date"
 />
       </div>
     </div>

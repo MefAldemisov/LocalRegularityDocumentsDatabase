@@ -18,14 +18,14 @@
       :info="i.info"
     />
     <div class="mt-3">
-      <h6 class="text-center">Current page: {{ currentPage }}</h6>
+      <h6 class="text-center">{{$t("curr_pg")}}: {{ currentPage }}</h6>
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <span
             id="link-prev"
             class="page-link"
             @click="changePage(currentPage - 1)"
-            >Previous</span
+            >{{$t("prev")}}</span
           >
         </li>
         <li v-for="n in pages" class="page-item" :key="n">
@@ -37,7 +37,7 @@ href="#" @click="changePage(n)">{{ n }}</span>
             id="link-next"
             class="page-link"
             @click="changePage(currentPage + 1)"
-            >Next</span
+            >{{$t("next")}}</span
           >
         </li>
       </ul>
