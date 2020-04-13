@@ -1,4 +1,28 @@
 <style>
+.btn-success {
+  /*UI style*/
+  /* background-color: #15b012;  */
+  /* Accessability low treshhold */
+  color: #fff;
+  background-color: #0f870d;
+}
+.bg-success {
+  /*UI style*/
+  /* background-color: #15b012;  */
+  /* Accessability low treshhold */
+  color: #fff;
+  background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
+}
+</style>
+<style scoped>
+/* Header - footter*/
+.symbolic {
+  background-color: #edf1f5;
+  min-height: 3.5rem;
+}
+footer {
+  margin-top: 2rem;
+}
 .iu_logo {
 	width: 6rem;
 }
@@ -54,6 +78,7 @@ main {
 	padding-top: 1rem;
 	margin: auto;
 	width: 70%;
+	min-height: 90vh;
 }
 </style>
 <template>
@@ -101,14 +126,26 @@ main {
 		<main id="content">
 			<router-view></router-view>
 		</main>
+		<footer class="symbolic"></footer>
 	</div>
 </template>
 <script>
+// styles
+import "./assets/css/reset.css"
+import "./assets/css/fonts.css"
+import "./assets/css/main.css"
+import "bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+// import "./assets/css/modile.css"
+// components
 import SearchDocs from "./views/search_docs.vue";
 import MyDocs from "./views/my_docs.vue";
 import DocLoader from "./views/load_docs.vue";
 import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
+
+
 
 export default {
 	name: "App",
