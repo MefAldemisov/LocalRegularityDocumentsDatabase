@@ -1,11 +1,11 @@
 var path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin.js') // плагин для загрузки кода Vue
+const VueLoaderPlugin = require('vue-loader/lib/plugin.js')
 
 module.exports = {
-	entry: path.resolve(__dirname, 'src') + '/static/js/main.js',
+	entry: path.resolve(__dirname, 'src') + '/main.js',
 	output: {
-		path: path.resolve(__dirname, './src/static/dev/'),
-		publicPath: '/src/static/dev/',
+		path: path.resolve(__dirname, './dist/'),
+		publicPath: './dist/',
 		filename: 'build.js'
 	},
 	module: {
@@ -28,6 +28,10 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/,
+				loader: "file-loader"
+			}
 		]
 	},
 	plugins: [
