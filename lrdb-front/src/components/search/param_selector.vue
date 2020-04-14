@@ -1,13 +1,27 @@
-<style></style>
+<style scoped>
+/* .centered_container {
+    display: flexbox;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.check {
+    align-self: center;
+    flex-grow: 1;
+} */
+</style>
 <template>
     <div>
+        <!-- in any case -->
+        <h4 class="pt-4">Main parameters</h4>
         <div class="row">
             <input_field name="srch_name" type="text" :required="required" />
         </div>
-        <div class="row">
+        <!-- in any type except upload-->
+        <div v-if="form_type !== 'upload'" class="row">
             <input_field name="srch_owner" type="text" :required="required" />
-            <input_field name="srch_type" type="text" :required="required" />
         </div>
+        <h4 class="pt-4">Dates</h4>
         <div class="row">
             <input_field name="srch_create" type="date" :required="required" />
             <input_field name="srch_last" type="date" :required="required" />
@@ -16,51 +30,41 @@
             <input_field name="srch_start" type="date" :required="required" />
             <input_field name="srch_end" type="date" :required="required" />
         </div>
-        <div class="row">
-            <div class="col input-group mb-1">
-                <div class="input-group-prepend">
-                    <label for="srch_dep_inp" class="input-group-text">
-                        {{ $t("srch_dep") }}
-                    </label>
-                </div>
-                <select
-                    id="srch_dep_inp"
-                    name="sort by"
-                    class="input-group-text custom-select"
-                >
-                    <option
-                        v-for="d in departments"
-                        value="d.val"
-                        :key="d.val"
-                        >{{ $t(d.val) }}</option
-                    >
-                </select>
-                <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
-            </div>
-            <input_field
-                name="srch_pg_num"
-                type="number"
-                :required="required"
-            />
+        <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
+
+        <div class="pb-4 d-flex justify-content-between">
+            <check
+                class="check"
+                v-for="dep in departments"
+                :val="dep.val"
+            ></check>
         </div>
+        <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
     </div>
 </template>
 <script>
 import input_field from "./input_field.vue";
+import check from "./check_item.vue";
 
 export default {
     name: "Params",
     components: {
-        input_field
+        input_field,
+        check
     },
     props: {
         required: {
             default: false,
             type: Boolean
+        },
+        form_type: {
+            default: "search", // other values: edit, upload
+            type: String
         }
     },
     data: function() {
         return {
+            active_select: false,
             departments: [
                 { name: "University Development", val: "dep1" },
                 { name: "Design and research activities", val: "dep2" },
@@ -74,6 +78,11 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+        changeActive: function() {
+            this.active_select = !this.active_select;
+        }
     }
 };
 </script>

@@ -1,3 +1,8 @@
+<style scoped>
+.custom-select {
+    height: 2.8rem;
+}
+</style>
 <template>
     <div>
         <form id="filter_form" class="filter_form" @submit.prevent>
@@ -8,15 +13,13 @@
                         @click="sort_by"
                         id="str_by_btn"
                     >
-                        <label class="str_by" for="str_by_inp">{{
-                            $t("str_by")
-                        }}</label>
+                        {{ $t("str_by") }}
                     </button>
                 </div>
                 <select
                     id="str_by_inp"
                     v-model="criteria"
-                    class="input-group-text custom-select"
+                    class="custom-select"
                 >
                     <option value="name">{{ $t("srt_name") }}</option>
                     <option value="owner">{{ $t("srt_owner") }}</option>

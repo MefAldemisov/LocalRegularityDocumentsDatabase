@@ -19,7 +19,7 @@ const routes = [
         component: SearchDocs
     },
     {
-        path: "/login",
+        path: "/",
         name: "Login",
         component: LoginForm
     },

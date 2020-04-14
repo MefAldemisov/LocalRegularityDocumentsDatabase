@@ -40,7 +40,7 @@
                     />
                 </div>
                 <doc_desc_row text="srch_owner" :controller="info.owner" />
-                <doc_desc_row text="srch_type" :controller="info.type" />
+                <doc_desc_row text="srch_type" :controller="info.doc_format" />
                 <doc_desc_row text="srch_create" :controller="dt_created" />
                 <doc_desc_row text="srch_upd" :controller="dt_last_update" />
                 <doc_desc_row text="srch_start" :controller="dt_effect_date" />
@@ -48,6 +48,8 @@
                     text="srch_end"
                     :controller="dt_expiration_date"
                 />
+                <doc_desc_row text="id" :controller="info.id" />
+                <doc_desc_row text="srt_dep" :controller="info.department" />
             </div>
         </div>
         <div class="col full_height shadow p-4 my-1 bg-white rounded">

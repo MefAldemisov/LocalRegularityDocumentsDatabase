@@ -188,7 +188,7 @@ export default {
     },
     data: function() {
         return {
-            selected: "",
+            selected: "EN",
             langs: ["EN", "RU", "TAT"],
             alt: "$t('alt_logo')"
         };
