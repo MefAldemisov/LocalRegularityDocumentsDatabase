@@ -2,18 +2,35 @@
 
 ## Project for SP course
 
-### How to use backend
+### How does it look like:
 
-1. Open the derictory of the project via terminal
-2. Run ```cd src/```
+![GIF](./media/interface.gif)
 
-3. Start server using ```python3 login.py```
+### How to use frontend
 
-4. Open the required link in your browser
+Open the derictory of the project via terminal, run `cd lrdb-front/`
 
-### Authors
+#### Project setup
 
-- Alina Bogdanova
-- Gosha Stepanov
-- Pavel Tishkin
-- Yurii Zarubin
+```
+npm install
+```
+
+#### Compiles and hot-reloads for development
+
+```
+npm run serve
+```
+
+#### Compiles and minifies for production
+
+```
+npm run build
+```
+
+## Authors
+
+-   Alina Bogdanova
+-   Gosha Stepanov
+-   Pavel Tishkin
+-   Yurii Zarubin
