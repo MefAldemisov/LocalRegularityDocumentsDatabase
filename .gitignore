@@ -1,6 +1,0 @@
-node_modules/*
-venv/
-.idea/
-document_storage/migrations/
-media/
-db.sqlite3
