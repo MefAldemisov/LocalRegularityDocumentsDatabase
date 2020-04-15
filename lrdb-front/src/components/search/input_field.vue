@@ -16,9 +16,6 @@
     </div>
 </template>
 <script>
-import RangeDatePicker from "vue-easy-range-date-picker";
-import { parseTime } from "../../plugins/util.js";
-
 export default {
     name: "InputField",
     props: {
@@ -59,9 +56,6 @@ export default {
                 return "";
             }
         }
-    },
-    components: {
-        RangeDatePicker
     },
     methods: {
         changeActive: function() {
