@@ -2,6 +2,7 @@
     <VueCtkDateTimePicker
         v-else
         class="my-1"
+        :id="name"
         :label="$t(name)"
         v-model="val"
         :locale="lang"

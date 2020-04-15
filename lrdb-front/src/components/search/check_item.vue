@@ -11,6 +11,7 @@ label {
     padding: 0.2rem 0.5rem;
     background-color: #edf1f5;
     text-align: center;
+    text-transform: capitalize;
 }
 .active {
     background-color: #0f870d;

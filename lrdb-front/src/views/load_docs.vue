@@ -10,10 +10,13 @@ h2 {
     background-color: #0f870d;
     color: white;
 }
+h1 {
+    display: none;
+}
 </style>
 <template>
     <div>
-        <h1 class="hidden">{{ $t("form_load_upd") }}</h1>
+        <h1>{{ $t("form_load_upd") }}</h1>
         <div class="row d-flex justify-content-around">
             <h2
                 :class="{ active: load_mode }"
@@ -27,7 +30,7 @@ h2 {
                 class="col mx-3 rounded-lg border"
                 @click="changeMode"
             >
-                {{ $t("Update") }}
+                {{ $t("update") }}
             </h2>
         </div>
         <form @submit.prevent :class="{ 'was-validated': subm }">

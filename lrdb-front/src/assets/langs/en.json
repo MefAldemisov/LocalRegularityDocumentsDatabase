@@ -48,5 +48,9 @@
     "srch_upd": "Date of the last update",
     "curr_pg": "Current page",
     "prev": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "main_params": "Main parameters",
+    "update": "Update documents",
+    "dates": "Date parameeters",
+    "srch_id": "Document id"
 }

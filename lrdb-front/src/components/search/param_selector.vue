@@ -1,17 +1,17 @@
 <template>
     <div class="pb-3">
         <!-- in any case -->
-        <h4 class="pt-4">Main parameters</h4>
+        <h4 class="pt-4">{{ $t("main_params") }}</h4>
         <div class="row">
             <input_field name="srch_name" type="text" :required="required" />
         </div>
         <!-- in any type except upload-->
         <div v-if="form_type !== 'load'" class="row">
             <input_field name="srch_owner" type="text" :required="required" />
-            <input_field name="Id" type="number" :required="required" />
+            <input_field name="srch_id" type="number" :required="required" />
         </div>
 
-        <h4 class="pt-4">Dates</h4>
+        <h4 class="pt-4">{{ $t("dates") }}</h4>
         <!-- in case of  search-->
         <div v-if="form_type === 'search'" class="row">
             <date-range class="col" name="srch_create" :required="required" />
@@ -44,11 +44,8 @@
         <!-- for upload and change -->
         <div v-if="form_type !== 'search'">
             <h4>{{ $t("selct_file") }}</h4>
-
             <input_file />
         </div>
-
-        <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
     </div>
 </template>
 <script>

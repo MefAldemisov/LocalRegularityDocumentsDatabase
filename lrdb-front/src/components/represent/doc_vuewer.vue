@@ -48,7 +48,7 @@
                     text="srch_end"
                     :controller="dt_expiration_date"
                 />
-                <doc_desc_row text="id" :controller="info.id" />
+                <doc_desc_row text="srch_id" :controller="info.id" />
                 <doc_desc_row text="srt_dep" :controller="info.department" />
             </div>
         </div>
