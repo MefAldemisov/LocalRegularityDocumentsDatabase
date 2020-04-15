@@ -7,14 +7,14 @@
     background-color: #0f870d;
 }
 .bg-success {
-    /*UI style*/
-    /* background-color: #15b012;  */
-    /* Accessability low treshhold */
     color: #fff;
     background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
 }
 .border-success {
     border-color: #0f870d;
+}
+.hidden {
+    display: none;
 }
 </style>
 <style scoped>
@@ -173,34 +173,34 @@ export default {
         SearchDocs,
         MyDocs,
         DocLoader,
-        LoginForm
+        LoginForm,
     },
     props: {
         user_id: {
             type: Number,
-            default: 23
+            default: 23,
         },
         logout_link: {
             type: String,
-            default: "#"
+            default: "#",
         },
         img_link: {
             type: String,
-            default: UI_logo
-        }
+            default: UI_logo,
+        },
     },
     data: function() {
         return {
             selected: "EN",
             langs: ["EN", "RU", "TAT"],
-            alt: "$t('alt_logo')"
+            alt: "$t('alt_logo')",
         };
     },
     methods: {
         changeLang: function() {
             this.$i18n.locale = this.selected.toLowerCase();
-        }
-    }
+        },
+    },
     // default language of the user's browser
     //     const userLang = navigator.language || navigator.userLanguage;
     //     switch (userLang[0]) {

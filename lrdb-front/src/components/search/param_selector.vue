@@ -39,7 +39,11 @@
 
         <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
         <div class="pb-4 d-flex justify-content-between">
-            <check v-for="dep in departments" :val="dep.val"></check>
+            <check
+                v-for="dep in departments"
+                :val="dep.val"
+                :key="dep.val"
+            ></check>
         </div>
         <!-- for upload and change -->
         <div v-if="form_type !== 'search'">
@@ -59,17 +63,17 @@ export default {
         input_field,
         check,
         DateRange,
-        input_file
+        input_file,
     },
     props: {
         required: {
             default: false,
-            type: Boolean
+            type: Boolean,
         },
         form_type: {
             default: "search", // other values: edit, upload
-            type: String
-        }
+            type: String,
+        },
     },
     data: function() {
         return {
@@ -84,15 +88,15 @@ export default {
                 { name: "Quality education", val: "dep6" },
                 {
                     name: "Administrative Policy and Informatization",
-                    val: "dep7"
-                }
-            ]
+                    val: "dep7",
+                },
+            ],
         };
     },
     methods: {
         changeActive: function() {
             this.active_select = !this.active_select;
-        }
-    }
+        },
+    },
 };
 </script>

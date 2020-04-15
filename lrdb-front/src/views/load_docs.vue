@@ -1,5 +1,5 @@
 <style scoped>
-h2 {
+.tab {
     display: inline-block;
     cursor: pointer;
     padding: 0.2rem 0.5rem;
@@ -18,20 +18,20 @@ h1 {
     <div>
         <h1>{{ $t("form_load_upd") }}</h1>
         <div class="row d-flex justify-content-around">
-            <h2
+            <h4
                 :class="{ active: load_mode }"
-                class="col mx-3 rounded-lg border"
+                class=" tab col mx-3 rounded-lg border"
                 @click="changeMode"
             >
                 {{ $t("load") }}
-            </h2>
-            <h2
+            </h4>
+            <h4
                 :class="{ active: !load_mode }"
-                class="col mx-3 rounded-lg border"
+                class="tab col mx-3 rounded-lg border"
                 @click="changeMode"
             >
                 {{ $t("update") }}
-            </h2>
+            </h4>
         </div>
         <form @submit.prevent :class="{ 'was-validated': subm }">
             <Params :form_type="mode" :required="req" />
@@ -53,14 +53,14 @@ import Params from "../components/search/param_selector.vue";
 export default {
     name: "DocLoader",
     components: {
-        Params
+        Params,
     },
     data: function() {
         return {
             filename: "",
             req: true,
             subm: false,
-            load_mode: true
+            load_mode: true,
         };
     },
     methods: {
@@ -72,12 +72,12 @@ export default {
         },
         changeMode: function(event) {
             this.load_mode = !this.load_mode;
-        }
+        },
     },
     computed: {
         mode: function() {
             return this.load_mode ? "load" : "update";
-        }
-    }
+        },
+    },
 };
 </script>
