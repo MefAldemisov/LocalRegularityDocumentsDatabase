@@ -16,15 +16,15 @@ npm run build
 
 ## How to use backend
 
-1. Open the derictory of the project via terminal
-2. Run
+To install backend:
+	1) In command prompt go to the directory where it was saved
+	2) Run "$> python3 -m venv"
+	3) Run "$> venv/bin/activate"
+	4) Run "$> pip install -r /path/to/requirements.txt"
+	5) Run "$> python manage.py startapp"
 
-```cd src/```
-
-3. Start server using
-```python3 login.py```
-
-4. Open the required link in your browser
+Documentation to the requests:
+	https://documenter.getpostman.com/view/10962051/SzYdRvWC
 
 ### Authors
 
@@ -32,3 +32,4 @@ npm run build
 - Gosha Stepanov
 - Pavel Tishkin
 - Yurii Zarubin
+

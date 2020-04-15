@@ -1,3 +1,6 @@
 node_modules/*
-/venv/
-/.idea/
+venv/
+.idea/
+document_storage/migrations/
+media/
+db.sqlite3
