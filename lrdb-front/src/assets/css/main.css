@@ -1,0 +1,17 @@
+/* Default settings */
+html {
+    font-size: 0.9vw;
+}
+body {
+    /* max-width: 1920px; */
+    min-width: 320px;
+    box-sizing: border-box;
+    color: #12152a; /*The most common by the elements*/
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.7rem;
+}
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
