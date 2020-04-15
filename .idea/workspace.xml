@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="344b3ae2-05f1-469e-8fa6-ca0da0336f63" name="Default Changelist" comment="Renamed folders">
-      <change beforePath="$PROJECT_DIR$/.babelrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/LocalRegulatoryDocumentDB.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
@@ -11,97 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LocalRegulatoryDocumentDatabase/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/LocalRegulatoryDocumentDatabase/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LocalRegulatoryDocumentDatabase/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/LocalRegulatoryDocumentDatabase/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LocalRegulatoryDocumentDatabase/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/LocalRegulatoryDocumentDatabase/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LocalRegulatoryDocumentDatabase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/LocalRegulatoryDocumentDatabase/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LocalRegulatoryDocumentDatabase/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/LocalRegulatoryDocumentDatabase/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document_storage/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/document_storage/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/widgets.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/admin/static/admin/css/widgets.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/gis/static/gis/css/ol3.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/contrib/gis/static/gis/css/ol3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/core/management/commands/compilemessages.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/django/core/management/commands/compilemessages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/bootstrap-tweaks.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/bootstrap-tweaks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/font-awesome-4.0.3.css" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/venv/Lib/site-packages/rest_framework/static/rest_framework/css/font-awesome-4.0.3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/252702-1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/252702-1_OKDvlWj.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/252702-1_OdxYTtP.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/252702-1_e2b6X5n.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_7LqkDqG.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_U2vCpeJ.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_VNZLhrQ.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_hAEoERg.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_o90tEwp.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/sas_ziGumhN.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Приложение_4_ознакомление.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Приложение_5_служебка.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Приложение_6_журнал_учета_заявок.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Приложение_6_журнал_учета_заявок_lOtZb5U.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/Приложние_8_Приказ_факсимиле.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TODO.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/fonts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/reset.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/dev/70ab42ccf0c35fe6c1362118229045ab.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/dev/7f01b07148f205f6e8258e92bbf652d9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/dev/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-600.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-600.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-600.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-600.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-600.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/ibm-plex-sans-v7-latin_cyrillic-ext-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-600.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-600.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-600.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-600.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-600.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat-v14-latin_cyrillic-ext-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/IU_logo_black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/IU_logo_green.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/images/IU_logo_white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/components/load_docks.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/components/login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/components/my_docks.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/components/page_with_slider.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/components/search_docks.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/langs/en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/langs/ru.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/langs/tat.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/pdf/sprint_2_slides_B18-04_LocalRegularityDocumentsDatabase.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lrdb-back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/lrdb-back/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +117,7 @@
       <workItem from="1586606350796" duration="37000" />
       <workItem from="1586623684991" duration="13948000" />
       <workItem from="1586764905294" duration="6117000" />
-      <workItem from="1586891529221" duration="5110000" />
+      <workItem from="1586891529221" duration="5461000" />
     </task>
     <task id="LOCAL-00001" summary="Some changes to the database: more fields for the files, 2 serializers for getting data and posting data">
       <created>1586625503143</created>

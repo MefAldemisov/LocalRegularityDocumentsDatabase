@@ -4,3 +4,5 @@ lrdb-back/document_storage/migrations/
 lrdb-back/media/
 db.sqlite3
 /media/
+/.idea/
+/__pycache__/
