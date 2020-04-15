@@ -1,34 +1,38 @@
-<style>
-input[type="file"] {
-    display: none;
+<style scoped>
+h2 {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    background-color: #edf1f5;
+    text-align: center;
+}
+.active {
+    background-color: #0f870d;
+    color: white;
 }
 </style>
 <template>
     <div>
         <h1 class="hidden">{{ $t("form_load_upd") }}</h1>
-        <h2>{{ $t("load") }}</h2>
+        <div class="row d-flex justify-content-around">
+            <h2
+                :class="{ active: load_mode }"
+                class="col mx-3 rounded-lg border"
+                @click="changeMode"
+            >
+                {{ $t("load") }}
+            </h2>
+            <h2
+                :class="{ active: !load_mode }"
+                class="col mx-3 rounded-lg border"
+                @click="changeMode"
+            >
+                {{ $t("Update") }}
+            </h2>
+        </div>
         <form @submit.prevent :class="{ 'was-validated': subm }">
-            <Params form_type="load" :required="req" />
-            <div class="row">
-                <div class="col input-group mb-1">
-                    <label
-                        id="srch_owner"
-                        for="srch_file_inp"
-                        :class="{ 'bg-success': filename }"
-                        class="w-100 input-group-text"
-                    >
-                        {{ $t("selct_file") }}
-                        <span v-if="filename">:</span>
-                        {{ filename }}
-                    </label>
-                </div>
-                <input
-                    id="srch_file_inp"
-                    type="file"
-                    class="form-control"
-                    @change="previewFiles"
-                />
-            </div>
+            <Params :form_type="mode" :required="req" />
+            <div class="row"></div>
             <button
                 type="submit"
                 @submit.prevent="checkForm"
@@ -52,7 +56,8 @@ export default {
         return {
             filename: "",
             req: true,
-            subm: false
+            subm: false,
+            load_mode: true
         };
     },
     methods: {
@@ -61,6 +66,14 @@ export default {
         },
         checkForm: function(event) {
             this.subm = true;
+        },
+        changeMode: function(event) {
+            this.load_mode = !this.load_mode;
+        }
+    },
+    computed: {
+        mode: function() {
+            return this.load_mode ? "load" : "update";
         }
     }
 };

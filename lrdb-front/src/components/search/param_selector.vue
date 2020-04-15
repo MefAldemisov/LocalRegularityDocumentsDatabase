@@ -1,26 +1,16 @@
-<style scoped>
-/* .centered_container {
-    display: flexbox;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-between;
-}
-.check {
-    align-self: center;
-    flex-grow: 1;
-} */
-</style>
 <template>
-    <div>
+    <div class="pb-3">
         <!-- in any case -->
         <h4 class="pt-4">Main parameters</h4>
         <div class="row">
             <input_field name="srch_name" type="text" :required="required" />
         </div>
         <!-- in any type except upload-->
-        <div v-if="form_type !== 'upload'" class="row">
+        <div v-if="form_type !== 'load'" class="row">
             <input_field name="srch_owner" type="text" :required="required" />
+            <input_field name="Id" type="number" :required="required" />
         </div>
+
         <h4 class="pt-4">Dates</h4>
         <!-- in case of  search-->
         <div v-if="form_type === 'search'" class="row">
@@ -46,15 +36,18 @@
                 :required="required"
             />
         </div>
-        <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
 
+        <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
         <div class="pb-4 d-flex justify-content-between">
-            <check
-                class="check"
-                v-for="dep in departments"
-                :val="dep.val"
-            ></check>
+            <check v-for="dep in departments" :val="dep.val"></check>
         </div>
+        <!-- for upload and change -->
+        <div v-if="form_type !== 'search'">
+            <h4>{{ $t("selct_file") }}</h4>
+
+            <input_file />
+        </div>
+
         <!-- List of departments od taken from https://university.innopolis.ru/about/structure/-->
     </div>
 </template>
@@ -62,13 +55,14 @@
 import input_field from "./input_field.vue";
 import check from "./check_item.vue";
 import DateRange from "./input_date_range.vue";
-
+import input_file from "./input_file.vue";
 export default {
     name: "Params",
     components: {
         input_field,
         check,
-        DateRange
+        DateRange,
+        input_file
     },
     props: {
         required: {
