@@ -22,13 +22,29 @@
             <input_field name="srch_owner" type="text" :required="required" />
         </div>
         <h4 class="pt-4">Dates</h4>
-        <div class="row">
-            <input_field name="srch_create" type="date" :required="required" />
-            <input_field name="srch_last" type="date" :required="required" />
+        <!-- in case of  search-->
+        <div v-if="form_type === 'search'" class="row">
+            <date-range class="col" name="srch_create" :required="required" />
+            <date-range class="col" name="srch_last" :required="required" />
         </div>
-        <div class="row">
-            <input_field name="srch_start" type="date" :required="required" />
-            <input_field name="srch_end" type="date" :required="required" />
+        <div v-if="form_type === 'search'" class="row">
+            <date-range class="col" name="srch_start" :required="required" />
+            <date-range class="col" name="srch_end" :required="required" />
+        </div>
+        <!-- in case of change and upload -->
+        <div v-if="form_type !== 'search'" class="row">
+            <date-range
+                class="col"
+                name="srch_start"
+                :range="f"
+                :required="required"
+            />
+            <date-range
+                class="col"
+                name="srch_end"
+                :range="f"
+                :required="required"
+            />
         </div>
         <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
 
@@ -45,12 +61,14 @@
 <script>
 import input_field from "./input_field.vue";
 import check from "./check_item.vue";
+import DateRange from "./input_date_range.vue";
 
 export default {
     name: "Params",
     components: {
         input_field,
-        check
+        check,
+        DateRange
     },
     props: {
         required: {
@@ -65,6 +83,7 @@ export default {
     data: function() {
         return {
             active_select: false,
+            f: false,
             departments: [
                 { name: "University Development", val: "dep1" },
                 { name: "Design and research activities", val: "dep2" },

@@ -3,7 +3,7 @@
     <div>
         <form id="search_form" class="search_form" @submit.prevent="done">
             <h2>{{ $t("search_search_params") }}</h2>
-            <Params />
+            <Params :form_type="form_type" />
             <button
                 id="search_form_btn"
                 type="submit"
@@ -22,6 +22,12 @@ export default {
     name: "Search",
     components: {
         Params
+    },
+    props: {
+        form_type: {
+            default: "search",
+            type: String
+        }
     },
     methods: {
         done: function() {

@@ -1,3 +1,4 @@
+<style scoped></style>
 <template>
     <div class="col input-group mb-1">
         <div class="input-group-prepend">
@@ -12,21 +13,6 @@
             class="form-control"
             :required="required"
         />
-        <input
-            v-else
-            @click="changeActive"
-            class="form-control"
-            :value="rangeDates"
-        />
-        <range-date-picker
-            colorToday="#0f870d"
-            colorSelected="#0f870d"
-            colorActive="#edf1f5"
-            v-show="active"
-            v-model="dates"
-            language="en"
-            >click</range-date-picker
-        >
     </div>
 </template>
 <script>

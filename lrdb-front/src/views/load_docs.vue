@@ -8,7 +8,7 @@ input[type="file"] {
         <h1 class="hidden">{{ $t("form_load_upd") }}</h1>
         <h2>{{ $t("load") }}</h2>
         <form @submit.prevent :class="{ 'was-validated': subm }">
-            <Params :required="req" />
+            <Params form_type="load" :required="req" />
             <div class="row">
                 <div class="col input-group mb-1">
                     <label

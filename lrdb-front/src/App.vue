@@ -13,6 +13,9 @@
     color: #fff;
     background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
 }
+.border-success {
+    border-color: #0f870d;
+}
 </style>
 <style scoped>
 /* Header - footter*/
