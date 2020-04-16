@@ -12,4 +12,15 @@ export default {
     getOwnersDocuments(name) {
         return apiClient.get("/docowner/" + name);
     },
+    addDocuments(data) {
+        return apiClient.post(`/documents/' \
+        --form 'owner=${data.owner}' \
+        --form 'name=${data.name}' \
+        --form 'doc_format=docx' \
+        --form 'department=Департамент Управления Образованием' \
+        --form 'document=@/D:/LocalRegulatoryDocumentDB/media/Приложение_4_ознакомление.docx'"`);
+    },
+    getDockById(id) {
+        return apiClient.get(`/documents/${id}/`);
+    },
 };
