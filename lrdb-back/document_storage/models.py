@@ -1,5 +1,5 @@
 from django.db import models
-from LRDD import MEDIA_ROOT
+from lrdd.settings import MEDIA_ROOT
 
 # Create your models here.
 class Owner(models.Model):

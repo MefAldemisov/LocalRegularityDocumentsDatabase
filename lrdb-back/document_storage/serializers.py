@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import urllib.parse
 from base64 import encodebytes
-from LocalRegulatoryDocumentDatabase.settings import MEDIA_ROOT
+from lrdd.settings import MEDIA_ROOT
 from .models import Document, Owner
 
 class OwnerSerializer(serializers.ModelSerializer):
