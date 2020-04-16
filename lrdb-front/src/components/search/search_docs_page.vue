@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form id="search_form" class="search_form" @submit.prevent="done">
+        <form @submit.prevent="done">
             <h2>{{ $t("search_search_params") }}</h2>
             <Params :form_type="form_type" v-model="value" />
             <button
