@@ -83,10 +83,10 @@
             <check
                 v-for="dep in departments"
                 v-model="val.dep[dep.index]"
-                :name="dep.val"
                 :key="dep.val"
                 @input="handleInput"
-            ></check>
+                >{{ $t(dep.val) }}</check
+            >
         </div>
         <!-- for upload and change -->
         <div v-if="form_type !== 'search'">

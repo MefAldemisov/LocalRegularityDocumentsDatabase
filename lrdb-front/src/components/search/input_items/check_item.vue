@@ -20,18 +20,14 @@ label {
 </style>
 <template>
     <div class="form-check-inline">
-        <label
-            class="rounded-lg border"
-            :class="{ active: selected }"
-            :for="name"
-        >
+        <label class="rounded-lg border" :class="{ active: selected }">
             <input
                 type="checkbox"
                 class="hidden"
-                :id="name"
                 v-model="selected"
                 @input="handleInput"
-            />{{ $t(name) }}
+            />
+            <slot></slot>
         </label>
     </div>
 </template>
@@ -44,10 +40,6 @@ export default {
         };
     },
     props: {
-        name: {
-            required: true,
-            type: String,
-        },
         value: {
             required: true,
         },
