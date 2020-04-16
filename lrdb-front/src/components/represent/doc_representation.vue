@@ -22,7 +22,6 @@
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <span
-                        id="link-prev"
                         class="page-link"
                         @click="changePage(currentPage - 1)"
                         >{{ $t("prev") }}</span
@@ -35,7 +34,6 @@
                 </li>
                 <li class="page-item">
                     <span
-                        id="link-next"
                         class="page-link"
                         @click="changePage(currentPage + 1)"
                         >{{ $t("next") }}</span
@@ -58,7 +56,7 @@ const RESPONSE = [
         last_update: "2018-02-04T12:11:00.032709Z",
         effect_date: "2020-04-08T12:11:00.032709Z",
         expiration_date: "2017-12-10T12:11:00.032709Z",
-        department: "Департамент Управления Образованием"
+        department: "Департамент Управления Образованием",
     },
     {
         id: 2,
@@ -69,7 +67,7 @@ const RESPONSE = [
         last_update: "2017-02-04T12:11:00.032709Z",
         effect_date: "2020-04-07T12:11:00.032709Z",
         expiration_date: "2014-04-04T12:11:00.032709Z",
-        department: "Департамент Управления Образованием"
+        department: "Департамент Управления Образованием",
     },
     {
         id: 3,
@@ -80,7 +78,7 @@ const RESPONSE = [
         last_update: "2017-04-04T12:11:00.032709Z",
         effect_date: "2020-01-04T12:11:00.032709Z",
         expiration_date: "2015-09-04T12:11:00.032709Z",
-        department: "Департамент Управления Образованием"
+        department: "Департамент Управления Образованием",
     },
     {
         id: 4,
@@ -91,30 +89,30 @@ const RESPONSE = [
         last_update: "2018-04-04T12:11:00.032709Z",
         effect_date: "2020-03-04T12:11:00.032709Z",
         expiration_date: "2020-02-04T12:11:00.032709Z",
-        department: "Департамент Управления Образованием"
-    }
+        department: "Департамент Управления Образованием",
+    },
 ];
 
 export default {
     name: "Representation",
     components: {
-        Page
+        Page,
     },
     props: {
         response: {
             default: function() {
                 return RESPONSE;
             },
-            type: Array
+            type: Array,
         },
         n_docs: {
             default: 2,
-            type: Number
-        }
+            type: Number,
+        },
     },
     data: function() {
         return {
-            currentPage: 1
+            currentPage: 1,
         };
     },
     computed: {
@@ -122,12 +120,12 @@ export default {
             let index = 1;
             let i = 0;
             let result = [
-                { index: 1, info: this.response.slice(i, i + this.n_docs) }
+                { index: 1, info: this.response.slice(i, i + this.n_docs) },
             ];
             for (i = this.n_docs; i < this.response.length; i += this.n_docs) {
                 result.push({
                     index: index + 1,
-                    info: this.response.slice(i, i + this.n_docs)
+                    info: this.response.slice(i, i + this.n_docs),
                 });
                 index++;
             }
@@ -135,7 +133,7 @@ export default {
         },
         pages: function() {
             return this.info.length;
-        }
+        },
     },
     methods: {
         changePage(pageNum) {
@@ -143,7 +141,7 @@ export default {
                 this.currentPage = pageNum;
             }
             // TODO: add disabled class
-        }
-    }
+        },
+    },
 };
 </script>

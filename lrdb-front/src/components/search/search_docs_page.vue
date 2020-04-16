@@ -3,11 +3,7 @@
         <form @submit.prevent="done">
             <h2>{{ $t("search_search_params") }}</h2>
             <Params :form_type="form_type" v-model="value" />
-            <button
-                id="search_form_btn"
-                type="submit"
-                class="btn btn-success btn-block"
-            >
+            <button type="submit" class="btn btn-success btn-block">
                 <font-awesome-icon icon="search"></font-awesome-icon>
                 <span>{{ $t("srch_srch_btn") }}</span>
             </button>

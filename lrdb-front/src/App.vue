@@ -89,7 +89,7 @@ main {
         <header>
             <nav class="symbolic">
                 <ul>
-                    <li id="logo">
+                    <li>
                         <img class="iu_logo" :src="img_link" :alt="alt" />
                     </li>
                     <router-link
@@ -122,13 +122,10 @@ main {
                             {{ $t("logout") }}
                         </a>
                     </li>
-                    <li id="change">
-                        <label
-                            id="lang_text"
-                            for="lang_marker"
-                            class="navigation"
-                            >{{ $t("lang_text") }}</label
-                        >
+                    <li>
+                        <label for="lang_marker" class="navigation">{{
+                            $t("lang_text")
+                        }}</label>
                         <select
                             id="lang_marker"
                             v-model="selected"
@@ -147,7 +144,7 @@ main {
                 </ul>
             </nav>
         </header>
-        <main id="content">
+        <main>
             <router-view></router-view>
         </main>
         <footer class="symbolic"></footer>

@@ -5,15 +5,13 @@
 </style>
 <template>
     <div>
-        <form id="filter_form" class="filter_form" @submit.prevent>
+        <form class="filter_form" @submit.prevent>
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                    <button
-                        class="btn btn-success"
-                        @click="sort_by"
-                        id="str_by_btn"
-                    >
-                        {{ $t("str_by") }}
+                    <button class="btn btn-success" @click="sort_by">
+                        <label for="str_by_inp">
+                            {{ $t("str_by") }}
+                        </label>
                     </button>
                 </div>
                 <select
@@ -21,7 +19,7 @@
                     v-model="criteria"
                     class="custom-select"
                 >
-                    <option value="name">{{ $t("srt_name") }}</option>
+                    <option value="name" selected>{{ $t("srt_name") }}</option>
                     <option value="owner">{{ $t("srt_owner") }}</option>
                     <option value="created">{{ $t("srt_crt") }}</option>
                     <option value="last_update">{{ $t("str_upd") }}</option>
@@ -47,12 +45,12 @@ import Representation from "../represent/doc_representation.vue";
 export default {
     name: "FilterPage",
     components: {
-        Representation
+        Representation,
     },
     props: { resp: { required: true } },
     data: function() {
         return {
-            criteria: ""
+            criteria: "",
         };
     },
     methods: {
@@ -80,7 +78,7 @@ export default {
         },
         sort_by: function() {
             this.resp = this.resp.sort(this.compareValues(this.criteria));
-        }
-    }
+        },
+    },
 };
 </script>

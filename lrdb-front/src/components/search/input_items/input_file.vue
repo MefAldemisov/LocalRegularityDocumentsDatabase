@@ -7,7 +7,6 @@ input[type="file"] {
     <div class="row">
         <div class="col input-group mb-1">
             <label
-                id="srch_owner"
                 for="srch_file_inp"
                 :class="{ 'bg-success': filename }"
                 class="w-100 input-group-text"
