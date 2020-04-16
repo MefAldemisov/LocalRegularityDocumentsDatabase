@@ -22,21 +22,30 @@ input[type="file"] {
             type="file"
             class="form-control"
             @change="previewFiles"
+            @input="handleInput"
         />
     </div>
 </template>
 <script>
 export default {
     name: "input_file",
+    props: {
+        value: {
+            required: true,
+        },
+    },
     methods: {
         previewFiles: function(event) {
             this.filename = event.target.files[0].name;
-        }
+        },
+        handleInput: function(e) {
+            this.$emit("input", e.target.files[0]);
+        },
     },
     data: function() {
         return {
-            filename: ""
+            filename: "",
         };
-    }
+    },
 };
 </script>

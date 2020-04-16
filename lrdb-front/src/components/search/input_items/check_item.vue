@@ -23,16 +23,15 @@ label {
         <label
             class="rounded-lg border"
             :class="{ active: selected }"
-            :for="val"
+            :for="name"
         >
             <input
                 type="checkbox"
-                :value="val"
                 class="hidden"
-                name="dep"
-                :id="val"
-                v-model:checked="selected"
-            />{{ $t(val) }}
+                :id="name"
+                v-model="selected"
+                @input="handleInput"
+            />{{ $t(name) }}
         </label>
     </div>
 </template>
@@ -41,14 +40,22 @@ export default {
     name: "check",
     data: function() {
         return {
-            selected: false
+            selected: false,
         };
     },
     props: {
-        val: {
+        name: {
             required: true,
-            type: String
-        }
-    }
+            type: String,
+        },
+        value: {
+            required: true,
+        },
+    },
+    methods: {
+        handleInput: function(e) {
+            this.$emit("input", e.target.checked);
+        },
+    },
 };
 </script>

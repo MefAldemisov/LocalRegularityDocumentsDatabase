@@ -34,7 +34,7 @@ h1 {
             </h4>
         </div>
         <form @submit.prevent :class="{ 'was-validated': subm }">
-            <Params :form_type="mode" :required="req" />
+            <Params :form_type="mode" :required="req" v-model="value" />
             <div class="row"></div>
             <button
                 type="submit"
@@ -61,6 +61,7 @@ export default {
             req: true,
             subm: false,
             load_mode: true,
+            value: "",
         };
     },
     methods: {

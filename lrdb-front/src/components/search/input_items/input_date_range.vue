@@ -1,7 +1,7 @@
 <template>
     <VueCtkDateTimePicker
         v-else
-        class="my-1"
+        class="my-1 col"
         :id="name"
         :label="$t(name)"
         v-model="val"
@@ -10,6 +10,7 @@
         :only-date="day"
         color="#0f870d"
         button-color="#0f870d"
+        @input="handleInput"
     />
 </template>
 <script>
@@ -18,18 +19,21 @@ export default {
     props: {
         name: {
             required: true,
-            type: String
+            type: String,
         },
         range: {
             default: true,
-            type: Boolean
-        }
+            type: Boolean,
+        },
+        value: {
+            required: true,
+        },
     },
     data: function() {
         return {
             t: true,
             day: true,
-            val: null
+            val: null,
         };
     },
     computed: {
@@ -40,7 +44,12 @@ export default {
             } else {
                 return now;
             }
-        }
-    }
+        },
+    },
+    methods: {
+        handleInput: function(value) {
+            this.$emit("input", this.val);
+        },
+    },
 };
 </script>
