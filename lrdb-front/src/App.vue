@@ -154,8 +154,7 @@ main {
 // styles
 import "./assets/css/reset.css";
 import "./assets/css/main.css";
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-css-only";
 // import "./assets/css/modile.css"
 // components
 import SearchDocs from "./views/search_docs.vue";

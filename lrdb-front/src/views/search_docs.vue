@@ -18,7 +18,6 @@
 <script>
 import Search from "../components/search/search_docs_page.vue";
 import FilterPage from "../components/search/filter.vue";
-
 const RESP = [
     {
         id: 1,
