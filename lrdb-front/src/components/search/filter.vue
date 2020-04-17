@@ -2,18 +2,21 @@
 .custom-select {
     height: 2.8rem;
 }
+label {
+    margin: 0;
+}
 </style>
 <template>
     <div>
         <form class="filter_form" @submit.prevent>
             <div class="input-group mb-1">
-                <div class="input-group-prepend">
+                <label for="str_by_inp" class="input-group-prepend">
                     <button class="btn btn-success" @click="sort_by">
-                        <label for="str_by_inp">
+                        <span>
                             {{ $t("str_by") }}
-                        </label>
+                        </span>
                     </button>
-                </div>
+                </label>
                 <select
                     id="str_by_inp"
                     v-model="criteria"

@@ -22,21 +22,7 @@
     <div class="row core">
         <div class="col">
             <div class="my-2 mx-2 my-auto">
-                <label class="my-2 row input-group input-group-sm">
-                    <div class="input-group-prepend">
-                        <button class="py-1 btn btn-secondary">
-                            <span class="hidden">{{ $t("download") }}</span>
-                            <font-awesome-icon icon="file"></font-awesome-icon>
-                        </button>
-                    </div>
-                    <input
-                        type="text"
-                        class="form-control"
-                        :value="info.name"
-                        :title="info.name"
-                        readonly
-                    />
-                </label>
+                <doc_desc_row text="srch_name" :controller="info.name" />
                 <doc_desc_row text="srch_owner" :controller="info.owner" />
                 <doc_desc_row text="srch_type" :controller="info.doc_format" />
                 <doc_desc_row text="srch_create" :controller="dt_created" />
@@ -48,6 +34,17 @@
                 />
                 <doc_desc_row text="srch_id" :controller="info.id" />
                 <doc_desc_row text="srt_dep" :controller="info.department" />
+                <doc_desc_row text="srt_size" :controller="info.doc_size" />
+                <div class="my-2 row input-group input-group-sm">
+                    <button class="form-control py-1 btn btn-secondary mr-1">
+                        <span>{{ $t("download") }} </span>
+                        <font-awesome-icon icon="download"></font-awesome-icon>
+                    </button>
+                    <button class="ml-1 form-control py-1 btn btn-secondary">
+                        <span>{{ $t("show_history") }} </span>
+                        <font-awesome-icon icon="history"></font-awesome-icon>
+                    </button>
+                </div>
             </div>
         </div>
         <div class="col full_height shadow p-4 my-1 bg-white rounded">

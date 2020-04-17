@@ -1,7 +1,7 @@
 <template>
     <label class="col input-group mb-1">
         <div class="input-group-prepend">
-            <san class="input-group-text">{{ $t(name) }}</san>
+            <span class="input-group-text">{{ $t(name) }}</span>
         </div>
         <input
             v-model="val"

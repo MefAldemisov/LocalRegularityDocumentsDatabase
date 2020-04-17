@@ -8,6 +8,10 @@
 .pagination {
     width: 100%;
 }
+.active {
+    background-color: #edf1f5;
+    font-weight: 900;
+}
 </style>
 <template>
     <div>
@@ -18,9 +22,6 @@
             :info="i.info"
         />
         <div class="mt-3">
-            <span class="font-weight-bold text-center"
-                >{{ $t("curr_pg") }}: {{ currentPage }}</span
-            >
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <span
@@ -30,9 +31,13 @@
                     >
                 </li>
                 <li v-for="n in pages" class="page-item" :key="n">
-                    <span class="page-link" href="#" @click="changePage(n)">{{
-                        n
-                    }}</span>
+                    <span
+                        :class="{ active: currentPage === n }"
+                        class="page-link"
+                        href="#"
+                        @click="changePage(n)"
+                        >{{ n }}</span
+                    >
                 </li>
                 <li class="page-item">
                     <span
@@ -59,6 +64,7 @@ const RESPONSE = [
         effect_date: "2020-04-08T12:11:00.032709Z",
         expiration_date: "2017-12-10T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 19773,
     },
     {
         id: 2,
@@ -70,6 +76,7 @@ const RESPONSE = [
         effect_date: "2020-04-07T12:11:00.032709Z",
         expiration_date: "2014-04-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 12473,
     },
     {
         id: 3,
@@ -81,6 +88,7 @@ const RESPONSE = [
         effect_date: "2020-01-04T12:11:00.032709Z",
         expiration_date: "2015-09-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 19731,
     },
     {
         id: 4,
@@ -92,6 +100,7 @@ const RESPONSE = [
         effect_date: "2020-03-04T12:11:00.032709Z",
         expiration_date: "2020-02-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 11773,
     },
 ];
 

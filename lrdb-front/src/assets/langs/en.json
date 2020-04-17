@@ -32,7 +32,7 @@
     "srt_start": "Date of start of being valid",
     "srt_end": "Validity date",
     "srt_dep": "Department",
-    "srt_size": "Size of the document",
+    "srt_size": "Size of the document (bytes)",
     "srt_ment": "Amount of mentioned people",
     "next_request_btn": "Next request",
     "doc_search_page": "Document search page",
@@ -52,5 +52,6 @@
     "main_params": "Main parameters",
     "update": "Update documents",
     "dates": "Date parameeters",
-    "srch_id": "Document id"
+    "srch_id": "Document id",
+    "show_history": "Show editing history"
 }

@@ -54,7 +54,7 @@ li {
     pointer-events: none;
 }
 .navigation {
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: black;
 }
 .active,

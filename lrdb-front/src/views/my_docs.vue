@@ -24,6 +24,7 @@ const RESPONSE = [
         effect_date: "2020-04-08T12:11:00.032709Z",
         expiration_date: "2017-12-10T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 19773,
     },
     {
         id: 2,
@@ -35,6 +36,7 @@ const RESPONSE = [
         effect_date: "2020-04-07T12:11:00.032709Z",
         expiration_date: "2014-04-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 12473,
     },
     {
         id: 3,
@@ -46,6 +48,7 @@ const RESPONSE = [
         effect_date: "2020-01-04T12:11:00.032709Z",
         expiration_date: "2015-09-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 19731,
     },
     {
         id: 4,
@@ -57,6 +60,7 @@ const RESPONSE = [
         effect_date: "2020-03-04T12:11:00.032709Z",
         expiration_date: "2020-02-04T12:11:00.032709Z",
         department: "Департамент Управления Образованием",
+        doc_size: 11773,
     },
 ];
 
