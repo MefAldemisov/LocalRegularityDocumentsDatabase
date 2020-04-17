@@ -11,7 +11,7 @@
 }
 </style>
 <template>
-    <div class="my-1 row input-group input-group-sm">
+    <label class="my-1 row input-group input-group-sm">
         <div class="input-group-prepend">
             <span class="input-group-text">{{ $t(text) }}</span>
         </div>
@@ -22,18 +22,18 @@
             :title="controller"
             readonly
         />
-    </div>
+    </label>
 </template>
 <script>
 export default {
     name: "DocDescRow",
     props: {
         text: {
-            requred: true
+            requred: true,
         },
         controller: {
-            default: null
-        }
-    }
+            default: null,
+        },
+    },
 };
 </script>

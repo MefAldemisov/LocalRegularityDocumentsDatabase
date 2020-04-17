@@ -13,25 +13,28 @@
 h1 {
     display: none;
 }
+h2 {
+    font-size: 1.2rem;
+}
 </style>
 <template>
     <div>
         <h1>{{ $t("form_load_upd") }}</h1>
         <div class="row d-flex justify-content-around">
-            <h4
+            <h2
                 :class="{ active: load_mode }"
                 class=" tab col mx-3 rounded-lg border"
                 @click="changeMode"
             >
                 {{ $t("load") }}
-            </h4>
-            <h4
+            </h2>
+            <h2
                 :class="{ active: !load_mode }"
                 class="tab col mx-3 rounded-lg border"
                 @click="changeMode"
             >
                 {{ $t("update") }}
-            </h4>
+            </h2>
         </div>
         <form @submit.prevent :class="{ 'was-validated': subm }">
             <Params :form_type="mode" :required="req" v-model="value" />

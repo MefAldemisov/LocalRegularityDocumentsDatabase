@@ -22,12 +22,10 @@
     <div class="row core">
         <div class="col">
             <div class="my-2 mx-2 my-auto">
-                <div class="my-2 row input-group input-group-sm">
+                <label class="my-2 row input-group input-group-sm">
                     <div class="input-group-prepend">
-                        <button
-                            class="py-1 btn btn-secondary"
-                            :title="$t('download')"
-                        >
+                        <button class="py-1 btn btn-secondary">
+                            <span class="hidden">{{ $t("download") }}</span>
                             <font-awesome-icon icon="file"></font-awesome-icon>
                         </button>
                     </div>
@@ -38,7 +36,7 @@
                         :title="info.name"
                         readonly
                     />
-                </div>
+                </label>
                 <doc_desc_row text="srch_owner" :controller="info.owner" />
                 <doc_desc_row text="srch_type" :controller="info.doc_format" />
                 <doc_desc_row text="srch_create" :controller="dt_created" />
@@ -82,7 +80,7 @@ export default {
     //     });
     // },
     components: {
-        doc_desc_row
+        doc_desc_row,
     },
     // props: [pdf_link],
     props: { info: { type: Object, required: true } },
@@ -98,7 +96,7 @@ export default {
         },
         dt_expiration_date: function() {
             return this.excludeDate(this.info.expiration_date);
-        }
+        },
     },
     methods: {
         excludeDate: function(date) {
@@ -106,7 +104,7 @@ export default {
             let z = other.split(".");
             let t = z[0];
             return `${d} ${t}`;
-        }
-    }
+        },
+    },
 };
 </script>

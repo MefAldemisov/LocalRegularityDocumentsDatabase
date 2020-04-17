@@ -18,7 +18,9 @@
             :info="i.info"
         />
         <div class="mt-3">
-            <h6 class="text-center">{{ $t("curr_pg") }}: {{ currentPage }}</h6>
+            <span class="font-weight-bold text-center"
+                >{{ $t("curr_pg") }}: {{ currentPage }}</span
+            >
             <ul class="pagination justify-content-center">
                 <li class="page-item">
                     <span

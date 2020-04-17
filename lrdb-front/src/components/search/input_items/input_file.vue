@@ -4,17 +4,16 @@ input[type="file"] {
 }
 </style>
 <template>
-    <div class="row">
+    <label class="row">
         <div class="col input-group mb-1">
-            <label
-                for="srch_file_inp"
+            <div
                 :class="{ 'bg-success': filename }"
                 class="w-100 input-group-text"
             >
                 {{ $t("selct_file") }}
                 <span v-if="filename">:</span>
                 {{ filename }}
-            </label>
+            </div>
         </div>
         <input
             id="srch_file_inp"
@@ -23,7 +22,7 @@ input[type="file"] {
             @change="previewFiles"
             @input="handleInput"
         />
-    </div>
+    </label>
 </template>
 <script>
 export default {

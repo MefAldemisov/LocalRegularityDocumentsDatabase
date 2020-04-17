@@ -1,7 +1,7 @@
 <template>
     <div class="pb-3">
         <!-- in any case -->
-        <h4 class="pt-4">{{ $t("main_params") }}</h4>
+        <h3 class="pt-4">{{ $t("main_params") }}</h3>
         <div class="row">
             <input_field
                 v-model="val.name"
@@ -29,7 +29,7 @@
             />
         </div>
 
-        <h4 class="pt-4">{{ $t("dates") }}</h4>
+        <h3 class="pt-4">{{ $t("dates") }}</h3>
         <!-- in case of  search-->
         <div v-if="form_type === 'search'" class="row">
             <date-range
@@ -78,7 +78,7 @@
             />
         </div>
 
-        <h4 class="pt-4">{{ $t("srch_dep") }}</h4>
+        <h3 class="pt-4">{{ $t("srch_dep") }}</h3>
         <div class="pb-4 d-flex justify-content-between">
             <check
                 v-for="dep in departments"
@@ -90,7 +90,7 @@
         </div>
         <!-- for upload and change -->
         <div v-if="form_type !== 'search'">
-            <h4>{{ $t("selct_file") }}</h4>
+            <h3>{{ $t("selct_file") }}</h3>
             <input_file v-model="val.file" @input="handleInput" />
         </div>
     </div>

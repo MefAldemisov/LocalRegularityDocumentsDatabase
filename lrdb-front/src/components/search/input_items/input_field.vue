@@ -1,19 +1,16 @@
 <template>
-    <div class="col input-group mb-1">
+    <label class="col input-group mb-1">
         <div class="input-group-prepend">
-            <label :for="inp_name" class="input-group-text">{{
-                $t(name)
-            }}</label>
+            <san class="input-group-text">{{ $t(name) }}</san>
         </div>
         <input
             v-model="val"
-            :id="inp_name"
             :type="type"
             class="form-control"
             :required="required"
             @input="handleInput"
         />
-    </div>
+    </label>
 </template>
 <script>
 export default {
