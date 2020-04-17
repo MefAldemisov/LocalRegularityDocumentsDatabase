@@ -44,6 +44,7 @@ label {
 </template>
 <script>
 import Representation from "../represent/doc_representation.vue";
+import comparator from "../../plugins/comparator.js";
 
 export default {
     name: "FilterPage",
@@ -57,30 +58,11 @@ export default {
         };
     },
     methods: {
-        compareValues: function(key, order = "asc") {
-            return function innerSort(a, b) {
-                if (!a[key] || !b[key]) {
-                    // property doesn't exist on either object
-                    return 0;
-                }
-                const varA =
-                    typeof a[key] === "string" ? a[key].toLowerCase() : a[key];
-                const varB =
-                    typeof b[key] === "string" ? b[key].toLowerCase() : b[key];
-                let comparison = 0;
-                if (varA > varB) {
-                    comparison = 1;
-                } else if (varA < varB) {
-                    comparison = -1;
-                }
-                return order === "desc" ? comparison * -1 : comparison;
-            };
-        },
         done: function() {
             this.$emit("done");
         },
         sort_by: function() {
-            this.resp = this.resp.sort(this.compareValues(this.criteria));
+            this.resp = this.resp.sort(comparator.compareValues(this.criteria));
         },
     },
 };
