@@ -1,5 +1,5 @@
 from django.db import models
-from LocalRegulatoryDocumentDatabase.settings import MEDIA_ROOT
+from lrdb_back.settings import MEDIA_ROOT
 
 # Create your models here.
 class Owner(models.Model):
@@ -24,5 +24,4 @@ class Document(models.Model):
     expiration_date = models.DateTimeField(auto_now_add=True)
     department = models.TextField()
     mentioned_people = models.ManyToManyField(Owner)
-    amount_of_mentioned = models.IntegerField(blank=True, null=True)
     document = models.FileField(upload_to=MEDIA_ROOT)

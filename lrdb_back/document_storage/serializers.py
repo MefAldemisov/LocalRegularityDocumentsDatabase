@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import urllib.parse
 from base64 import encodebytes
-from LocalRegulatoryDocumentDatabase.settings import MEDIA_ROOT
+from lrdb_back.settings import MEDIA_ROOT
 from .models import Document, Owner
 
 class OwnerSerializer(serializers.ModelSerializer):
@@ -20,7 +20,7 @@ class DocumentPostSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Document
-        fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'amount_of_mentioned', 'document']
+        fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']
 
     def to_representation(self, instance):
         """
@@ -33,7 +33,6 @@ class DocumentPostSerializer(serializers.ModelSerializer):
         data['document'] = 'OK'
         data['amount_of_mentioned'] = len(data['mentioned_people'])
         data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
-        instance.amount_of_mentioned = len(data['mentioned_people'])
         instance.doc_size = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
         return data
 
@@ -43,7 +42,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Document
-        fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'amount_of_mentioned', 'document']
+        fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']
 
     def to_representation(self, instance):
         """
@@ -53,6 +52,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         path = data['document']
         path = path.split("/")
+        print(MEDIA_ROOT)
         f = open(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1])), "rb")
         f = f.read()
         f = encodebytes(f)
