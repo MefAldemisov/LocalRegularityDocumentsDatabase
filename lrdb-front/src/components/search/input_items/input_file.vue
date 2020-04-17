@@ -37,8 +37,8 @@ export default {
         previewFiles: function(event) {
             this.filename = event.target.files[0].name;
         },
-        handleInput: function(e) {
-            this.$emit("input", e.target.files[0]);
+        handleInput: function(event) {
+            this.$emit("input", event.target.files[0]);
         },
     },
     data: function() {

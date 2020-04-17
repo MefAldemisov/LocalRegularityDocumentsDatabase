@@ -64,9 +64,6 @@ export default {
         };
     },
     methods: {
-        previewFiles: function(event) {
-            this.filename = event.target.files[0].name;
-        },
         checkForm: function(event) {
             this.subm = true;
         },

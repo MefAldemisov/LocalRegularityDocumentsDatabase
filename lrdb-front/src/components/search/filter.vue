@@ -22,12 +22,12 @@
                     <option value="name" selected>{{ $t("srt_name") }}</option>
                     <option value="owner">{{ $t("srt_owner") }}</option>
                     <option value="created">{{ $t("srt_crt") }}</option>
-                    <option value="last_update">{{ $t("str_upd") }}</option>
-                    <option value="start_valid">{{ $t("srt_start") }}</option>
-                    <option value="validity date">{{ $t("str_end") }}</option>
-                    <option value="department">{{ $t("srt_dep") }}</option>
-                    <option value="size">{{ $t("srt_size") }}</option>
-                    <option value="peolple">{{ $t("str_ment") }}</option>
+                    <option value="last_update">{{ $t("srch_upd") }}</option>
+                    <option value="effect_date">{{ $t("srch_start") }}</option>
+                    <option value="expiration_date">{{
+                        $t("srch_end")
+                    }}</option>
+                    <option value="department">{{ $t("srch_dep") }}</option>
                 </select>
                 <div class="input-group-append">
                     <button class="btn btn-success" @click.prevent="done">
