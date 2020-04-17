@@ -56,10 +56,6 @@
 </template>
 <script>
 import doc_desc_row from "./doc_desc_row.vue";
-// let $ = require("jquery");
-
-// const pdf_link = "../../assets/images/UI_logo_back.png";
-
 export default {
     name: "DocumentVuewer",
     // created: function() {

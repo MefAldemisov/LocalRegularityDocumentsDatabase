@@ -152,7 +152,7 @@ main {
 </template>
 <script>
 // styles
-import "./assets/css/reset.css";
+import "../node_modules/reset-css/reset.css";
 import "./assets/css/main.css";
 import "bootstrap-css-only";
 // import "./assets/css/modile.css"
@@ -204,12 +204,10 @@ export default {
     created: function() {
         // set language as default language of the user's browser
         const userLang = navigator.language || navigator.userLanguage;
-        switch (userLang[0]) {
-            case "r":
-                this.selected = "RU";
-                break;
-            default:
-                this.selected = "EN";
+        if (userLang[0] === "r") {
+            this.selected = "RU";
+        } else {
+            this.selected = "EN";
         }
         this.$i18n.locale = this.selected.toLowerCase();
     },
