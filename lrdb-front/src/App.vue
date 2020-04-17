@@ -195,16 +195,23 @@ export default {
     methods: {
         changeLang: function() {
             this.$i18n.locale = this.selected.toLowerCase();
+            // change language of the web page
+            document
+                .getElementsByTagName("html")[0]
+                .setAttribute("lang", this.$i18n.locale);
         },
     },
-    // default language of the user's browser
-    //     const userLang = navigator.language || navigator.userLanguage;
-    //     switch (userLang[0]) {
-    //         case "r":
-    //             this.selected = "RU";
-    //             break;
-    //         default:
-    //             this.selected = "EN";
-    //     }
+    created: function() {
+        // set language as default language of the user's browser
+        const userLang = navigator.language || navigator.userLanguage;
+        switch (userLang[0]) {
+            case "r":
+                this.selected = "RU";
+                break;
+            default:
+                this.selected = "EN";
+        }
+        this.$i18n.locale = this.selected.toLowerCase();
+    },
 };
 </script>

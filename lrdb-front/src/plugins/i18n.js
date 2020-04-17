@@ -5,8 +5,9 @@ Vue.use(VueI18n);
 let en = require(`../assets/langs/en.json`);
 let ru = require(`../assets/langs/ru.json`);
 let tat = require(`../assets/langs/tat.json`);
+
 export const i18n = new VueI18n({
     locale: "en",
-    fallbackLocale: "en",
-    messages: { en: en, ru: ru, tat: tat }
+    fallbackLocale: "en", // time options
+    messages: { en: en, ru: ru, tat: tat },
 });

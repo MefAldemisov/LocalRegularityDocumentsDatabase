@@ -15,7 +15,7 @@
                 type="password"
                 :required="t"
             />
-            <div class="px-4 pt-3">
+            <div class="px-3 pt-3">
                 <button type="submit" class="btn btn-success btn-block">
                     {{ $t("login_submit") }}
                 </button>
