@@ -56,6 +56,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         f = open(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1])), "rb")
         f = f.read()
         f = encodebytes(f)
+        data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
         data['document'] = f
         return data
 
