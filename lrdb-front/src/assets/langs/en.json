@@ -53,5 +53,8 @@
     "update": "Update documents",
     "dates": "Date parameeters",
     "srch_id": "Document id",
-    "show_history": "Show editing history"
+    "show_history": "Show editing history",
+    "history": "History of changes in the document",
+    "version": "Version",
+    "commit": "Description of changes"
 }

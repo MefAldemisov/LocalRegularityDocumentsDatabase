@@ -11,7 +11,7 @@
 }
 </style>
 <template>
-    <label class="my-1 row input-group input-group-sm">
+    <label v-if="controller" class="my-1 row input-group input-group-sm">
         <div class="input-group-prepend">
             <span class="input-group-text">{{ $t(text) }}</span>
         </div>
@@ -32,7 +32,7 @@ export default {
             requred: true,
         },
         controller: {
-            default: null,
+            retured: true,
         },
     },
 };

@@ -4,6 +4,7 @@ import SearchDocs from "../views/search_docs.vue";
 import MyDocs from "../views/my_docs.vue";
 import DocLoader from "../views/load_docs.vue";
 import LoginForm from "../views/login.vue";
+import History from "../views/history.vue";
 
 Vue.use(VueRouter);
 
@@ -11,29 +12,35 @@ const routes = [
     {
         path: "/my_docs",
         name: "MyDocs",
-        component: MyDocs
+        component: MyDocs,
     },
     {
         path: "/search",
         name: "Search",
-        component: SearchDocs
+        component: SearchDocs,
     },
     {
         path: "/",
         name: "Login",
-        component: LoginForm
+        component: LoginForm,
     },
     {
         path: "/load",
         name: "Load",
-        component: DocLoader
-    }
+        component: DocLoader,
+    },
+    {
+        path: "/history/:id",
+        name: "History",
+        component: History,
+        props: true,
+    },
 ];
 
 const router = new VueRouter({
     mode: "history",
     base: process.env.BASE_URL,
-    routes
+    routes,
 });
 
 export default router;
