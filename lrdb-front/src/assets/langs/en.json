@@ -56,5 +56,6 @@
     "show_history": "Show editing history",
     "history": "History of changes in the document",
     "version": "Version",
-    "commit": "Description of changes"
+    "commit": "Description of changes",
+    "preview": "Preview"
 }

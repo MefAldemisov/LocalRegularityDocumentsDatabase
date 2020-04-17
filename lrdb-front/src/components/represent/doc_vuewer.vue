@@ -57,7 +57,7 @@
         </div>
         <div class="col full_height shadow p-4 my-1 bg-white rounded">
             <div id="target" class="mx-1 full_height">
-                <iframe class="iframe" :src="doc_file" />
+                <iframe class="iframe" :src="doc_file" title="$t(preview)" />
             </div>
         </div>
     </div>
