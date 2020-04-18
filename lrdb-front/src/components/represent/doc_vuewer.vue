@@ -5,17 +5,12 @@
     height: calc(100% - 3rem);
     border: none;
 }
-
 .full_height {
     min-height: 100%;
 }
-
 .row {
     display: flex;
     flex-wrap: wrap;
-}
-.btn-secondary {
-    background-color: #0f870d;
 }
 @media (max-width: 1000px) {
     .col-lg {
@@ -45,20 +40,28 @@
                 <doc_desc_row text="srt_dep" :controller="info.department" />
                 <doc_desc_row text="srt_size" :controller="info.doc_size" />
                 <doc_desc_row text="srch_type" :controller="info.doc_format" />
-                <div class="my-2 row input-group input-group-sm">
-                    <button class="form-control py-1 btn btn-secondary mr-1">
-                        <span>{{ $t("download") }} </span>
-                        <font-awesome-icon icon="download"></font-awesome-icon>
+                <div class="my-sm-2 row input-group input-group-sm">
+                    <button class="col-sm py-sm-1 btn btn-success mr-1">
+                        <span class="btn_content"
+                            >{{ $t("download") }}
+                            <font-awesome-icon
+                                icon="download"
+                            ></font-awesome-icon>
+                        </span>
                     </button>
                     <router-link
-                        class="ml-1 form-control py-1 btn btn-secondary"
+                        class="ml-1 col-sm py-1 btn btn-success"
                         :to="{
                             name: 'History',
                             params: { id: info.id, name: info.name },
                         }"
                     >
-                        <span>{{ $t("show_history") }} </span>
-                        <font-awesome-icon icon="history"></font-awesome-icon>
+                        <span class="btn_content"
+                            >{{ $t("show_history") }}
+                            <font-awesome-icon
+                                icon="history"
+                            ></font-awesome-icon>
+                        </span>
                     </router-link>
                 </div>
             </div>
