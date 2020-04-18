@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DocdatabaseConfig(AppConfig):
+class DocumentStorageConfig(AppConfig):
     name = 'document_storage'
