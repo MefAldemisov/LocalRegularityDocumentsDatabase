@@ -18,7 +18,6 @@
 }
 </style>
 <style scoped>
-/* Header - footter*/
 .symbolic {
     background-color: #edf1f5;
     min-height: 3.5rem;
@@ -27,20 +26,14 @@ footer {
     margin-top: 2rem;
 }
 .iu_logo {
-    width: 6rem;
+    width: 8rem;
 }
-ul {
-    margin: auto;
+ul.container {
     width: 70%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
 }
-li {
+ul.container > li {
     height: 100%;
     padding: 0.5rem;
-    flex-shrink: 1;
     display: inline-block;
 }
 .logout:link,
@@ -65,9 +58,6 @@ li {
     cursor: pointer;
     text-decoration: none;
 }
-.hidden {
-    display: none;
-}
 .lang_marker {
     cursor: pointer;
     background-color: transparent;
@@ -76,48 +66,96 @@ li {
 .lang_marker:hover {
     font-weight: 600;
 }
-/* Main part */
 main {
     padding-top: 1rem;
     margin: auto;
     width: 70%;
     min-height: 90vh;
 }
+ul > li.burger {
+    position: relative;
+    display: none;
+    padding: 0;
+}
+.burger_list {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    z-index: 1;
+    min-width: 10rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+}
+.burger_list > * {
+    font-weight: 400;
+}
+.dropdown-item:active,
+.burger_active {
+    background-color: #0f870d;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    main.container,
+    ul.container {
+        width: 90%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+@media (max-width: 1000px) {
+    ul > li.clickbel {
+        display: none;
+    }
+    ul.container > li.burger {
+        display: inline-block;
+    }
+    .burger:hover .burger_list {
+        display: block;
+    }
+}
 </style>
 <template>
     <div>
         <header>
             <nav class="symbolic">
-                <ul>
+                <ul
+                    class="container d-flex flex-wrap justify-content-between align-items-baseline"
+                >
+                    <li class="burger clickbel">
+                        <span>
+                            <font-awesome-icon icon="bars"></font-awesome-icon>
+                        </span>
+                        <ul class="burger_list">
+                            <router-link
+                                class="dropdown-item rounded-lg"
+                                active-class="burger_active"
+                                tag="li"
+                                v-for="nav in navs"
+                                :to="{ name: nav }"
+                                :key="nav"
+                                >{{ $t(nav) }}</router-link
+                            >
+                            <li class="dropdown-item rounded-lg">
+                                <a :href="logout_link" class="logout">
+                                    {{ $t("logout") }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <img class="iu_logo" :src="img_link" :alt="alt" />
                     </li>
                     <router-link
                         tag="li"
-                        v-if="user_id > 0"
+                        v-for="nav in navs"
                         active-class="active"
                         class="clickbel navigation"
-                        to="/my_docs"
-                        >{{ $t("my") }}</router-link
+                        :to="{ name: nav }"
+                        :key="nav"
+                        >{{ $t(nav) }}</router-link
                     >
-                    <router-link
-                        tag="li"
-                        v-if="user_id > 0"
-                        active-class="active"
-                        class="clickbel navigation"
-                        to="/search"
-                        >{{ $t("search") }}</router-link
-                    >
-                    <router-link
-                        tag="li"
-                        v-if="user_id > 0"
-                        active-class="active"
-                        class="clickbel navigation"
-                        to="/load"
-                        >{{ $t("load") }}</router-link
-                    >
-
-                    <li v-if="user_id > 0" class="clickbel navigation">
+                    <li class="clickbel navigation">
                         <a :href="logout_link" class="logout">
                             {{ $t("logout") }}
                         </a>
@@ -144,7 +182,7 @@ main {
                 </ul>
             </nav>
         </header>
-        <main>
+        <main class="container">
             <router-view></router-view>
         </main>
         <footer class="symbolic"></footer>
@@ -155,7 +193,6 @@ main {
 import "../node_modules/reset-css/reset.css";
 import "./assets/css/main.css";
 import "bootstrap-css-only";
-// import "./assets/css/modile.css"
 // components
 import SearchDocs from "./views/search_docs.vue";
 import MyDocs from "./views/my_docs.vue";
@@ -190,6 +227,7 @@ export default {
             selected: "EN",
             langs: ["EN", "RU", "TAT"],
             alt: "$t('alt_logo')",
+            navs: ["my", "search", "load"],
         };
     },
     methods: {
@@ -200,6 +238,7 @@ export default {
                 .getElementsByTagName("html")[0]
                 .setAttribute("lang", this.$i18n.locale);
         },
+        showDropdown: function() {},
     },
     created: function() {
         // set language as default language of the user's browser

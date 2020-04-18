@@ -3,7 +3,7 @@
         <DocumentVuewer
             v-for="i in info"
             :key="i.id"
-            class="my-3 shadow-sm"
+            class="my-lg-3 shadow-sm my-5"
             :info="i"
         />
     </div>
@@ -14,14 +14,14 @@ import DocumentVuewer from "./doc_vuewer.vue";
 export default {
     name: "Page",
     components: {
-        DocumentVuewer
+        DocumentVuewer,
     },
     props: {
         info: {
             type: Array,
-            required: true
-        }
+            required: true,
+        },
     },
-    mounted() {}
+    mounted() {},
 };
 </script>

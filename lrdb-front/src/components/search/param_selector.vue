@@ -79,7 +79,7 @@
         </div>
 
         <h3 class="pt-4">{{ $t("srch_dep") }}</h3>
-        <div class="pb-4 d-flex justify-content-between">
+        <div class="pb-4 d-flex flex-wrap justify-content-around">
             <check
                 v-for="dep in departments"
                 v-model="val.dep[dep.index]"

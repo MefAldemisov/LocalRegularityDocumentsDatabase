@@ -6,8 +6,9 @@ import {
     faFile,
     faDownload,
     faHistory,
+    faBars,
 } from "@fortawesome/fontawesome-free-solid";
 
-library.add(faSearch, faFile, faDownload, faHistory);
+library.add(faSearch, faFile, faDownload, faHistory, faBars);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon); // registered globally

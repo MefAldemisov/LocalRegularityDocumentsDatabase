@@ -17,10 +17,18 @@
 .btn-secondary {
     background-color: #0f870d;
 }
+@media (max-width: 1000px) {
+    .col-lg {
+        display: block;
+    }
+    .full_height {
+        min-height: 40vh;
+    }
+}
 </style>
 <template>
-    <div class="row core">
-        <div class="col">
+    <article class="row">
+        <div class="col-lg">
             <div class="my-2 mx-2 my-auto">
                 <doc_desc_row text="version" :controller="info.version" />
                 <doc_desc_row text="commit" :controller="info.commit" />
@@ -55,12 +63,12 @@
                 </div>
             </div>
         </div>
-        <div class="col full_height shadow p-4 my-1 bg-white rounded">
+        <div class="col-lg full_height shadow p-4 my-1 bg-white rounded">
             <div id="target" class="mx-1 full_height">
                 <iframe class="iframe" :src="doc_file" title="$t(preview)" />
             </div>
         </div>
-    </div>
+    </article>
 </template>
 <script>
 import doc_desc_row from "./doc_desc_row.vue";

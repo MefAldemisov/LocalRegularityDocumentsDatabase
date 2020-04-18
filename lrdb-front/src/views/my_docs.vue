@@ -1,11 +1,15 @@
 <template>
     <div>
         <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
-        <h2>{{ $t("docs_name_ment") }}</h2>
-        <Representation :response="mentioned" />
-        <h2>{{ $t("docs_up_by_me") }}</h2>
-        <!-- make a carousel -->
-        <Representation />
+        <section>
+            <h2>{{ $t("docs_name_ment") }}</h2>
+            <Representation :response="mentioned" />
+        </section>
+        <section>
+            <h2>{{ $t("docs_up_by_me") }}</h2>
+            <!-- make a carousel -->
+            <Representation />
+        </section>
     </div>
 </template>
 <script>

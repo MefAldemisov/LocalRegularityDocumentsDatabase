@@ -1,5 +1,5 @@
 <template>
-    <label class="col input-group mb-1">
+    <label class="col-lg input-group mb-1">
         <div class="input-group-prepend">
             <span class="input-group-text">{{ $t(name) }}</span>
         </div>

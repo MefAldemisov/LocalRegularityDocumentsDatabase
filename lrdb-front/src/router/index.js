@@ -11,22 +11,22 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/my_docs",
-        name: "MyDocs",
+        name: "my",
         component: MyDocs,
     },
     {
         path: "/search",
-        name: "Search",
+        name: "search",
         component: SearchDocs,
     },
     {
         path: "/",
-        name: "Login",
+        name: "login",
         component: LoginForm,
     },
     {
         path: "/load",
-        name: "Load",
+        name: "load",
         component: DocLoader,
     },
     {
