@@ -70,7 +70,6 @@
             />
             <date-range
                 v-model="val.expiration_date"
-                class="col"
                 name="srch_end"
                 :range="f"
                 :required="required"

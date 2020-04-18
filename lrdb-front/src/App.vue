@@ -77,12 +77,12 @@ ul > li.burger {
     display: none;
     padding: 0;
 }
-.burger_list {
+.burger_list,
+.lang_list {
     display: none;
     position: absolute;
     background-color: #fff;
     z-index: 1;
-    min-width: 10rem;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
 }
@@ -94,7 +94,13 @@ ul > li.burger {
     background-color: #0f870d;
     color: white;
 }
-
+select.custom-select {
+    width: 50%;
+    padding-left: 1rem;
+}
+.selector:hover .lang_list {
+    display: block;
+}
 @media (max-width: 1200px) {
     main.container,
     ul.container {
@@ -160,23 +166,21 @@ ul > li.burger {
                             {{ $t("logout") }}
                         </a>
                     </li>
-                    <li>
-                        <label for="lang_marker" class="navigation">{{
-                            $t("lang_text")
-                        }}</label>
-                        <select
-                            id="lang_marker"
-                            v-model="selected"
-                            class="lang_marker"
-                            @change="changeLang"
-                        >
-                            <option
+                    <li class="selector">
+                        <span class="navigation"
+                            >{{ $t("lang_text") }} : {{ selected }}
+                        </span>
+                        <div class="lang_list">
+                            <div
                                 v-for="lang in langs"
                                 :key="lang"
-                                class="lang_label"
-                                :value="lang"
-                                >{{ lang }}</option
+                                class="rounded-lg dropdown-item"
+                                :class="{burger_active: lang===selected}"
+                                @click="changeLang(lang)"
                             >
+                                {{ lang }}
+                            </div>
+                        </div>
                         </select>
                     </li>
                 </ul>
@@ -231,8 +235,9 @@ export default {
         };
     },
     methods: {
-        changeLang: function() {
-            this.$i18n.locale = this.selected.toLowerCase();
+        changeLang: function(lang) {
+            this.$i18n.locale = lang.toLowerCase();
+            this.selected = lang
             // change language of the web page
             document
                 .getElementsByTagName("html")[0]

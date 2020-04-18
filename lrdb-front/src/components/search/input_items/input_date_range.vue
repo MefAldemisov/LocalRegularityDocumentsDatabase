@@ -1,7 +1,7 @@
 <template>
     <VueCtkDateTimePicker
         v-else
-        class="my-1 col"
+        class="my-1 col-sm"
         :id="name"
         :label="$t(name)"
         v-model="val"
