@@ -53,7 +53,7 @@
 <script>
 import Page from "./doc_page.vue";
 
-const RESPONSE = require("../../assets/test_data.json");
+// const RESPONSE = require("../../assets/test_data.json");
 
 export default {
     name: "Representation",
@@ -62,9 +62,7 @@ export default {
     },
     props: {
         response: {
-            default: function() {
-                return RESPONSE;
-            },
+            require: true,
             type: Array,
         },
         n_docs: {

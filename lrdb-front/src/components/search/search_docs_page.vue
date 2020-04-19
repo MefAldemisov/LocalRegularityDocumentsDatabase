@@ -35,18 +35,22 @@ export default {
         },
     },
     methods: {
-        request: function() {
-            apiCalls
+        request: async function() {
+            let val = [];
+            await apiCalls
                 .getAll()
                 .then(function(data) {
-                    this.val = data.data;
+                    console.log(data.data);
+                    val = data.data;
                 })
                 .catch(function(error) {
-                    console.log("Not possible to load all documents");
+                    console.log("Not possible to load all documents", error);
                 });
+            this.setVal(val);
         },
-        handleInput: function(value) {
-            this.$emit("done", this.val);
+        setVal: function(data) {
+            this.val = data;
+            this.$emit("input", this.val);
         },
     },
 };
