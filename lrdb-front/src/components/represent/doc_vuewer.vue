@@ -8,10 +8,6 @@
 .full_height {
     min-height: 100%;
 }
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
 @media (max-width: 1000px) {
     .col-lg {
         display: block;

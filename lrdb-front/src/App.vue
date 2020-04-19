@@ -82,8 +82,7 @@ ul > li.burger {
     display: none;
     position: absolute;
     background-color: #fff;
-    z-index: 1;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 2;
     padding: 12px 16px;
 }
 .burger_list > * {
@@ -132,7 +131,7 @@ select.custom-select {
                         <span>
                             <font-awesome-icon icon="bars"></font-awesome-icon>
                         </span>
-                        <ul class="burger_list">
+                        <ul class="burger_list shadow-lg">
                             <router-link
                                 class="dropdown-item rounded-lg"
                                 active-class="burger_active"
@@ -170,7 +169,7 @@ select.custom-select {
                         <span class="navigation"
                             >{{ $t("lang_text") }} : {{ selected }}
                         </span>
-                        <div class="lang_list">
+                        <div class="lang_list shadow-lg">
                             <div
                                 v-for="lang in langs"
                                 :key="lang"

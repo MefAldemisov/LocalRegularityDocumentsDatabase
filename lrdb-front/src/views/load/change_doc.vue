@@ -25,7 +25,7 @@
             >
                 <template v-slot:append>
                     <button class="btn btn-success" type="submit">
-                        SUBMIT
+                        {{ $t("login_submit") }}
                     </button>
                 </template>
             </input_field>
