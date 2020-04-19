@@ -10,6 +10,9 @@
             :required="required"
             @input="handleInput"
         />
+        <div class="input-group-append">
+            <slot name="append"></slot>
+        </div>
     </label>
 </template>
 <script>
@@ -41,6 +44,9 @@ export default {
         inp_name: function() {
             return this.name + "_inp";
         },
+    },
+    created: function() {
+        this.val = this.value;
     },
     methods: {
         handleInput: function(e) {

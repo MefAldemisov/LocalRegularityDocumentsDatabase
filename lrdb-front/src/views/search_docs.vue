@@ -13,7 +13,7 @@
         <Search
             form_type="search"
             v-if="search_mode"
-            @done="changeMode"
+            @input="changeMode"
             v-model="resp"
         />
         <FilterPage v-else @done="changeMode" :resp="resp" />

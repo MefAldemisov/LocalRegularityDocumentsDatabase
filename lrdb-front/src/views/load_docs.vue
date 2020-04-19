@@ -2,9 +2,11 @@
 .tab {
     display: inline-block;
     cursor: pointer;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.5rem;
     background-color: #edf1f5;
     text-align: center;
+    text-decoration: none;
+    color: #000;
 }
 .active {
     background-color: #0f870d;
@@ -15,61 +17,40 @@ h1 {
 }
 h2 {
     font-size: 1.2rem;
+    margin: 0;
 }
 </style>
 <template>
     <div>
         <h1>{{ $t("form_load_upd") }}</h1>
         <div class="row d-flex justify-content-around">
-            <h2
-                :class="{ active: load_mode }"
-                class=" tab col mx-3 rounded-lg border"
-                @click="changeMode"
-            >
-                {{ $t("load") }}
-            </h2>
-            <h2
-                :class="{ active: !load_mode }"
+            <router-link
+                v-for="mode in load_modes"
                 class="tab col mx-3 rounded-lg border"
-                @click="changeMode"
+                active-class="active"
+                :to="{ name: mode.name }"
+                :key="mode.name"
             >
-                {{ $t("update") }}
-            </h2>
+                <h2>
+                    {{ $t(mode.text) }}
+                </h2>
+            </router-link>
         </div>
-        <form @submit.prevent :class="{ 'was-validated': subm }">
-            <Params :form_type="mode" :required="req" v-model="value" />
-            <button
-                type="submit"
-                @submit.prevent="checkForm"
-                @click.prevent="checkForm"
-                class="btn btn-success btn-block"
-            >
-                {{ $t("upl_doc_data") }}
-            </button>
-        </form>
+        <router-view></router-view>
     </div>
 </template>
 <script>
-import Params from "../components/search/param_selector.vue";
-
 export default {
     name: "DocLoader",
-    components: {
-        Params,
-    },
     data: function() {
         return {
-            filename: "",
-            req: true,
-            subm: false,
-            load_mode: true,
-            value: "",
+            load_modes: [
+                { name: "new", text: "load" },
+                { name: "change", text: "update" },
+            ],
         };
     },
     methods: {
-        checkForm: function(event) {
-            this.subm = true;
-        },
         changeMode: function(event) {
             this.load_mode = !this.load_mode;
         },

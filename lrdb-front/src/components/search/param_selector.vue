@@ -21,6 +21,7 @@
                 @input="handleInput"
             />
             <input_field
+                v-if="form_type !== 'upload'"
                 v-model="val.id"
                 name="srch_id"
                 type="number"
@@ -120,6 +121,10 @@ export default {
         value: {
             required: true,
         },
+        initial: {
+            required: false,
+            default: { name: "", owner: "" },
+        },
     },
     data: function() {
         return {
@@ -154,6 +159,10 @@ export default {
                 dep: [false, false, false, false, false, false, false],
             },
         };
+    },
+    created: function() {
+        this.val.name = this.initial.name;
+        this.val.owner = this.initial.owner;
     },
     methods: {
         changeActive: function() {
