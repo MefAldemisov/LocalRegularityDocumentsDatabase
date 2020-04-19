@@ -14,9 +14,9 @@ export default {
     },
     addDocuments(data) {
         let fd = new FormData();
-        fd.append("owner", data.owner);
+        fd.append("owner", "Админ");
         fd.append("name", data.name);
-        fd.append("doc_dormat", data.file.name.split(".")[1]); // TODO
+        fd.append("doc_format", data.file.name.split(".")[1]); // TODO
         fd.append("department", "Департамент Управления Образованием"); //temp
         fd.append("document", data.file);
         console.log("" + fd);
