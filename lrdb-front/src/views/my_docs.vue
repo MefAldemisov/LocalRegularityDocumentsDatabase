@@ -8,7 +8,7 @@
         <section>
             <h2>{{ $t("docs_up_by_me") }}</h2>
             <!-- make a carousel -->
-            <Representation />
+            <Representation :response="mentioned" />
         </section>
     </div>
 </template>
@@ -16,26 +16,34 @@
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
 
-const RESPONSE = require("../assets/test_data.json");
-
 export default {
     name: "MyDocs",
     components: { Representation },
     data: function() {
         return {
             id: 1,
-            mentioned: RESPONSE,
+            mentioned: [],
         };
     },
-    created: function() {
-        apiCalls
-            .getOwnersDocuments("Степанюк Валентин Валерьевич/")
+    created: async function() {
+        console.log("start");
+        let mentioned = [];
+        await apiCalls
+            .getOwnersDocuments("Третьяков Владимир Владимирович/")
             .then(function(data) {
-                this.mentioned = data.data;
+                console.log("DAA", data);
+                mentioned = data.data;
             })
             .catch(function(error) {
                 console.log("Some error occured");
             });
+        this.setMentioned(mentioned);
+    },
+    methods: {
+        setMentioned: function(res) {
+            console.log("Res", res);
+            this.mentioned = res;
+        },
     },
 };
 </script>

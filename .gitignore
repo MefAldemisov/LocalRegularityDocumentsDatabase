@@ -4,3 +4,7 @@ node_modules
 /lrdb-back/venv/
 .idea/
 lrdb_back/__pycache__/
+lrdb_back/media/
+lrdb_back/media/*
+lrdb_back/Database.txt
+lrdb_back/db.sqlite3
