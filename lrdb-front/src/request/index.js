@@ -10,16 +10,7 @@ const apiClient = axios.create({
 
 export default {
     getOwnersDocuments(name) {
-        return apiClient.get("/docowner/" + name, {
-            headers: {
-                // "Access-Control-Allow-Origin": "*",
-                // "Access-Control-Allow-Methods":
-                //     "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-                // "Access-Control-Allow-Headers":
-                //     "Origin, Content-Type, X-Auth-Token",
-                // "Content-Type": "application/json",
-            },
-        });
+        return apiClient.get("/docowner/" + name);
     },
     addDocuments(data) {
         return apiClient.post(`/documents/' \
@@ -31,5 +22,8 @@ export default {
     },
     getDockById(id) {
         return apiClient.get(`/documents/${id}/`);
+    },
+    getAll() {
+        return apiClient.get(`/documents/`);
     },
 };
