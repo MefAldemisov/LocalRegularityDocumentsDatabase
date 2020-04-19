@@ -123,7 +123,9 @@ export default {
         },
         initial: {
             required: false,
-            default: { name: "", owner: "" },
+            default: function() {
+                return { name: "", owner: "" };
+            },
         },
     },
     data: function() {

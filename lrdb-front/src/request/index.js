@@ -13,12 +13,14 @@ export default {
         return apiClient.get("/docowner/" + name);
     },
     addDocuments(data) {
-        return apiClient.post(`/documents/' \
-        --form 'owner=${data.owner}' \
-        --form 'name=${data.name}' \
-        --form 'doc_format=docx' \
-        --form 'department=Департамент Управления Образованием' \
-        --form 'document=@/D:/LocalRegulatoryDocumentDB/media/Приложение_4_ознакомление.docx'"`);
+        let fd = new FormData();
+        fd.append("owner", data.owner);
+        fd.append("name", data.name);
+        fd.append("doc_dormat", data.file.name.split(".")[1]); // TODO
+        fd.append("department", "Департамент Управления Образованием"); //temp
+        fd.append("document", data.file);
+        console.log("" + fd);
+        return apiClient.post(`/documents/`, fd);
     },
     getDockById(id) {
         return apiClient.get(`/documents/${id}/`);
