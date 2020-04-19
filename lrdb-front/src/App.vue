@@ -192,25 +192,14 @@ select.custom-select {
     </div>
 </template>
 <script>
-// styles
+
 import "../node_modules/reset-css/reset.css";
 import "./assets/css/main.css";
 import "bootstrap-css-only";
-// components
-import SearchDocs from "./views/search_docs.vue";
-import MyDocs from "./views/my_docs.vue";
-import DocLoader from "./views/load_docs.vue";
-import LoginForm from "./views/login.vue";
 import UI_logo from "./assets/images/IU_logo_black.png";
 
 export default {
     name: "App",
-    components: {
-        SearchDocs,
-        MyDocs,
-        DocLoader,
-        LoginForm,
-    },
     props: {
         user_id: {
             type: Number,

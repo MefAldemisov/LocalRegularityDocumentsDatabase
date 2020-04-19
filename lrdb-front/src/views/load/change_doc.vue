@@ -34,7 +34,7 @@
 </template>
 <script>
 import Params from "../../components/search/param_selector.vue";
-import input_field from "../../components/search/input_items/input_field";
+import input_field from "../../components/search/input_items/input_field.vue";
 import apiCalls from "../../request/index.js";
 
 export default {
