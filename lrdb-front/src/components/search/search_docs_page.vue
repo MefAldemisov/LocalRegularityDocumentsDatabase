@@ -38,7 +38,7 @@ export default {
         request: async function() {
             let val = [];
             await apiCalls
-                .getAll()
+                .getDocuments(this.params)
                 .then(function(data) {
                     console.log(data.data);
                     val = data.data;

@@ -35,6 +35,7 @@ export default {
                 mentioned = data.data;
             })
             .catch(function(error) {
+                mentioned = require("../assets/test_data.json");
                 console.log("Some error occured");
             });
         this.setMentioned(mentioned);

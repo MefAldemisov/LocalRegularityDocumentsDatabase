@@ -82,7 +82,7 @@
         <div class="pb-4 d-flex flex-wrap justify-content-around">
             <check
                 v-for="dep in departments"
-                v-model="val.dep[dep.index]"
+                v-model="select_list[dep.index]"
                 :key="dep.val"
                 @input="handleInput"
                 >{{ $t(dep.val) }}</check
@@ -158,8 +158,9 @@ export default {
                 last_update: "",
                 effect_date: "",
                 expiration_date: "",
-                dep: [false, false, false, false, false, false, false],
+                dep: "",
             },
+            select_list: [false, false, false, false, false, false, false],
         };
     },
     created: function() {
@@ -167,11 +168,30 @@ export default {
         this.val.owner = this.initial.owner;
     },
     methods: {
+        filterSelected: function() {
+            let used = {};
+            for (let key of Object.keys(this.val)) {
+                if (this.val[key]) {
+                    used[key] = this.val[key];
+                }
+            }
+            return used;
+        },
         changeActive: function() {
             this.active_select = !this.active_select;
         },
         handleInput: function(e) {
-            this.$emit("input", this.val);
+            // configure department id
+            const dep_indexes = Array.from(
+                Array(this.select_list.length).keys()
+            );
+            let sl = this.select_list;
+            this.val.dep = dep_indexes.filter(function(val) {
+                return sl[val];
+            });
+            this.val.dep = this.val.dep.length > 0 ? this.val.dep : "";
+            // selection of used only data
+            this.$emit("input", this.filterSelected());
         },
     },
 };

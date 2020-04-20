@@ -28,4 +28,15 @@ export default {
     getAll() {
         return apiClient.get(`/documents/`);
     },
+    getDocuments(params) {
+        const keys = Object.keys(params);
+        if (keys.length === 0) {
+            return this.getAll();
+        }
+        let fd = new FormData();
+        for (let k of keys) {
+            fd.append(k, params[k]);
+        }
+        return apiClient.post(`/search/`, fd);
+    },
 };
