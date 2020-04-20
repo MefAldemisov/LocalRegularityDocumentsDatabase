@@ -4,7 +4,14 @@ import os
 import urllib.parse
 from base64 import encodebytes
 from lrdb_back.settings import MEDIA_ROOT, BASE_DIR
-from .models import Document, Owner
+from .models import Document, Owner, DocumentHistory
+
+def getpath(data):
+    path = data['document']
+    path = path.split("/")
+    path = urllib.parse.unquote(os.path.join(os.path.join(MEDIA_ROOT, data['name']), path[-1]))
+    # print(path)
+    return path
 
 class OwnerSerializer(serializers.ModelSerializer):
     """
@@ -28,12 +35,11 @@ class DocumentPostSerializer(serializers.ModelSerializer):
         with 'OK' message
         """
         data = super().to_representation(instance)
-        path = data['document']
-        path = path.split("/")
-        data['document'] = 'OK'
-        data['amount_of_mentioned'] = len(data['mentioned_people'])
-        data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
-        instance.doc_size = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
+        path = getpath(data)
+        # data['document'] = 'OK'
+        data['doc_size'] = Path(path).stat().st_size
+        instance.doc_size = Path(path).stat().st_size
+        instance.save()
         return data
 
 class DocumentGetSerializer(serializers.ModelSerializer):
@@ -49,15 +55,23 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         This function swaps path from the "document" field
         with the binary data of the file, encoded to BASE-64
         """
-        print(os.path.join(BASE_DIR, 'media'))
+        # print(os.path.join(BASE_DIR, 'media'))
         data = super().to_representation(instance)
-        path = data['document']
-        path = path.split("/")
-        print(MEDIA_ROOT)
-        f = open(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1])), "rb")
+        # print(MEDIA_ROOT)
+        path = getpath(data)
+        f = open(path, "rb")
         f = f.read()
         f = encodebytes(f)
-        data['doc_size'] = Path(os.path.join(MEDIA_ROOT, urllib.parse.unquote(path[-1]))).stat().st_size
-        data['document'] = f
+        data['doc_size'] = Path(path).stat().st_size
+        # data['document'] = f
+        instance.document = path
+        instance.save()
         return data
 
+class DocumentHistorySerializer(serializers.ModelSerializer):
+    """
+    Serializer for updates
+    """
+    class Meta:
+        model = DocumentHistory
+        fields = ['id', 'cur_dock', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']

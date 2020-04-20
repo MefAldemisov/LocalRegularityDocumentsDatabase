@@ -56,7 +56,7 @@ class SearchEngineView(views.APIView):
             i = i+1
 
         try:
-            documents = documents.filter(department=data['department'])
+            documents = documents.filter(department__contains=data['department'])
         except KeyError:
             i = i+1
         if i == 8:
