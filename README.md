@@ -28,6 +28,10 @@ npm run serve
 npm run build
 ```
 
+### Backend API
+
+[Link](https://documenter.getpostman.com/view/10962051/SzYdRvWC)
+
 ## Authors
 
 -   Alina Bogdanova
