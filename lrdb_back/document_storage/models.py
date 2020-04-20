@@ -1,5 +1,4 @@
 from django.db import models
-from lrdb_back.settings import MEDIA_ROOT
 import os
 
 def get_upload_path(instance, filename):
@@ -30,7 +29,7 @@ class Document(models.Model):
     last_update = models.DateTimeField(auto_now_add=True)
     effect_date = models.DateTimeField(auto_now_add=True)
     expiration_date = models.DateTimeField(auto_now_add=True)
-    department = models.TextField()
+    department = models.IntegerField()
     mentioned_people = models.ManyToManyField(Owner, blank=True)
     document = models.FileField(upload_to=get_upload_path)
 
