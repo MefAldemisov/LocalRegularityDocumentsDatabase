@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import urllib.parse
 from base64 import encodebytes
-from lrdb_back.settings import MEDIA_ROOT
+from lrdb_back.settings import MEDIA_ROOT, BASE_DIR
 from .models import Document, Owner
 
 class OwnerSerializer(serializers.ModelSerializer):
@@ -49,6 +49,7 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         This function swaps path from the "document" field
         with the binary data of the file, encoded to BASE-64
         """
+        print(os.path.join(BASE_DIR, 'media'))
         data = super().to_representation(instance)
         path = data['document']
         path = path.split("/")
