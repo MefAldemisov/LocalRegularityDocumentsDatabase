@@ -1,5 +1,5 @@
 from django.db import models
-from lrdb_back.settings import FILE_FOLDER
+from lrdb_back.settings import MEDIA_ROOT
 
 # Create your models here.
 class Owner(models.Model):
@@ -23,5 +23,5 @@ class Document(models.Model):
     effect_date = models.DateTimeField(auto_now_add=True)
     expiration_date = models.DateTimeField(auto_now_add=True)
     department = models.TextField()
-    mentioned_people = models.ManyToManyField(Owner)
-    document = models.FileField(upload_to=FILE_FOLDER)
+    mentioned_people = models.ManyToManyField(Owner, blank=True)
+    document = models.FileField(upload_to=MEDIA_ROOT)
