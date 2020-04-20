@@ -15,9 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-settings_dir = os.path.dirname(__file__)
-PROJECT_ROOT = os.path.abspath(os.path.dirname(settings_dir))
-FILE_FOLDER = os.path.join(PROJECT_ROOT, 'media/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -28,7 +25,7 @@ SECRET_KEY = '_$eg^hr*+qxrxr%ji30cu9u6fm4*94e%t^=5n61s^-nry=rw!m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.147.17.97', '10.147.17.84', ]
+ALLOWED_HOSTS = ['10.147.17.97', '10.147.17.84', '10.147.17.16', '127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -65,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'document_storage.apps.DocumentStorageConfig',
+    'search_engine.apps.SearchEngineConfig',
     'rest_framework',
 ]
 
