@@ -185,7 +185,7 @@ select.custom-select {
                 </ul>
             </nav>
         </header>
-        <main class="container">
+        <main class="container" v-shortkey="{right: ['arrowright'], left: ['arrowleft']}"  @shortkey="go">
             <router-view></router-view>
         </main>
         <footer class="symbolic"></footer>
@@ -232,6 +232,26 @@ export default {
                 .setAttribute("lang", this.$i18n.locale);
         },
         showDropdown: function() {},
+        go: function(event){
+            if (event.srcKey ==="left"){
+                this.goLeft()
+            } else {
+                this.goRight()
+            }
+        },
+        goLeft: function() {
+            const current = this.$router.currentRoute.name;
+            const index = this.navs.indexOf(current);
+            if(index > 0){
+                this.$router.push({name : this.navs[Math.abs(index-1)]});
+            }
+            
+        },
+        goRight: function(){
+            const current = this.$router.currentRoute.name;
+            const index = this.navs.indexOf(current);
+            this.$router.push({name : this.navs[(index+1)%this.navs.length]});
+        }
     },
     created: function() {
         // set language as default language of the user's browser
