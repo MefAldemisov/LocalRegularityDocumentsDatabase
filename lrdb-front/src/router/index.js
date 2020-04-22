@@ -1,52 +1,57 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import SearchDocs from "../views/search_docs.vue";
-import MyDocs from "../views/my_docs.vue";
-import DocLoader from "../views/load_docs.vue";
-import LoginForm from "../views/login.vue";
-import History from "../views/history.vue";
-import NewDoc from "../views/load/new_doc.vue";
-import ChangeDoc from "../views/load/change_doc.vue";
+// import SearchDocs from "../views/search_docs.vue";
+// import MyDocs from "../views/my_docs.vue";
+// import DocLoader from "../views/load_docs.vue";
+// import LoginForm from "../views/login.vue";
+// import History from "../views/history.vue";
+// import NewDoc from "../views/load/new_doc.vue";
+// import ChangeDoc from "../views/load/change_doc.vue";
 
 Vue.use(VueRouter);
+
+function loadView(view) {
+    return () =>
+        import(/* webpackChunkName: "view-[request]" */ `../views/${view}.vue`);
+}
 
 const routes = [
     {
         path: "/my_docs",
         name: "my",
-        component: MyDocs,
+        component: loadView("my_docs"),
     },
     {
         path: "/search",
         name: "search",
-        component: SearchDocs,
+        component: loadView("search_docs"),
     },
     {
         path: "/",
         name: "login",
-        component: LoginForm,
+        component: loadView("login"),
     },
     {
         path: "/load",
         name: "load",
-        component: DocLoader,
+        component: loadView("load_docs"),
         children: [
             {
                 path: "/load/new",
                 name: "new",
-                component: NewDoc,
+                component: loadView("load/new_doc"),
             },
             {
                 path: "/load/change",
                 name: "change",
-                component: ChangeDoc,
+                component: loadView("load/change_doc"),
             },
         ],
     },
     {
         path: "/history/:id",
         name: "History",
-        component: History,
+        component: loadView("history"),
         props: true,
     },
 ];

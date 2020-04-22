@@ -9,7 +9,7 @@ import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
 Vue.config.productionTip = false;
 
-Vue.use(require("vue-shortkey"));
+Vue.use(require("vue-shortkey"), { prevent: ["input", "textarea"] });
 Vue.component("VueCtkDateTimePicker", VueCtkDateTimePicker);
 
 new Vue({

@@ -97,7 +97,8 @@ select.custom-select {
     width: 50%;
     padding-left: 1rem;
 }
-.selector:hover .lang_list {
+.selector:hover .lang_list,
+.selector:focus .lang_list {
     display: block;
 }
 @media (max-width: 1200px) {
@@ -115,7 +116,8 @@ select.custom-select {
     ul.container > li.burger {
         display: inline-block;
     }
-    .burger:hover .burger_list {
+    .burger:hover .burger_list,
+    .burger:focus .burger_list {
         display: block;
     }
 }
@@ -193,8 +195,8 @@ select.custom-select {
 </template>
 <script>
 
-import "../node_modules/reset-css/reset.css";
-import "./assets/css/main.css";
+// import "./node_modules/reset-css/reset.css";
+import "@/assets/css/main.css";
 import "bootstrap-css-only";
 import UI_logo from "./assets/images/IU_logo_black.png";
 
