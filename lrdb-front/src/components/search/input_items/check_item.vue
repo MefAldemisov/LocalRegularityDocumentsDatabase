@@ -13,7 +13,8 @@ label {
     text-align: center;
     text-transform: capitalize;
 }
-.active {
+.active,
+label:hover {
     background-color: #0f870d;
     color: white;
 }
