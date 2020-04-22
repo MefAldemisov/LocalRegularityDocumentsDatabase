@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
+        <tip></tip>
         <section>
             <h2>{{ $t("docs_name_ment") }}</h2>
             <Representation :response="mentioned" />
@@ -15,10 +16,10 @@
 <script>
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
-
+import tip from "../components/tips.vue";
 export default {
     name: "MyDocs",
-    components: { Representation },
+    components: { Representation, tip },
     data: function() {
         return {
             id: 1,

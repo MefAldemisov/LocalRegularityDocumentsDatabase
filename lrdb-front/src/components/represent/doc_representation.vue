@@ -8,21 +8,31 @@
 .pagination {
     width: 100%;
 }
-.active {
-    background-color: #edf1f5;
-    font-weight: 900;
+.active,
+.page-link:hover {
+    background-color: #0f870d;
+    color: white;
 }
 </style>
 <template>
-    <div>
+    <div
+        @mouseover="setActCours(true)"
+        @mouseout="setActCours(false)"
+        :class="{ act: cursor_active }"
+    >
         <Page
-            v-for="i in info"
-            v-show="currentPage == i.index"
-            :key="i.index"
-            :info="i.info"
+            :key="info[currentPage - 1].index"
+            :info="info[currentPage - 1].info"
         />
         <div class="mt-3">
-            <ul class="pagination justify-content-center">
+            <ul
+                class="pagination justify-content-center"
+                v-shortkey="{
+                    right: ['ctrl', 'shift', 'arrowright'],
+                    left: ['ctrl', 'shift', 'arrowleft'],
+                }"
+                @shortkey="changeKeyPage"
+            >
                 <li class="page-item">
                     <span
                         class="page-link"
@@ -73,6 +83,7 @@ export default {
     data: function() {
         return {
             currentPage: 1,
+            cursor_active: false,
         };
     },
     computed: {
@@ -101,6 +112,18 @@ export default {
                 this.currentPage = pageNum;
             }
             // TODO: add disabled class
+        },
+        changeKeyPage(event) {
+            if (this.cursor_active) {
+                if (event.srcKey === "right") {
+                    this.changePage(this.currentPage + 1);
+                } else {
+                    this.changePage(this.currentPage - 1);
+                }
+            }
+        },
+        setActCours(val) {
+            this.cursor_active = val;
         },
     },
 };
