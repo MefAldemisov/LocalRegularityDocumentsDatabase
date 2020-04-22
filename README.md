@@ -34,25 +34,33 @@ Phone:
 
 ### How to use frontend
 
+#### CLI way
+
 Open the derictory of the project via terminal, run `cd lrdb-front/`
 
-#### Project setup
+Project setup
 
 ```
 npm install
 ```
 
-#### Compiles and hot-reloads for development
+Compiles and hot-reloads for development
 
 ```
 npm run serve
 ```
 
-#### Compiles and minifies for production
+Compiles and minifies for production
 
 ```
 npm run build
 ```
+
+#### Test way (no npm required)
+
+1. Change folder `cd ./lrdb-front/dist`
+2. Up the tem server `python3 -m http.server`
+3. Open `http://0.0.0.0:8000/` in browser
 
 ### Backend API
 

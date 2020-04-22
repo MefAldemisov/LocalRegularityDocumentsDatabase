@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "webpack"
+        "build": "vue-cli-service build"
     },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
