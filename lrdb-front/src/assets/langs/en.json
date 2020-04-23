@@ -57,5 +57,10 @@
     "history": "History of changes in the document",
     "version": "Version",
     "commit": "Description of changes",
-    "preview": "Preview"
+    "preview": "Preview",
+    "hotkeys": "You can use hotkeys",
+    "or": "or",
+    "to_nav_sect": "to navigate the sections",
+    "to_nav_pg": "to navigate the pages",
+    "tip": "Tip (click me to hide)"
 }

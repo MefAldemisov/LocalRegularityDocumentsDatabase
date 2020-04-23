@@ -90,7 +90,7 @@ ul > li.burger {
     display: none;
     position: absolute;
     background-color: #fff;
-    z-index: 2;
+    z-index: 4;
     padding: 12px 16px;
 }
 .burger_list > * {
@@ -248,11 +248,11 @@ export default {
         },
         changeTab: function(event){
             const current = this.$router.currentRoute.name;
-            const index = this.navs.indexOf(current);
+            const index = this.navs.indexOf(current) === -1 ? 2 : this.navs.indexOf(current);
+            
             if (event.srcKey ==="left"){
-                if(index > 0){
-                    this.$router.push({name : this.navs[Math.abs(index-1)]});
-                }
+                console.log("true")
+                this.$router.push({name : this.navs[(index-1) >= 0 ? (index - 1) : 2]});
             } else {
                 this.$router.push({name : this.navs[(index+1)%this.navs.length]});
             }

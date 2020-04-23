@@ -24,21 +24,10 @@ span {
 <template>
     <div @click="hide" class="toast" :class="{ hide: was_clicked }">
         <div class="toast-header bg-success">
-            Tip
+            {{ $t("tip") }}
         </div>
         <div class="toast-body">
-            You can use hotkeys
-            <span class="border rounded">ctrl</span>+<span
-                class="border rounded"
-                >shift</span
-            >+
-            <span class="border rounded"
-                ><font-awesome-icon icon="arrow-left"></font-awesome-icon
-            ></span>
-            or<span class="border rounded"
-                ><font-awesome-icon icon="arrow-right"></font-awesome-icon
-            ></span>
-            to navigate the pages
+            <slot> </slot>
         </div>
     </div>
 </template>

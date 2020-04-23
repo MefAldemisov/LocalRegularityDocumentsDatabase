@@ -45,6 +45,7 @@ export default {
                 })
                 .catch(function(error) {
                     console.log("Not possible to load all documents", error);
+                    val = require("../../assets/test_data.json");
                 });
             this.setVal(val);
         },
