@@ -35,6 +35,7 @@ const routes = [
         path: "/load",
         name: "load",
         component: loadView("load_docs"),
+        redirect: "load/new",
         children: [
             {
                 path: "/load/new",

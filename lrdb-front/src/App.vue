@@ -53,10 +53,10 @@ ul.container > li {
 .transparent {
     opacity: 0;
 }
-ul>li.clickbel {
+/* ul>li.clickbel {
     text-align: center;
     width: calc(100% / 6);
-}
+} */
 .active,
 ul>li.clickbel:hover {
     color: black;
@@ -175,11 +175,12 @@ select.custom-select {
                         <a :href="logout_link" class="logout">
                             {{ $t("logout") }}
                         </a>
-                         <span class="active transparent">
-                            H
-                        </span>
+                         
                     </li>
                     <li class="selector">
+                        <span class="active transparent">
+                            H
+                        </span>
                         <span class="navigation"
                             >{{ $t("lang_text") }} : {{ selected }}
                         </span>

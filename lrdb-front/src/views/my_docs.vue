@@ -7,7 +7,7 @@
             <Representation :response="mentioned" />
         </section>
         <section>
-            <h2>{{ $t("docs_up_by_me") }}</h2>
+            <h2>{{ $t("my") }}</h2>
             <!-- make a carousel -->
             <Representation :response="mentioned" />
         </section>
