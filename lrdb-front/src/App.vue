@@ -27,6 +27,7 @@ footer {
 }
 .iu_logo {
     width: 8rem;
+    cursor: pointer;
 }
 ul.container {
     width: 70%;
@@ -159,7 +160,7 @@ select.custom-select {
                         </ul>
                     </li>
                     <li>
-                        <img class="iu_logo" :src="img_link" :alt="alt" />
+                        <img @click="goToMy" class="iu_logo" :src="img_link" :alt="alt" />
                     </li>
                     <router-link
                         tag="li"
@@ -257,6 +258,9 @@ export default {
                 this.$router.push({name : this.navs[(index+1)%this.navs.length]});
             }
         },
+        goToMy: function(){
+            this.$router.push({name : "my"});
+        }
     },
     created: function() {
         // set language as default language of the user's browser

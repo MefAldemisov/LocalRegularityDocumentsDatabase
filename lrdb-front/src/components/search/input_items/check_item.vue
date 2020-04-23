@@ -11,7 +11,7 @@ label {
     padding: 0.2rem 0.5rem;
     background-color: #edf1f5;
     text-align: center;
-    text-transform: capitalize;
+    font-size: 1rem;
 }
 .active,
 label:hover {

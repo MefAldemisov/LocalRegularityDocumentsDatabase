@@ -2,6 +2,8 @@
     <VueCtkDateTimePicker
         v-else
         class="my-1 col-sm"
+        format="YYYY-MM-DD"
+        formatted="ll"
         :id="name"
         :label="$t(name)"
         v-model="val"
