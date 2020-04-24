@@ -31,6 +31,7 @@
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
 import tip from "../components/tips.vue";
+import store from "../store/store.js";
 export default {
     name: "MyDocs",
     components: { Representation, tip },
@@ -43,17 +44,23 @@ export default {
     created: async function() {
         console.log("start");
         let mentioned = [];
-        await apiCalls
-            .getOwnersDocuments("Третьяков Владимир Владимирович/")
-            .then(function(data) {
-                console.log("DAA", data);
-                mentioned = data.data;
-            })
-            .catch(function(error) {
-                mentioned = require("../assets/test_data.json");
-                console.log("Some error occured");
-            });
-        this.setMentioned(mentioned);
+        if (!store.getters.my_documents) {
+            await apiCalls
+                .getOwnersDocuments("Третьяков Владимир Владимирович/")
+                .then(function(data) {
+                    console.log("DAA", data);
+                    mentioned = data.data;
+                    store.commit("setMyDocs", mentioned);
+                })
+                .catch(function(error) {
+                    mentioned = require("../assets/test_data.json");
+                    console.log("Some error occured");
+                    store.commit("setMyDocs", mentioned);
+                });
+            this.setMentioned(mentioned);
+        } else {
+            this.setMentioned(store.getters.my_documents);
+        }
     },
     methods: {
         setMentioned: function(res) {
