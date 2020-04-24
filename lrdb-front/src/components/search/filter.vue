@@ -10,28 +10,14 @@ label {
     <div>
         <form class="filter_form" @submit.prevent>
             <div class="input-group mb-1">
-                <label for="str_by_inp" class="input-group-prepend">
+                <div class="input-group-prepend">
                     <button class="btn btn-success" @click="sort_by">
                         <span>
                             {{ $t("str_by") }}
                         </span>
                     </button>
-                </label>
-                <select
-                    id="str_by_inp"
-                    v-model="criteria"
-                    class="custom-select"
-                >
-                    <option value="name" selected>{{ $t("srt_name") }}</option>
-                    <option value="owner">{{ $t("srt_owner") }}</option>
-                    <option value="created">{{ $t("srt_crt") }}</option>
-                    <option value="last_update">{{ $t("srch_upd") }}</option>
-                    <option value="effect_date">{{ $t("srch_start") }}</option>
-                    <option value="expiration_date">{{
-                        $t("srch_end")
-                    }}</option>
-                    <option value="department">{{ $t("srch_dep") }}</option>
-                </select>
+                </div>
+                <sorting v-model="criteria"></sorting>
                 <div class="input-group-append">
                     <button class="btn btn-success" @click.prevent="done">
                         {{ $t("next_request_btn") }}
@@ -45,16 +31,18 @@ label {
 <script>
 import Representation from "../represent/doc_representation.vue";
 import comparator from "../../plugins/comparator.js";
+import sorting from "../search/input_items/select_sorting.vue";
 
 export default {
     name: "FilterPage",
     components: {
         Representation,
+        sorting,
     },
     props: { resp: { required: true } },
     data: function() {
         return {
-            criteria: "",
+            criteria: "name",
         };
     },
     methods: {
