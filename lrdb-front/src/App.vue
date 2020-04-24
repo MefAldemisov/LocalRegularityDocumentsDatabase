@@ -130,6 +130,11 @@ select.custom-select {
         display: block;
     }
 }
+@media(min-width: 2000px) {
+    main {
+        min-height: 97vh;
+    }
+}
 </style>
 <template>
     <div>

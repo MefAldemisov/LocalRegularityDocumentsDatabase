@@ -24,9 +24,11 @@
                 :required="req"
             >
                 <template v-slot:append>
-                    <button class="btn btn-success" type="submit">
-                        {{ $t("login_submit") }}
-                    </button>
+                    <div class="input-group-append">
+                        <button class="btn btn-success " type="submit">
+                            {{ $t("login_submit") }}
+                        </button>
+                    </div>
                 </template>
             </input_field>
         </form>

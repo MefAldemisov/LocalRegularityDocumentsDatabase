@@ -10,9 +10,7 @@
             :required="required"
             @input="handleInput"
         />
-        <div class="input-group-append">
-            <slot name="append"></slot>
-        </div>
+        <slot name="append"></slot>
     </label>
 </template>
 <script>
