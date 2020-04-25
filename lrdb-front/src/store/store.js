@@ -16,12 +16,12 @@ export default new Vuex.Store({
             console.log("setter");
             state.my_documents = val;
         },
-        hide_tip(state, type) {
-            state.tips[type] = true;
+        hide_tip(state) {
+            state.tips["my"] = true;
         },
     },
     getters: {
         my_documents: (state) => state.my_documents,
-        tip: (state, type) => state.hide_my[type],
+        tip: (state) => state.tips["my"],
     },
 });

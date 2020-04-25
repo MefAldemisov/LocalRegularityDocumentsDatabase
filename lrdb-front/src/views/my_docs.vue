@@ -25,16 +25,14 @@
             <!-- make a carousel -->
             <Representation :response="mentioned" />
         </section>
+        Here: {{ $store.getters.my_documents }}
     </div>
 </template>
 <script>
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
 import tip from "../components/tips.vue";
-// import { mapGetters, mapMutations } from "vuex";
 
-// import store from "../store/store.js";
-// console.log("hi", store.getters.my_documents);
 export default {
     name: "MyDocs",
     components: { Representation, tip },
@@ -44,33 +42,30 @@ export default {
             mentioned: [],
         };
     },
-
     methods: {
         setMentioned: function(res) {
-            console.log("Res", res);
             this.mentioned = res;
-            this.$store.commit("setMyDocs", mentioned);
+            this.$store.commit("setMyDocs", res);
         },
     },
-    mounted: async function() {
+    created: async function() {
         // let st = this.$store.getters;
-        console.log("heu", this.$store);
         let mentioned = [];
         if (!this.$store.getters.my_documents) {
             await apiCalls
                 .getOwnersDocuments("Третьяков Владимир Владимирович/")
                 .then(function(data) {
-                    console.log("DAA", data);
+                    console.log("My data:", data);
                     mentioned = data.data;
                 })
                 .catch(function(error) {
                     mentioned = require("../assets/test_data.json");
                     console.log("Some error occured");
                 });
-            this.setMentioned(mentioned);
         } else {
-            this.setMentioned(mentioned);
+            mentioned = this.$store.getters.my_documents;
         }
+        this.setMentioned(mentioned);
     },
 };
 </script>
