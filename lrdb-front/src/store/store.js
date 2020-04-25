@@ -13,15 +13,18 @@ export default new Vuex.Store({
     },
     mutations: {
         setMyDocs(state, val) {
-            console.log("setter");
             state.my_documents = val;
         },
-        hide_tip(state) {
+        hide_my_tip(state) {
             state.tips["my"] = true;
+        },
+        hide_search_tip(state) {
+            state.tips["search"] = true;
         },
     },
     getters: {
         my_documents: (state) => state.my_documents,
-        tip: (state) => state.tips["my"],
+        my_tip: (state) => state.tips["my"],
+        search_tip: (state) => state.tips["search"],
     },
 });

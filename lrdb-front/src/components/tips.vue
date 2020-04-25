@@ -36,7 +36,7 @@ export default {
     name: "tip",
     computed: {
         was_clicked: function() {
-            return this.$store.getters.tip;
+            return this.$store.getters[this.type + "_tip"];
         },
     },
     props: {
@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         hide(event) {
-            this.$store.commit("hide_tip", this.type);
+            this.$store.commit("hide_" + this.type + "_tip");
         },
     },
 };

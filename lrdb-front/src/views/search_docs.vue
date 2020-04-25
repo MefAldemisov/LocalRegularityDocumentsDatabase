@@ -9,7 +9,7 @@
 </style>
 <template>
     <div>
-        <tip v-if="search_mode">
+        <tip v-if="search_mode" type="search">
             {{ $t("hotkeys") }}
             <span class="border rounded">ctrl</span>+
             <span class="border rounded"

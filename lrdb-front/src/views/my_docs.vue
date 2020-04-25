@@ -25,7 +25,6 @@
             <!-- make a carousel -->
             <Representation :response="mentioned" />
         </section>
-        Here: {{ $store.getters.my_documents }}
     </div>
 </template>
 <script>
