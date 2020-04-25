@@ -34,12 +34,22 @@ span {
 <script>
 export default {
     name: "tip",
-    data() {
-        return { was_clicked: false };
+    computed: {
+        was_clicked: function() {
+            return this.$store.getters.tip(this.type);
+        },
+    },
+    props: {
+        type: {
+            reqired: true,
+            type: String,
+        },
     },
     methods: {
-        hide() {
+        hide(event) {
             this.was_clicked = true;
+            console.log("emit");
+            this.$store.commit("hide_tip", this.type);
         },
     },
 };

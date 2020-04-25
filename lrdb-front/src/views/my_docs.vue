@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
-        <tip>
+        <tip type="my">
             {{ $t("hotkeys") }}
             <span class="border rounded">ctrl</span>+<span
                 class="border rounded"
@@ -31,7 +31,10 @@
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
 import tip from "../components/tips.vue";
-import store from "../store/store.js";
+// import { mapGetters, mapMutations } from "vuex";
+
+// import store from "../store/store.js";
+// console.log("hi", store.getters.my_documents);
 export default {
     name: "MyDocs",
     components: { Representation, tip },
@@ -41,32 +44,33 @@ export default {
             mentioned: [],
         };
     },
-    created: async function() {
-        console.log("start");
+
+    methods: {
+        setMentioned: function(res) {
+            console.log("Res", res);
+            this.mentioned = res;
+            this.$store.commit("setMyDocs", mentioned);
+        },
+    },
+    mounted: async function() {
+        // let st = this.$store.getters;
+        console.log("heu", this.$store);
         let mentioned = [];
-        if (!store.getters.my_documents) {
+        if (!this.$store.getters.my_documents) {
             await apiCalls
                 .getOwnersDocuments("Третьяков Владимир Владимирович/")
                 .then(function(data) {
                     console.log("DAA", data);
                     mentioned = data.data;
-                    store.commit("setMyDocs", mentioned);
                 })
                 .catch(function(error) {
                     mentioned = require("../assets/test_data.json");
                     console.log("Some error occured");
-                    store.commit("setMyDocs", mentioned);
                 });
             this.setMentioned(mentioned);
         } else {
-            this.setMentioned(store.getters.my_documents);
+            this.setMentioned(mentioned);
         }
-    },
-    methods: {
-        setMentioned: function(res) {
-            console.log("Res", res);
-            this.mentioned = res;
-        },
     },
 };
 </script>

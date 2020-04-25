@@ -1,6 +1,7 @@
 import Vue from "vue";
 import { library } from "@fortawesome/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 import {
     faSearch,
     faFile,
