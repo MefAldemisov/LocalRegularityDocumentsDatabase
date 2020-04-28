@@ -3,10 +3,16 @@
     font-size: 0.9rem;
 }
 </style>
+<style>
+.error > div.field > input {
+    border: 2px solid red;
+}
+</style>
 <template>
     <VueCtkDateTimePicker
         v-else
         class="my-1 col-sm"
+        :class="{ error: error }"
         format="YYYY-MM-DD"
         formatted="ll"
         :id="name"
@@ -34,6 +40,10 @@ export default {
         },
         value: {
             required: true,
+        },
+        error: {
+            default: false,
+            type: Boolean,
         },
     },
     data: function() {

@@ -1,3 +1,11 @@
+<style scoped>
+.error-msg {
+    padding: 2rem;
+    color: red;
+    font-size: 1rem;
+    font-weight: 400;
+}
+</style>
 <template>
     <div class="pb-3">
         <!-- in any case -->
@@ -30,7 +38,13 @@
             />
         </div>
 
-        <h3 class="pt-4">{{ $t("dates") }}</h3>
+        <h3 class="pt-4">
+            {{ $t("dates") }}
+            <span class="error-msg" v-if="form_type !== 'search' && error_data">
+                Effect date should be less, then the date of expiration
+            </span>
+        </h3>
+
         <!-- in case of  search-->
         <div v-if="form_type === 'search'" class="row">
             <date-range
@@ -61,13 +75,14 @@
             />
         </div>
         <!-- in case of change and upload -->
-        <div v-if="form_type !== 'search'" class="row">
+        <div v-if="form_type !== 'search'" class="row rounded">
             <date-range
                 v-model="val.effect_date"
                 name="srch_start"
                 :range="f"
                 :required="required"
                 @input="handleInput"
+                :error="error_data"
             />
             <date-range
                 v-model="val.expiration_date"
@@ -75,6 +90,7 @@
                 :range="f"
                 :required="required"
                 @input="handleInput"
+                :error="error_data"
             />
         </div>
 
@@ -161,6 +177,7 @@ export default {
                 dep: "",
             },
             select_list: [false, false, false, false, false, false, false],
+            error_data: false,
         };
     },
     created: function() {
@@ -168,6 +185,21 @@ export default {
         this.val.owner = this.initial.owner;
     },
     methods: {
+        validateForm() {
+            // clear array of errors
+            this.errors = [];
+            if (this.form_type !== "search") {
+                if (
+                    this.val.effect_date &&
+                    this.val.expiration_date &&
+                    this.val.effect_date > this.val.expiration_date
+                ) {
+                    this.error_data = true;
+                } else {
+                    this.error_data = false;
+                }
+            }
+        },
         filterSelected: function() {
             let used = {};
             for (let key of Object.keys(this.val)) {
@@ -181,17 +213,19 @@ export default {
             this.active_select = !this.active_select;
         },
         handleInput: function(e) {
-            // configure department id
-            const dep_indexes = Array.from(
-                Array(this.select_list.length).keys()
-            );
-            let sl = this.select_list;
-            this.val.dep = dep_indexes.filter(function(val) {
-                return sl[val];
-            });
-            this.val.dep = this.val.dep.length > 0 ? this.val.dep : "";
-            // selection of used only data
-            this.$emit("input", this.filterSelected());
+            if (this.validateForm()) {
+                // configure department id
+                const dep_indexes = Array.from(
+                    Array(this.select_list.length).keys()
+                );
+                let sl = this.select_list;
+                this.val.dep = dep_indexes.filter(function(val) {
+                    return sl[val];
+                });
+                this.val.dep = this.val.dep.length > 0 ? this.val.dep : "";
+                // selection of used only data
+                this.$emit("input", this.filterSelected());
+            }
         },
     },
 };
