@@ -1,5 +1,9 @@
 <template>
-    <form @submit.prevent="postData">
+    <form
+        @submit.prevent="postData"
+        v-shortkey="['shift', 'enter']"
+        @shortkey="postData()"
+    >
         <Params form_type="load" :required="req" v-model="value" />
         <button type="submit" class="btn btn-success btn-block">
             {{ $t("upl_doc_data") }}

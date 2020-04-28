@@ -1,7 +1,12 @@
 <template>
     <div>
         <h1 class="hidden">{{ $t("login_login") }}</h1>
-        <form :class="{ 'was-validated': sended }" @submit.prevent="validate">
+        <form
+            :class="{ 'was-validated': sended }"
+            @submit.prevent="validate"
+            v-shortkey="['shift', 'enter']"
+            @shortkey="validate()"
+        >
             <h2 class="px-4 pb-4">{{ $t("login_title") }}</h2>
             <input_field
                 v-model="login"

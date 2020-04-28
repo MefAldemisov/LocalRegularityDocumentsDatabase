@@ -1,6 +1,9 @@
 <template>
     <div>
         <form v-if="value" @submit.prevent>
+            <!-- For the future
+            v-shortkey="['shift', 'enter']"
+            @shortkey="searchDoc()" -->
             <Params
                 form_type="upload"
                 :required="req"
@@ -15,7 +18,12 @@
                 {{ $t("upl_doc_data") }}
             </button>
         </form>
-        <form v-else @submit.prevent="searchDoc">
+        <form
+            v-else
+            @submit.prevent="searchDoc"
+            v-shortkey="['shift', 'enter']"
+            @shortkey="searchDoc()"
+        >
             <input_field
                 v-model="val_id"
                 class="my-4"

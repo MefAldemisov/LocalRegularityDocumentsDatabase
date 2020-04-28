@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <form @submit.prevent="request">
-            <h2>{{ $t("search_search_params") }}</h2>
-            <Params :form_type="form_type" v-model="params" />
-            <button type="submit" class="btn btn-success btn-block">
-                <font-awesome-icon icon="search"></font-awesome-icon>
-                <span>{{ $t("srch_srch_btn") }}</span>
-            </button>
-        </form>
-    </div>
+    <form
+        @submit.prevent="request"
+        v-shortkey="['shift', 'enter']"
+        @shortkey="request()"
+    >
+        <h2>{{ $t("search_search_params") }}</h2>
+        <Params :form_type="form_type" v-model="params" />
+        <button type="submit" class="btn btn-success btn-block">
+            <font-awesome-icon icon="search"></font-awesome-icon>
+            <span>{{ $t("srch_srch_btn") }}</span>
+        </button>
+    </form>
 </template>
 <script>
 import Params from "./param_selector.vue";
