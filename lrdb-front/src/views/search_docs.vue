@@ -11,6 +11,7 @@
     <div>
         <tip v-if="search_mode" type="search">
             {{ $t("hotkeys") }}
+            <br />
             <span class="border rounded">ctrl</span>+
             <span class="border rounded"
                 ><font-awesome-icon icon="arrow-left"></font-awesome-icon

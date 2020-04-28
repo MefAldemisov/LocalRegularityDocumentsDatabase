@@ -41,7 +41,7 @@
         <h3 class="pt-4">
             {{ $t("dates") }}
             <span class="error-msg" v-if="form_type !== 'search' && error_data">
-                Effect date should be less, then the date of expiration
+                {{ $t("error_effect") }}
             </span>
         </h3>
 

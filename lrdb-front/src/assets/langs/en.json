@@ -62,5 +62,7 @@
     "or": "or",
     "to_nav_sect": "to navigate the sections",
     "to_nav_pg": "to navigate the pages",
-    "tip": "Tip (click me to hide)"
+    "tip": "Tip (click me to hide)",
+    "to_sbm_fm": "to subbmit the form",
+    "error_effect": "Effect date should be less, then the date of expiration"
 }
