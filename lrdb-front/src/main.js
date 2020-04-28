@@ -1,7 +1,6 @@
 import Vue from "vue";
 import router from "./router";
 import App from "./App.vue";
-import Vuex from "vuex";
 // coplugins
 import { i18n } from "./plugins/i18n.js";
 import "./plugins/fontawersome.js";
@@ -11,7 +10,6 @@ import store from "./store/store.js";
 
 Vue.config.productionTip = false;
 
-// Vue.use(Vuex);
 Vue.use(require("vue-shortkey"), { prevent: ["input", "textarea"] });
 Vue.component("VueCtkDateTimePicker", VueCtkDateTimePicker);
 

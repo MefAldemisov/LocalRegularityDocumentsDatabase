@@ -1,9 +1,7 @@
 <template>
     <div>
         <form v-if="value" @submit.prevent>
-            <!-- For the future
-            v-shortkey="['shift', 'enter']"
-            @shortkey="searchDoc()" -->
+            <!-- TODO: write function + hotkeys to submit -->
             <Params
                 form_type="upload"
                 :required="req"
