@@ -1,21 +1,7 @@
 <template>
     <div>
         <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
-        <tip type="my">
-            {{ $t("hotkeys") }}
-            <span class="border rounded">ctrl</span>+<span
-                class="border rounded"
-                >shift</span
-            >+
-            <span class="border rounded"
-                ><font-awesome-icon icon="arrow-left"></font-awesome-icon
-            ></span>
-            {{ $t("or") }}
-            <span class="border rounded"
-                ><font-awesome-icon icon="arrow-right"></font-awesome-icon
-            ></span>
-            {{ $t("to_nav_pg") }}
-        </tip>
+        <tip-container :tips="tips"></tip-container>
         <section>
             <h2>{{ $t("docs_name_ment") }}</h2>
             <Representation :response="mentioned" />
@@ -30,15 +16,16 @@
 <script>
 import Representation from "../components/represent/doc_representation.vue";
 import apiCalls from "../request/index.js";
-import tip from "../components/tips.vue";
+import tipContainer from "../components/tips/tip_container.vue";
 
 export default {
     name: "MyDocs",
-    components: { Representation, tip },
+    components: { Representation, tipContainer },
     data: function() {
         return {
             id: 1,
             mentioned: [],
+            tips: ["prev", "nav"],
         };
     },
     methods: {

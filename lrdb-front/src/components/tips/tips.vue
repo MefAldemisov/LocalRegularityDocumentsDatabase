@@ -6,9 +6,6 @@ div.hide {
 @media (min-width: 1200px) {
     .toast {
         display: inline-block;
-        position: absolute;
-        top: 0;
-        right: -10rem;
         width: 15rem;
         opacity: 100;
         z-index: 2;

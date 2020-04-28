@@ -6,6 +6,9 @@
 .error > div.input-group-prepend > span.input-group-text {
     color: red;
 }
+label {
+    z-index: 0;
+}
 </style>
 <template>
     <label class="col-lg input-group mb-1" :class="{ error: error }">
@@ -66,13 +69,16 @@ export default {
     },
     methods: {
         validate: function() {
-            if (this.type === "number") {
+            if (
+                this.type === "number" &&
+                typeof this.val === typeof "string" &&
+                this.val.length > 0
+            ) {
                 if (this.val.indexOf("e") >= 0) {
                     const splitten = this.val.split("e");
                     this.val =
                         parseInt(splitten[0]) * Math.pow(10, splitten[1]);
-                }
-                if (this.val.indexOf(".") >= 0) {
+                } else if (this.val.indexOf(".") >= 0) {
                     const splitten = this.val.split(".");
                     this.val = parseInt(splitten[0]);
                 }

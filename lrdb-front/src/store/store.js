@@ -7,24 +7,34 @@ export default new Vuex.Store({
     state: {
         my_documents: "",
         tips: {
-            my: false,
-            search: false,
+            nav: false,
+            submit: false,
+            load: false,
+            prev: false,
         },
     },
     mutations: {
         setMyDocs(state, val) {
             state.my_documents = val;
         },
-        hide_my_tip(state) {
-            state.tips["my"] = true;
+        hide_nav_tip(state) {
+            state.tips["nav"] = true;
         },
-        hide_search_tip(state) {
-            state.tips["search"] = true;
+        hide_submit_tip(state) {
+            state.tips["submit"] = true;
+        },
+        hide_load_tip(state) {
+            state.tips["load"] = true;
+        },
+        hide_prev_tip(state) {
+            state.tips["prev"] = true;
         },
     },
     getters: {
         my_documents: (state) => state.my_documents,
-        my_tip: (state) => state.tips["my"],
-        search_tip: (state) => state.tips["search"],
+        nav_tip: (state) => state.tips["nav"],
+        submit_tip: (state) => state.tips["submit"],
+        load_tip: (state) => state.tips["load"],
+        prev_tip: (state) => state.tips["prev"],
     },
 });

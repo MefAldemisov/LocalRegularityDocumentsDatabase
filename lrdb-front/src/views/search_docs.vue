@@ -9,19 +9,7 @@
 </style>
 <template>
     <div>
-        <tip v-if="search_mode" type="search">
-            {{ $t("hotkeys") }}
-            <br />
-            <span class="border rounded">ctrl</span>+
-            <span class="border rounded"
-                ><font-awesome-icon icon="arrow-left"></font-awesome-icon
-            ></span>
-            {{ $t("or") }}
-            <span class="border rounded"
-                ><font-awesome-icon icon="arrow-right"></font-awesome-icon
-            ></span>
-            {{ $t("to_nav_sect") }}
-        </tip>
+        <tip-container :tips="tips"></tip-container>
         <h1 class="hidden">{{ $t("doc_search_page") }}</h1>
         <Search
             form_type="search"
@@ -37,19 +25,20 @@
 import Search from "../components/search/search_docs_page.vue";
 import FilterPage from "../components/search/filter.vue";
 const RESP = require("../assets/test_data.json");
-import tip from "../components/tips.vue";
+import tipContainer from "../components/tips/tip_container.vue";
 
 export default {
     name: "SearchDocs",
     components: {
         Search,
         FilterPage,
-        tip,
+        tipContainer,
     },
     data: function() {
         return {
             search_mode: true,
             resp: RESP,
+            tips: ["nav", "submit"],
         };
     },
     methods: {

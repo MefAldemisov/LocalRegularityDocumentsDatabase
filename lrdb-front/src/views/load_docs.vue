@@ -23,14 +23,15 @@ h2 {
 <template>
     <div>
         <h1>{{ $t("form_load_upd") }}</h1>
-        <tip type="my">
-            {{ $t("hotkeys") }}
-            <br />
-            <span class="border rounded">shift</span>+
-            <span class="border rounded">enter</span>
-            {{ $t("to_sbm_fm") }}
-        </tip>
-        <div class="row d-flex justify-content-around">
+        <tip-container :tips="tips"></tip-container>
+        <div
+            class="row d-flex justify-content-around"
+            v-shortkey="{
+                right: ['shift', 'arrowright'],
+                left: ['shift', 'arrowleft'],
+            }"
+            @shortkey="changeMode"
+        >
             <router-link
                 v-for="mode in load_modes"
                 class="tab col mx-3 rounded-lg border"
@@ -47,7 +48,8 @@ h2 {
     </div>
 </template>
 <script>
-import tip from "../components/tips.vue";
+import tip from "../components/tips/tips.vue";
+import tipContainer from "../components/tips/tip_container.vue";
 export default {
     name: "DocLoader",
     data: function() {
@@ -56,20 +58,19 @@ export default {
                 { name: "new", text: "load" },
                 { name: "change", text: "update" },
             ],
+            tips: ["nav", "load", "submit"],
         };
     },
     methods: {
         changeMode: function(event) {
-            this.load_mode = !this.load_mode;
-        },
-    },
-    computed: {
-        mode: function() {
-            return this.load_mode ? "load" : "update";
+            console.log("hi");
+            const index = event.srcKey === "left" ? 0 : 1;
+            this.$router.push({ name: this.load_modes[index].name });
         },
     },
     components: {
         tip,
+        tipContainer,
     },
 };
 </script>
