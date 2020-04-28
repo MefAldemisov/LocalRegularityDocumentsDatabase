@@ -72,6 +72,10 @@ export default {
                     this.val =
                         parseInt(splitten[0]) * Math.pow(10, splitten[1]);
                 }
+                if (this.val.indexOf(".") >= 0) {
+                    const splitten = this.val.split(".");
+                    this.val = parseInt(splitten[0]);
+                }
                 return parseInt(this.val);
             }
             return this.val;
