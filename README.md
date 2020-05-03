@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/MefAldemisov/LocalRegularityDocumentsDatabase/workflows/Node.js%20CI/badge.svg)[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MefAldemisov_LocalRegularityDocumentsDatabase&metric=alert_status)](https://sonarcloud.io/dashboard?id=MefAldemisov_LocalRegularityDocumentsDatabase)
+
 # Local Regulatory Documents Database
 
 ## Project for SP course
