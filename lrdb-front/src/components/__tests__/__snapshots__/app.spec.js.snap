@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList should render to a snapshot when tips list has items 1`] = `
+<aside>
+  <load-tip-stub />
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</aside>
+`;
+
+exports[`TodoList should render to a snapshot when tips list is empty 1`] = `
+<aside>
+  <load-tip-stub />
+   
+  <!---->
+   
+  <!---->
+   
+  <!---->
+</aside>
+`;

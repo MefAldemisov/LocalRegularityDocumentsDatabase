@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import tipContainer from "../src/components/tips/tip_container.vue";
+import tipContainer from "../tips/tip_container.vue";
 
 describe("TodoList", () => {
     it("should render to a snapshot when tips list is empty", () => {
