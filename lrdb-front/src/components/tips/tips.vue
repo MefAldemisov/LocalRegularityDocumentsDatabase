@@ -32,10 +32,13 @@ span {
 <script>
 export default {
     name: "tip",
-    computed: {
-        was_clicked: function() {
-            return this.$store.getters[this.type + "_tip"];
-        },
+    data() {
+        return {
+            was_clicked: false,
+        };
+    },
+    created: function() {
+        this.was_clicked = this.$store.getters[this.type + "_tip"];
     },
     props: {
         type: {
@@ -45,6 +48,7 @@ export default {
     },
     methods: {
         hide(event) {
+            this.was_clicked = true;
             this.$store.commit("hide_" + this.type + "_tip");
         },
     },

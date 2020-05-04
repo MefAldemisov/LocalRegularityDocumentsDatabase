@@ -12,7 +12,7 @@ exports[`TodoList should render to a snapshot when tips list has items 1`] = `
 </aside>
 `;
 
-exports[`TodoList should render to a snapshot when tips list is empty 1`] = `
+exports[`TodoList the order of elements in the props shouldn't affect fie behaviour 1`] = `
 <aside>
   <load-tip-stub />
    

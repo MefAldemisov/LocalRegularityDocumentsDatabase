@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import mut from "./mutations.js";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -13,23 +13,7 @@ export default new Vuex.Store({
             prev: false,
         },
     },
-    mutations: {
-        setMyDocs(state, val) {
-            state.my_documents = val;
-        },
-        hide_nav_tip(state) {
-            state.tips["nav"] = true;
-        },
-        hide_submit_tip(state) {
-            state.tips["submit"] = true;
-        },
-        hide_load_tip(state) {
-            state.tips["load"] = true;
-        },
-        hide_prev_tip(state) {
-            state.tips["prev"] = true;
-        },
-    },
+    mutations: mut,
     getters: {
         my_documents: (state) => state.my_documents,
         nav_tip: (state) => state.tips["nav"],
