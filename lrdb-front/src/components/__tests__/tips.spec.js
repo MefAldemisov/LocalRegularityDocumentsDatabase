@@ -23,33 +23,39 @@ describe("Tip", () => {
 
     for (let t of ["nav", "load", "submit", "prev"]) {
         const props = { type: t };
-        it(`if the prop value is '${t}', then the type of tip should be '${t}' and visible`, () => {
-            const wrapper = mount(Tip, {
-                store,
-                localVue,
-                i18n,
-            });
-            wrapper.setProps(props);
-            expect(wrapper.props("type")).toBe(t);
-            expect(wrapper.classes()).not.toContain("hide");
-            expect(wrapper.isVisible()).toBe(true);
-            expect(store.getters[`${t}_tip`]).toBe(false);
-        });
-        it(`if the prop value is '${t}' and it is clicked, then it should be hidden`, () => {
-            const wrapper = shallowMount(Tip, {
-                store,
-                localVue,
-                i18n,
-            });
-            wrapper.setProps(props);
-            wrapper.trigger("click");
-            expect(store.getters[`${t}_tip`]).toBe(true);
-            // expect(wrapper.vm.$data).toBe(true);
-            // expect(wrapper.classes()).toContain("hide");
-            // localVue.nextTick(() => {
-            //     expect(wrapper.find(".toast").isVisible()).toBe(false);
-            //     done();
-            // });
+        // it(`if the prop value is '${t}', then the type of tip should be '${t}' and visible`, () => {
+        //     const wrapper = mount(Tip, {
+        //         store,
+        //         localVue,
+        //         i18n,
+        //     });
+        //     wrapper.setProps(props);
+        //     expect(wrapper.props("type")).toBe(t);
+        //     expect(wrapper.classes()).not.toContain("hide");
+        //     expect(wrapper.isVisible()).toBe(true);
+        //     expect(store.getters[`${t}_tip`]).toBe(false);
+        //     wrapper.vm.$forceUpdate();
+        // });
+        // it(`if the prop value is '${t}' and it is clicked,
+        //     then its local variable is set fo be clicked`, () => {
+        //     const wrapper = mount(Tip, {
+        //         store,
+        //         localVue,
+        //         i18n,
+        //     });
+        //     wrapper.setProps(props);
+        //     wrapper.trigger("click");
+        //     expect(store.getters[`${t}_tip`]).toBe(true);
+        //     wrapper.vm.$forceUpdate();
+        //     expect(wrapper.vm.$data.was_clicked).toBe(true);
+        // });
+        it(`If the local variable is set to be clicked, 
+            then the tip is hidden`, () => {
+            const wrapper = mount(Tip, { props });
+            wrapper.setData({ was_clicked: true });
+            wrapper.vm.$forceUpdate();
+            expect(wrapper.classes()).toContain("hide");
+            expect(wrapper.find(".toast").isVisible()).toBe(false);
         });
     }
 });
