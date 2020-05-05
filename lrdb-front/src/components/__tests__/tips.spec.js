@@ -1,9 +1,8 @@
-import { shallowMount, createLocalVue, mount } from "@vue/test-utils";
+import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
 import Tip from "../tips/tips.vue";
 import VueI18n from "vue-i18n";
 import store from "../../store/store.js";
-import Vue from "vue";
 
 const localVue = createLocalVue();
 
