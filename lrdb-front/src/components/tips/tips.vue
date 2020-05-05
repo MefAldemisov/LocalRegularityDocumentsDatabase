@@ -1,8 +1,4 @@
 <style scoped>
-.toast,
-div.hide {
-    display: none;
-}
 @media (min-width: 1200px) {
     .toast {
         display: inline-block;
@@ -20,9 +16,9 @@ span {
 }
 </style>
 <template>
-    <div @click="hide" class="toast" :class="{ hide: was_clicked }">
+    <div @click="hide" class="toast" v-show="!was_clicked">
         <div class="toast-header bg-success">
-            <!-- {{ $t("tip") }} -->
+            {{ $t("tip") }}
         </div>
         <div class="toast-body">
             <slot> </slot>
@@ -37,9 +33,9 @@ export default {
             was_clicked: false,
         };
     },
-    // created: function() {
-    //     this.was_clicked = this.$store.getters[this.type + "_tip"];
-    // },
+    created: function() {
+        this.was_clicked = this.$store.getters[this.type + "_tip"];
+    },
     props: {
         type: {
             reqired: true,
@@ -49,7 +45,7 @@ export default {
     methods: {
         hide(event) {
             this.was_clicked = true;
-            // this.$store.commit("hide_" + this.type + "_tip");
+            this.$store.commit("hide_" + this.type + "_tip");
         },
     },
 };
