@@ -4,6 +4,7 @@ import Tip from "../tips/tips.vue";
 import VueI18n from "vue-i18n";
 import store from "../../store/store.js";
 
+const tip_types = ["nav", "load", "submit", "prev"];
 const localVue = createLocalVue();
 
 localVue.use(Vuex);
@@ -20,10 +21,9 @@ describe("Tip", () => {
         messages: { en: en, ru: ru, tat: tat },
     });
 
-    for (let t of ["nav", "load", "submit", "prev"]) {
-        const props = { type: t };
-        it(`if the prop value is '${t}', 
-            then the type of tip should be '${t}' and visible`, () => {
+    it(`initially the prop should be visible`, () => {
+        tip_types.forEach((t) => {
+            const props = { type: t };
             const wrapper = mount(Tip, {
                 store,
                 localVue,
@@ -36,8 +36,10 @@ describe("Tip", () => {
             expect(store.getters[`${t}_tip`]).toBe(false);
             wrapper.vm.$forceUpdate();
         });
-        it(`if the prop value is '${t}' and it is clicked,
-            then its hidden`, async () => {
+    });
+    it(`if tip is clicked, then its hidden`, () => {
+        tip_types.forEach(async (t) => {
+            const props = { type: t };
             const wrapper = mount(Tip, {
                 store,
                 localVue,
@@ -50,5 +52,5 @@ describe("Tip", () => {
             expect(wrapper.vm.$data.was_clicked).toBe(true);
             expect(wrapper.isVisible()).toBe(false);
         });
-    }
+    });
 });
