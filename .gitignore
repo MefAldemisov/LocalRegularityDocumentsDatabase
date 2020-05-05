@@ -10,3 +10,4 @@ lrdb_back/Database.txt
 lrdb_back/db.sqlite3
 .coverage
 .coverage.*
+.coverage/* 
