@@ -4,7 +4,7 @@
         display: inline-block;
         width: 15rem;
         opacity: 100;
-        z-index: 2;
+        z-index: 100;
         cursor: pointer;
     }
 }

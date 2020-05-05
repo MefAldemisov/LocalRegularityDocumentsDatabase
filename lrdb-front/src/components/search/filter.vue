@@ -5,6 +5,11 @@
 label {
     margin: 0;
 }
+.filter_form,
+.input-group,
+.input-group-append {
+    z-index: 1 !important   ;
+}
 </style>
 <template>
     <div>

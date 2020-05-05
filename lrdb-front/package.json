@@ -5,7 +5,7 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "unit": "jest"
+        "unit": "jest --coverage"
     },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",

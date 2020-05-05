@@ -55,7 +55,7 @@ export default {
     },
     computed: {
         lang: function() {
-            let now = this.$i18n.locale;
+            const now = this.$i18n.locale;
             if (now === "tat") {
                 return "ru";
             } else {

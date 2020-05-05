@@ -37,7 +37,7 @@ ul {
         </div>
         <ul
             class="shadow-lg rounded-bottom border"
-            :class="{ hidden: hidden }"
+            v-show="!hidden"
             v-shortkey="['enter']"
             @shortkey="hide"
         >
