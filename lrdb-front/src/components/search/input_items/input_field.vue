@@ -61,7 +61,6 @@ export default {
                     const splitten = this.val.split(".");
                     this.val = parseInt(splitten[0]);
                 } else if (this.val.indexOf("-") >= 0) {
-                    console.log("here");
                     const splitten = this.val.split("-");
                     this.val = parseInt(splitten[1]);
                 }

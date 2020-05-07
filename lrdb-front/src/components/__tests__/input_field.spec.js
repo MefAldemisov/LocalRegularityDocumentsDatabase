@@ -19,6 +19,7 @@ let i18n = new VueI18n({
 
 const diffDataTypes = [
     ["number", 345676],
+    ["number", "345"],
     ["text", "HelloWorld!"],
 ];
 const forbiddenNumChars = [
@@ -45,7 +46,9 @@ describe("InputField", () => {
             wrapper.vm.handleInput();
             // event handling
             const inputEvents = wrapper.emitted().input;
-            expect(inputEvents[inputEvents.length - 1][0]).toBe(dt[1]);
+            expect("" + inputEvents[inputEvents.length - 1][0]).toBe(
+                "" + dt[1]
+            );
         });
     });
 
