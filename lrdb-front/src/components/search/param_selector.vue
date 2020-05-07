@@ -149,21 +149,13 @@ export default {
             active_select: false,
             f: false,
             departments: [
-                { name: "University Development", val: "dep1", index: 0 },
-                {
-                    name: "Design and research activities",
-                    val: "dep2",
-                    index: 1,
-                },
-                { name: "Pre-university education", val: "dep3", index: 2 },
-                { name: "Public relations", val: "dep4", index: 3 },
-                { name: "Legal issues", val: "dep5", index: 4 },
-                { name: "Quality education", val: "dep6", index: 5 },
-                {
-                    name: "Administrative Policy and Informatization",
-                    val: "dep7",
-                    index: 6,
-                },
+                { val: "dep1", index: 0 },
+                { val: "dep2", index: 1 },
+                { val: "dep3", index: 2 },
+                { val: "dep4", index: 3 },
+                { val: "dep5", index: 4 },
+                { val: "dep6", index: 5 },
+                { val: "dep7", index: 6 },
             ],
             val: {
                 file: "",
