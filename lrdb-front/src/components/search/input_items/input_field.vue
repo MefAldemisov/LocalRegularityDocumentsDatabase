@@ -1,17 +1,10 @@
 <style scoped>
-.error > input {
-    color: red;
-    border: 2px solid red;
-}
-.error > div.input-group-prepend > span.input-group-text {
-    color: red;
-}
 label {
     z-index: 0;
 }
 </style>
 <template>
-    <label class="col-lg input-group mb-1" :class="{ error: error }">
+    <label class="col-lg input-group mb-1">
         <div class="input-group-prepend ">
             <span class="input-group-text">{{ $t(name) }}</span>
         </div>
@@ -20,8 +13,6 @@ label {
             :type="type"
             class="form-control"
             :required="required"
-            :max="max"
-            :min="min"
             @input="handleInput"
         />
         <slot name="append"></slot>
@@ -50,19 +41,7 @@ export default {
     data: function() {
         return {
             val: "",
-            error: false,
         };
-    },
-    computed: {
-        inp_name: function() {
-            return this.name + "_inp";
-        },
-        min: function() {
-            return this.type === "number" ? 1 : "";
-        },
-        max: function() {
-            return this.type === "number" ? 10000000 : "";
-        },
     },
     created: function() {
         this.val = this.value;
@@ -81,6 +60,10 @@ export default {
                 } else if (this.val.indexOf(".") >= 0) {
                     const splitten = this.val.split(".");
                     this.val = parseInt(splitten[0]);
+                } else if (this.val.indexOf("-") >= 0) {
+                    console.log("here");
+                    const splitten = this.val.split("-");
+                    this.val = parseInt(splitten[1]);
                 }
                 return parseInt(this.val);
             }

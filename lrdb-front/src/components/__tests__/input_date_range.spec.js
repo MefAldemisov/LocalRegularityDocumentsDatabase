@@ -38,11 +38,11 @@ describe("DateRange", () => {
         VueCtkDateTimePicker,
         props: props,
     });
-    // initially, there is no error class
     it(`when error prop is equal to true, 
 		there are changes in the interface`, async () => {
+        // initially, there is no error class
         await wrapper.vm.$nextTick();
-        expect(wrapper.element).not.toContain("error");
+        expect(wrapper.classes()).not.toContain("error");
         // if the property is changed, the representation is changed
         wrapper.setProps({ error: true });
         expect(wrapper.props("error")).toBe(true);
