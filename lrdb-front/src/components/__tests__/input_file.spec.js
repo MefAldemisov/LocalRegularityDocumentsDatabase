@@ -1,7 +1,6 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import InputFile from "../search/input_items/input_file.vue";
 import VueI18n from "vue-i18n";
-import { faItalic } from "@fortawesome/fontawesome-free-solid";
 
 const localVue = createLocalVue();
 
