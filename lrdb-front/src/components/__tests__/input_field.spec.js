@@ -1,21 +1,12 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import InputField from "../search/input_items/input_field.vue";
-// import i18n from "../../plugins/i18n.js";
 import VueI18n from "vue-i18n";
+import { i18n_obj } from "../../plugins/i18n_constant.js";
 
 const localVue = createLocalVue();
 
 localVue.use(VueI18n);
-
-let en = require(`../../assets/langs/en.json`);
-let ru = require(`../../assets/langs/ru.json`);
-let tat = require(`../../assets/langs/tat.json`);
-
-let i18n = new VueI18n({
-    locale: "en",
-    fallbackLocale: "en",
-    messages: { en: en, ru: ru, tat: tat },
-});
+let i18n = new VueI18n(i18n_obj);
 
 const diffDataTypes = [
     ["number", 345676],

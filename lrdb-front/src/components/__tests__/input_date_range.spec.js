@@ -1,22 +1,14 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import DateRange from "../search/input_items/input_date_range.vue";
 import VueI18n from "vue-i18n";
+import { i18n_obj } from "../../plugins/i18n_constant.js";
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 
 const localVue = createLocalVue();
 
 localVue.use(VueI18n);
 localVue.component("VueCtkDateTimePicker", VueCtkDateTimePicker);
-
-let en = require(`../../assets/langs/en.json`);
-let ru = require(`../../assets/langs/ru.json`);
-let tat = require(`../../assets/langs/tat.json`);
-
-let i18n = new VueI18n({
-    locale: "en",
-    fallbackLocale: "en",
-    messages: { en: en, ru: ru, tat: tat },
-});
+let i18n = new VueI18n(i18n_obj);
 
 const languages_in_dp = [
     ["ru", "ru"],

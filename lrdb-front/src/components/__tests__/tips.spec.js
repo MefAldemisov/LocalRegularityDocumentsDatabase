@@ -2,6 +2,7 @@ import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
 import Tip from "../tips/tips.vue";
 import VueI18n from "vue-i18n";
+import { i18n_obj } from "../../plugins/i18n_constant.js";
 import store from "../../store/store.js";
 
 const tip_types = ["nav", "load", "submit", "prev"];
@@ -11,15 +12,7 @@ localVue.use(Vuex);
 localVue.use(VueI18n);
 
 describe("Tip", () => {
-    let en = require(`../../assets/langs/en.json`);
-    let ru = require(`../../assets/langs/ru.json`);
-    let tat = require(`../../assets/langs/tat.json`);
-
-    const i18n = new VueI18n({
-        locale: "en",
-        fallbackLocale: "en",
-        messages: { en: en, ru: ru, tat: tat },
-    });
+    let i18n = new VueI18n(i18n_obj);
 
     it(`initially the prop should be visible`, () => {
         tip_types.forEach((t) => {
