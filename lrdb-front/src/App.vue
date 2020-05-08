@@ -54,10 +54,6 @@ ul.container > li {
 .transparent {
     opacity: 0;
 }
-/* ul>li.clickbel {
-    text-align: center;
-    width: calc(100% / 6);
-} */
 .active,
 ul>li.clickbel:hover {
     color: black;
@@ -65,14 +61,6 @@ ul>li.clickbel:hover {
     font-size: 1.2rem;
     cursor: pointer;
     text-decoration: none;
-}
-.lang_marker {
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-.lang_marker:hover {
-    font-weight: 600;
 }
 main {
     padding-top: 1rem;
@@ -86,8 +74,7 @@ ul > li.burger {
     display: none;
     padding: 0;
 }
-.burger_list,
-.lang_list {
+.burger_list {
     display: none;
     position: absolute;
     background-color: #fff;
@@ -106,9 +93,12 @@ select.custom-select {
     width: 50%;
     padding-left: 1rem;
 }
-.selector:hover .lang_list,
-.selector:focus .lang_list {
-    display: block;
+.lang-control {
+    display: inline-block;
+    max-width: 4.3rem;
+    min-width: 4.3rem;
+    background-color: #edf1f5;
+    border: none;
 }
 @media (max-width: 1200px) {
     main.container,
@@ -188,19 +178,13 @@ select.custom-select {
                             H
                         </span>
                         <span class="navigation"
-                            >{{ $t("lang_text") }} : {{ selected }}
+                            >{{ $t("lang_text") }} : 
                         </span>
-                        <div class="lang_list shadow-lg">
-                            <div
-                                v-for="lang in langs"
-                                :key="lang"
-                                class="rounded-lg dropdown-item"
-                                :class="{burger_active: lang===selected}"
-                                @click="changeLang(lang)"
-                            >
-                                {{ lang }}
-                            </div>
-                        </div>
+                        <select-dropdown class="navigation lang-control"
+                            v-model="selected_lang" 
+                            :options="languages"
+                        >
+                        </select-dropdown>
                         </select>
                     </li>
                 </ul>
@@ -218,6 +202,7 @@ select.custom-select {
 import "./assets/css/main.css";
 import "bootstrap-css-only";
 import UI_logo from "./assets/images/IU_logo_black.png";
+import selectDropdown from "./components/search/input_items/select_dropdown.vue"
 
 export default {
     name: "App",
@@ -237,21 +222,26 @@ export default {
     },
     data: function() {
         return {
-            selected: "EN",
-            langs: ["EN", "RU", "TAT"],
+            selected_lang: "EN",
             alt: "$t('alt_logo')",
             navs: ["my", "search", "load"],
+            languages: [
+                {val:"EN", text: "EN", index: 0}, 
+                {val:"RU", text: "RU", index: 1},
+                {val:"TAT", text: "TAT", index: 2}
+            ]
         };
     },
-    methods: {
-        changeLang: function(lang) {
-            this.$i18n.locale = lang.toLowerCase();
-            this.selected = lang
+    watch: {
+        selected_lang:  function(new_l, old_l){
+            this.$i18n.locale = new_l.toLowerCase();
             // change language of the web page
             document
                 .getElementsByTagName("html")[0]
                 .setAttribute("lang", this.$i18n.locale);
-        },
+        }
+    },
+    methods: {
         changeTab: function(event){
             const current = this.$router.currentRoute.name;
             const index = this.navs.indexOf(current) === -1 ? 2 : this.navs.indexOf(current);
@@ -271,11 +261,14 @@ export default {
         // set language as default language of the user's browser
         const userLang = navigator.language || navigator.userLanguage;
         if (userLang[0] === "r") {
-            this.selected = "RU";
+            this.selected_lang = "RU";
         } else {
-            this.selected = "EN";
+            this.selected_lang = "EN";
         }
-        this.$i18n.locale = this.selected.toLowerCase();
+        this.$i18n.locale = this.selected_lang.toLowerCase();
     },
+    components: {
+        selectDropdown
+    }
 };
 </script>

@@ -55,27 +55,29 @@ ul {
 </template>
 <script>
 export default {
-    name: "sorting",
+    name: "selectDropdown",
     props: {
         value: {
             required: true,
             type: String,
         },
+        options: {
+            required: true,
+            type: Array,
+        },
+        selected_index: {
+            default: 0,
+            type: Number,
+        },
     },
     data() {
         return {
-            selected: { val: "name", text: "srt_name", index: 0 },
-            options: [
-                { val: "name", text: "srt_name", index: 0 },
-                { val: "owner", text: "srt_owner", index: 1 },
-                { val: "created", text: "srt_crt", index: 2 },
-                { val: "last_update", text: "srch_upd", index: 3 },
-                { val: "effect_date", text: "srch_start", index: 4 },
-                { val: "expiration_date", text: "srch_end", index: 5 },
-                { val: "department", text: "srch_dep", index: 6 },
-            ],
+            selected: "",
             hidden: true,
         };
+    },
+    created() {
+        this.selected = this.options[this.selected_index];
     },
     methods: {
         handleInput: function() {
@@ -83,6 +85,7 @@ export default {
         },
         changeSelected: function(op) {
             this.selected = op;
+            this.handleInput();
         },
         moveActive: function(event) {
             if (event.srcKey === "dwn") {
@@ -99,6 +102,7 @@ export default {
         },
         hide: function() {
             this.hidden = true;
+            this.handleInput();
         },
         unhide: function() {
             this.hidden = false;
