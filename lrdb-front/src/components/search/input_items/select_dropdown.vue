@@ -33,7 +33,7 @@ ul {
         @shortkey="moveActive"
     >
         <div class="controller">
-            {{ $t(selected.text) }}
+            {{ $t(options[selected_index].text) }}
         </div>
         <ul
             class="shadow-lg rounded-bottom border"
@@ -44,7 +44,7 @@ ul {
             <li
                 class="dropdown-item rounded"
                 v-for="op in options"
-                :class="{ 'bg-success': selected.val === op.val }"
+                :class="{ 'bg-success': selected_index === op.index }"
                 value="op.val"
                 @click="changeSelected(op)"
             >
@@ -65,39 +65,30 @@ export default {
             required: true,
             type: Array,
         },
-        selected_index: {
-            default: 0,
-            type: Number,
-        },
     },
     data() {
         return {
-            selected: "",
+            selected_index: 0,
             hidden: true,
         };
     },
-    created() {
-        this.selected = this.options[this.selected_index];
-    },
     methods: {
         handleInput: function() {
-            this.$emit("input", this.selected.val);
+            this.$emit("input", this.options[this.selected_index].val);
         },
         changeSelected: function(op) {
-            this.selected = op;
+            this.selected_index = op.index;
             this.handleInput();
         },
         moveActive: function(event) {
             if (event.srcKey === "dwn") {
-                this.selected = this.options[
-                    (this.selected.index + 1) % this.options.length
-                ];
+                this.selected_index =
+                    (this.selected_index + 1) % this.options.length;
             } else {
-                this.selected = this.options[
-                    this.selected.index - 1 >= 0
-                        ? this.selected.index - 1
-                        : this.options.length - 1
-                ];
+                this.selected_index =
+                    this.selected_index > 0
+                        ? this.selected_index - 1
+                        : this.options.length - 1;
             }
         },
         hide: function() {
