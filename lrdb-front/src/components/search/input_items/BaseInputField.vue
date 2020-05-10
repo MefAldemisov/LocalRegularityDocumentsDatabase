@@ -1,23 +1,3 @@
-<style scoped>
-label {
-    z-index: 0;
-}
-</style>
-<template>
-    <label class="col-lg input-group mb-1">
-        <div class="input-group-prepend ">
-            <span class="input-group-text">{{ $t(name) }}</span>
-        </div>
-        <input
-            v-model="val"
-            :type="type"
-            class="form-control"
-            :required="required"
-            @input="handleInput"
-        />
-        <slot name="append"></slot>
-    </label>
-</template>
 <script>
 export default {
     name: "BaseInputField",
@@ -74,3 +54,23 @@ export default {
     },
 };
 </script>
+<template>
+    <label class="col-lg input-group mb-1">
+        <div class="input-group-prepend ">
+            <span class="input-group-text">{{ $t(name) }}</span>
+        </div>
+        <input
+            v-model="val"
+            :type="type"
+            class="form-control"
+            :required="required"
+            @input="handleInput"
+        />
+        <slot name="append"></slot>
+    </label>
+</template>
+<style scoped>
+label {
+    z-index: 0;
+}
+</style>

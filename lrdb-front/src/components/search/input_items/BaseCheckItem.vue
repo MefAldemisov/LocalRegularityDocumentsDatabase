@@ -1,3 +1,36 @@
+<script>
+export default {
+    name: "BaseCheckItem",
+    data: function() {
+        return {
+            selected: false,
+        };
+    },
+    props: {
+        value: {
+            required: true,
+        },
+    },
+    methods: {
+        handleInput: function(e) {
+            this.$emit("input", e.target.checked);
+        },
+    },
+};
+</script>
+<template>
+    <div class="form-check-inline">
+        <label class="rounded-lg border" :class="{ active: selected }">
+            <input
+                type="checkbox"
+                class="hidden"
+                v-model="selected"
+                @input="handleInput"
+            />
+            <slot></slot>
+        </label>
+    </div>
+</template>
 <style scoped>
 input[type="checkbox"] {
     position: absolute;
@@ -19,36 +52,3 @@ label:hover {
     color: white;
 }
 </style>
-<template>
-    <div class="form-check-inline">
-        <label class="rounded-lg border" :class="{ active: selected }">
-            <input
-                type="checkbox"
-                class="hidden"
-                v-model="selected"
-                @input="handleInput"
-            />
-            <slot></slot>
-        </label>
-    </div>
-</template>
-<script>
-export default {
-    name: "BaseCheckItem",
-    data: function() {
-        return {
-            selected: false,
-        };
-    },
-    props: {
-        value: {
-            required: true,
-        },
-    },
-    methods: {
-        handleInput: function(e) {
-            this.$emit("input", e.target.checked);
-        },
-    },
-};
-</script>

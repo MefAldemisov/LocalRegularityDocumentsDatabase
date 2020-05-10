@@ -1,22 +1,40 @@
-<style scoped>
-.iframe {
-    width: calc(100% - 3rem);
-    position: absolute;
-    height: calc(100% - 3rem);
-    border: none;
-}
-.full_height {
-    min-height: 100%;
-}
-@media (max-width: 1000px) {
-    .col-lg {
-        display: block;
-    }
-    .full_height {
-        min-height: 40vh;
-    }
-}
-</style>
+<script>
+import DocListPageItemRow from "./DocListPageItemRow.vue";
+export default {
+    name: "DocListPageItem",
+    data: function() {
+        return {
+            doc_file: "https://vuejs.org",
+        };
+    },
+    components: {
+        DocListPageItemRow,
+    },
+    props: { info: { type: Object, required: true } },
+    computed: {
+        dt_created: function() {
+            return this.excludeDate(this.info.created);
+        },
+        dt_last_update: function() {
+            return this.excludeDate(this.info.last_update);
+        },
+        dt_effect_date: function() {
+            return this.excludeDate(this.info.effect_date);
+        },
+        dt_expiration_date: function() {
+            return this.excludeDate(this.info.expiration_date);
+        },
+    },
+    methods: {
+        excludeDate: function(date) {
+            let [d, other] = date.split("T");
+            let z = other.split(".");
+            let t = z[0];
+            return `${d} ${t}`;
+        },
+    },
+};
+</script>
 <template>
     <article class="row">
         <div class="col-lg">
@@ -99,40 +117,22 @@
         </div>
     </article>
 </template>
-<script>
-import DocListPageItemRow from "./DocListPageItemRow.vue";
-export default {
-    name: "DocListPageItem",
-    data: function() {
-        return {
-            doc_file: "https://vuejs.org",
-        };
-    },
-    components: {
-        DocListPageItemRow,
-    },
-    props: { info: { type: Object, required: true } },
-    computed: {
-        dt_created: function() {
-            return this.excludeDate(this.info.created);
-        },
-        dt_last_update: function() {
-            return this.excludeDate(this.info.last_update);
-        },
-        dt_effect_date: function() {
-            return this.excludeDate(this.info.effect_date);
-        },
-        dt_expiration_date: function() {
-            return this.excludeDate(this.info.expiration_date);
-        },
-    },
-    methods: {
-        excludeDate: function(date) {
-            let [d, other] = date.split("T");
-            let z = other.split(".");
-            let t = z[0];
-            return `${d} ${t}`;
-        },
-    },
-};
-</script>
+<style scoped>
+.iframe {
+    width: calc(100% - 3rem);
+    position: absolute;
+    height: calc(100% - 3rem);
+    border: none;
+}
+.full_height {
+    min-height: 100%;
+}
+@media (max-width: 1000px) {
+    .col-lg {
+        display: block;
+    }
+    .full_height {
+        min-height: 40vh;
+    }
+}
+</style>

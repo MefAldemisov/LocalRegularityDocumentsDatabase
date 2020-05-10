@@ -1,12 +1,3 @@
-<template>
-    <div>
-        <h1>
-            {{ $t("history") }} <br />
-            &laquo;{{ $route.params.name }}&raquo;
-        </h1>
-        <doc-list :response="response" />
-    </div>
-</template>
 <script>
 import DocList from "../components/represent/DocList.vue";
 import comparator from "../plugins/comparator.js";
@@ -29,3 +20,12 @@ export default {
     },
 };
 </script>
+<template>
+    <div>
+        <h1>
+            {{ $t("history") }} <br />
+            &laquo;{{ $route.params.name }}&raquo;
+        </h1>
+        <doc-list :response="response" />
+    </div>
+</template>

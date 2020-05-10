@@ -1,18 +1,3 @@
-<template>
-    <div>
-        <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
-        <tip-container :tips="tips"></tip-container>
-        <section>
-            <h2>{{ $t("docs_name_ment") }}</h2>
-            <doc-list :response="mentioned" />
-        </section>
-        <section>
-            <h2>{{ $t("my") }}</h2>
-            <!-- make a carousel -->
-            <doc-list :response="mentioned" />
-        </section>
-    </div>
-</template>
 <script>
 import DocList from "../components/represent/DocList.vue";
 import apiCalls from "../request/index.js";
@@ -55,3 +40,18 @@ export default {
     },
 };
 </script>
+<template>
+    <div>
+        <h1 class="hidden">{{ $t("page_with_docs_user") }}</h1>
+        <tip-container :tips="tips"></tip-container>
+        <section>
+            <h2>{{ $t("docs_name_ment") }}</h2>
+            <doc-list :response="mentioned" />
+        </section>
+        <section>
+            <h2>{{ $t("my") }}</h2>
+            <!-- make a carousel -->
+            <doc-list :response="mentioned" />
+        </section>
+    </div>
+</template>

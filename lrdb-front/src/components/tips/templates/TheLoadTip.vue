@@ -1,3 +1,10 @@
+<script>
+import BaseTip from "./base/BaseTip.vue";
+export default {
+    name: "TheLoadTip",
+    components: { BaseTip },
+};
+</script>
 <template>
     <base-tip type="load">
         {{ $t("hotkeys") }}
@@ -13,10 +20,3 @@
         {{ $t("to_nav_pg") }}
     </base-tip>
 </template>
-<script>
-import BaseTip from "./base/BaseTip.vue";
-export default {
-    name: "TheLoadTip",
-    components: { BaseTip },
-};
-</script>

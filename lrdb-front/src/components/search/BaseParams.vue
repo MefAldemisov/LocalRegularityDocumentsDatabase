@@ -1,116 +1,3 @@
-<style scoped>
-.error-msg {
-    padding: 2rem;
-    color: red;
-    font-size: 1rem;
-    font-weight: 400;
-}
-</style>
-<template>
-    <div class="pb-3">
-        <!-- in any case -->
-        <h3 class="pt-4">{{ $t("main_params") }}</h3>
-        <div class="row">
-            <base-input-field
-                v-model="val.name"
-                name="srch_name"
-                type="text"
-                :required="required"
-                @input="handleInput"
-            />
-        </div>
-        <!-- in any type except upload-->
-        <div v-if="form_type !== 'load'" class="row">
-            <base-input-field
-                v-model="val.owner"
-                name="srch_owner"
-                type="text"
-                :required="required"
-                @input="handleInput"
-            />
-            <base-input-field
-                v-if="form_type !== 'upload'"
-                v-model="val.id"
-                name="srch_id"
-                type="number"
-                :required="required"
-                @input="handleInput"
-            />
-        </div>
-
-        <h3 class="pt-4">
-            {{ $t("dates") }}
-            <span class="error-msg" v-if="form_type !== 'search' && error_data">
-                {{ $t("error_effect") }}
-            </span>
-        </h3>
-
-        <!-- in case of  search-->
-        <div v-if="form_type === 'search'" class="row">
-            <base-date-range
-                v-model="val.created"
-                name="srch_create"
-                :required="required"
-                @input="handleInput"
-            />
-            <base-date-range
-                v-model="val.last_update"
-                name="srch_last"
-                :required="required"
-                @input="handleInput"
-            />
-        </div>
-        <div v-if="form_type === 'search'" class="row">
-            <base-date-range
-                v-model="val.effect_date"
-                name="srch_start"
-                :required="required"
-                @input="handleInput"
-            />
-            <base-date-range
-                v-model="val.expiration_date"
-                name="srch_end"
-                :required="required"
-                @input="handleInput"
-            />
-        </div>
-        <!-- in case of change and upload -->
-        <div v-if="form_type !== 'search'" class="row rounded">
-            <base-date-range
-                v-model="val.effect_date"
-                name="srch_start"
-                :range="f"
-                :required="required"
-                @input="handleInput"
-                :error="error_data"
-            />
-            <base-date-range
-                v-model="val.expiration_date"
-                name="srch_end"
-                :range="f"
-                :required="required"
-                @input="handleInput"
-                :error="error_data"
-            />
-        </div>
-
-        <h3 class="pt-4">{{ $t("srch_dep") }}</h3>
-        <div class="pb-4 d-flex flex-wrap justify-content-around">
-            <base-check-item
-                v-for="dep in departments"
-                v-model="select_list[dep.index]"
-                :key="dep.val"
-                @input="handleInput"
-                >{{ $t(dep.val) }}</base-check-item
-            >
-        </div>
-        <!-- for upload and change -->
-        <div v-if="form_type !== 'search'">
-            <h3>{{ $t("selct_file") }}</h3>
-            <base-input-file v-model="val.file" @input="handleInput" />
-        </div>
-    </div>
-</template>
 <script>
 import BaseInputField from "./input_items/BaseInputField.vue";
 import BaseCheckItem from "./input_items/BaseCheckItem.vue";
@@ -222,3 +109,116 @@ export default {
     },
 };
 </script>
+<template>
+    <div class="pb-3">
+        <!-- in any case -->
+        <h3 class="pt-4">{{ $t("main_params") }}</h3>
+        <div class="row">
+            <base-input-field
+                v-model="val.name"
+                name="srch_name"
+                type="text"
+                :required="required"
+                @input="handleInput"
+            />
+        </div>
+        <!-- in any type except upload-->
+        <div v-if="form_type !== 'load'" class="row">
+            <base-input-field
+                v-model="val.owner"
+                name="srch_owner"
+                type="text"
+                :required="required"
+                @input="handleInput"
+            />
+            <base-input-field
+                v-if="form_type !== 'upload'"
+                v-model="val.id"
+                name="srch_id"
+                type="number"
+                :required="required"
+                @input="handleInput"
+            />
+        </div>
+
+        <h3 class="pt-4">
+            {{ $t("dates") }}
+            <span class="error-msg" v-if="form_type !== 'search' && error_data">
+                {{ $t("error_effect") }}
+            </span>
+        </h3>
+
+        <!-- in case of  search-->
+        <div v-if="form_type === 'search'" class="row">
+            <base-date-range
+                v-model="val.created"
+                name="srch_create"
+                :required="required"
+                @input="handleInput"
+            />
+            <base-date-range
+                v-model="val.last_update"
+                name="srch_last"
+                :required="required"
+                @input="handleInput"
+            />
+        </div>
+        <div v-if="form_type === 'search'" class="row">
+            <base-date-range
+                v-model="val.effect_date"
+                name="srch_start"
+                :required="required"
+                @input="handleInput"
+            />
+            <base-date-range
+                v-model="val.expiration_date"
+                name="srch_end"
+                :required="required"
+                @input="handleInput"
+            />
+        </div>
+        <!-- in case of change and upload -->
+        <div v-if="form_type !== 'search'" class="row rounded">
+            <base-date-range
+                v-model="val.effect_date"
+                name="srch_start"
+                :range="f"
+                :required="required"
+                @input="handleInput"
+                :error="error_data"
+            />
+            <base-date-range
+                v-model="val.expiration_date"
+                name="srch_end"
+                :range="f"
+                :required="required"
+                @input="handleInput"
+                :error="error_data"
+            />
+        </div>
+
+        <h3 class="pt-4">{{ $t("srch_dep") }}</h3>
+        <div class="pb-4 d-flex flex-wrap justify-content-around">
+            <base-check-item
+                v-for="dep in departments"
+                v-model="select_list[dep.index]"
+                :key="dep.val"
+                @input="handleInput"
+                >{{ $t(dep.val) }}</base-check-item
+            >
+        </div>
+        <!-- for upload and change -->
+        <div v-if="form_type !== 'search'">
+            <h3>{{ $t("selct_file") }}</h3>
+            <base-input-file v-model="val.file" @input="handleInput" />
+        </div>
+    </div>
+</template>
+<style scoped>
+.error-msg {
+    padding: 2rem;
+    color: red;
+    font-size: 1rem;
+    font-weight: 400;
+}
+</style>

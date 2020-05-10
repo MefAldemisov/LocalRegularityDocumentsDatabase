@@ -1,25 +1,28 @@
-<style scoped>
-.tab {
-    display: inline-block;
-    cursor: pointer;
-    padding: 0.3rem 0.5rem;
-    background-color: #edf1f5;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-}
-.active {
-    background-color: #0f870d;
-    color: white;
-}
-h1 {
-    display: none;
-}
-h2 {
-    font-size: 1.2rem;
-    margin: 0;
-}
-</style>
+<script>
+import TipContainer from "../components/tips/TipContainer.vue";
+export default {
+    name: "LoadDocsPage",
+    data: function() {
+        return {
+            load_modes: [
+                { name: "new", text: "load" },
+                { name: "change", text: "update" },
+            ],
+            tips: ["nav", "load", "submit"],
+        };
+    },
+    methods: {
+        changeMode: function(event) {
+            console.log("hi");
+            const index = event.srcKey === "left" ? 0 : 1;
+            this.$router.push({ name: this.load_modes[index].name });
+        },
+    },
+    components: {
+        TipContainer,
+    },
+};
+</script>
 <template>
     <div>
         <h1>{{ $t("form_load_upd") }}</h1>
@@ -47,28 +50,25 @@ h2 {
         <router-view></router-view>
     </div>
 </template>
-<script>
-import TipContainer from "../components/tips/TipContainer.vue";
-export default {
-    name: "LoadDocsPage",
-    data: function() {
-        return {
-            load_modes: [
-                { name: "new", text: "load" },
-                { name: "change", text: "update" },
-            ],
-            tips: ["nav", "load", "submit"],
-        };
-    },
-    methods: {
-        changeMode: function(event) {
-            console.log("hi");
-            const index = event.srcKey === "left" ? 0 : 1;
-            this.$router.push({ name: this.load_modes[index].name });
-        },
-    },
-    components: {
-        TipContainer,
-    },
-};
-</script>
+<style scoped>
+.tab {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    background-color: #edf1f5;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+.active {
+    background-color: #0f870d;
+    color: white;
+}
+h1 {
+    display: none;
+}
+h2 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+</style>

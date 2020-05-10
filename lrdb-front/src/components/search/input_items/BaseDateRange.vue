@@ -1,31 +1,3 @@
-<style scoped>
-* {
-    font-size: 0.9rem;
-}
-</style>
-<style>
-.error > div.field > input {
-    border: 2px solid red;
-}
-</style>
-<template>
-    <VueCtkDateTimePicker
-        v-else
-        class="my-1 col-sm"
-        :class="{ error: error }"
-        format="YYYY-MM-DD"
-        formatted="ll"
-        :id="name"
-        :label="$t(name)"
-        v-model="val"
-        :locale="lang"
-        :range="range"
-        :only-date="day"
-        color="#0f870d"
-        button-color="#0f870d"
-        @input="handleInput"
-    />
-</template>
 <script>
 export default {
     name: "BaseDateRange",
@@ -70,3 +42,31 @@ export default {
     },
 };
 </script>
+<template>
+    <VueCtkDateTimePicker
+        v-else
+        class="my-1 col-sm"
+        :class="{ error: error }"
+        format="YYYY-MM-DD"
+        formatted="ll"
+        :id="name"
+        :label="$t(name)"
+        v-model="val"
+        :locale="lang"
+        :range="range"
+        :only-date="day"
+        color="#0f870d"
+        button-color="#0f870d"
+        @input="handleInput"
+    />
+</template>
+<style scoped>
+* {
+    font-size: 0.9rem;
+}
+</style>
+<style>
+.error > div.field > input {
+    border: 2px solid red;
+}
+</style>

@@ -1,3 +1,10 @@
+<script>
+import BaseTip from "./base/BaseTip.vue";
+export default {
+    name: "TheSubmitTip",
+    components: { BaseTip },
+};
+</script>
 <template>
     <base-tip type="submit">
         {{ $t("hotkeys") }}
@@ -7,10 +14,3 @@
         {{ $t("to_sbm_fm") }}
     </base-tip>
 </template>
-<script>
-import BaseTip from "./base/BaseTip.vue";
-export default {
-    name: "TheSubmitTip",
-    components: { BaseTip },
-};
-</script>

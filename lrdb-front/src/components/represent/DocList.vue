@@ -1,65 +1,3 @@
-<style scoped>
-.page-item {
-    padding: 0;
-}
-.page-link {
-    color: black;
-}
-.pagination {
-    width: 100%;
-}
-.active,
-.page-link:hover {
-    background-color: #0f870d;
-    color: white;
-}
-</style>
-<template>
-    <div
-        @mouseover="setActCours(true)"
-        @mouseout="setActCours(false)"
-        :class="{ act: cursor_active }"
-    >
-        <doc-list-page
-            :key="info[currentPage - 1].index"
-            :info="info[currentPage - 1].info"
-        />
-        <div class="mt-3">
-            <ul
-                class="pagination justify-content-center"
-                v-shortkey="{
-                    right: ['ctrl', 'shift', 'arrowright'],
-                    left: ['ctrl', 'shift', 'arrowleft'],
-                }"
-                @shortkey="changeKeyPage"
-            >
-                <li class="page-item">
-                    <span
-                        class="page-link"
-                        @click="changePage(currentPage - 1)"
-                        >{{ $t("prev") }}</span
-                    >
-                </li>
-                <li v-for="n in pages" class="page-item" :key="n">
-                    <span
-                        :class="{ active: currentPage === n }"
-                        class="page-link"
-                        href="#"
-                        @click="changePage(n)"
-                        >{{ n }}</span
-                    >
-                </li>
-                <li class="page-item">
-                    <span
-                        class="page-link"
-                        @click="changePage(currentPage + 1)"
-                        >{{ $t("next") }}</span
-                    >
-                </li>
-            </ul>
-        </div>
-    </div>
-</template>
 <script>
 import DocListPage from "./DocListPage.vue";
 
@@ -128,3 +66,65 @@ export default {
     },
 };
 </script>
+<template>
+    <div
+        @mouseover="setActCours(true)"
+        @mouseout="setActCours(false)"
+        :class="{ act: cursor_active }"
+    >
+        <doc-list-page
+            :key="info[currentPage - 1].index"
+            :info="info[currentPage - 1].info"
+        />
+        <div class="mt-3">
+            <ul
+                class="pagination justify-content-center"
+                v-shortkey="{
+                    right: ['ctrl', 'shift', 'arrowright'],
+                    left: ['ctrl', 'shift', 'arrowleft'],
+                }"
+                @shortkey="changeKeyPage"
+            >
+                <li class="page-item">
+                    <span
+                        class="page-link"
+                        @click="changePage(currentPage - 1)"
+                        >{{ $t("prev") }}</span
+                    >
+                </li>
+                <li v-for="n in pages" class="page-item" :key="n">
+                    <span
+                        :class="{ active: currentPage === n }"
+                        class="page-link"
+                        href="#"
+                        @click="changePage(n)"
+                        >{{ n }}</span
+                    >
+                </li>
+                <li class="page-item">
+                    <span
+                        class="page-link"
+                        @click="changePage(currentPage + 1)"
+                        >{{ $t("next") }}</span
+                    >
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+<style scoped>
+.page-item {
+    padding: 0;
+}
+.page-link {
+    color: black;
+}
+.pagination {
+    width: 100%;
+}
+.active,
+.page-link:hover {
+    background-color: #0f870d;
+    color: white;
+}
+</style>

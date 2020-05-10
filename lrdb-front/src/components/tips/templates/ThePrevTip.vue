@@ -1,3 +1,10 @@
+<script>
+import BaseTip from "./base/BaseTip.vue";
+export default {
+    name: "ThePrevTip",
+    components: { BaseTip },
+};
+</script>
 <template>
     <base-tip type="prev">
         {{ $t("hotkeys") }}
@@ -14,10 +21,3 @@
         {{ $t("to_nav_pg") }}
     </base-tip>
 </template>
-<script>
-import BaseTip from "./base/BaseTip.vue";
-export default {
-    name: "ThePrevTip",
-    components: { BaseTip },
-};
-</script>

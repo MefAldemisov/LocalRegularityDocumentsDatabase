@@ -1,17 +1,3 @@
-<template>
-    <form
-        @submit.prevent="request"
-        v-shortkey="['shift', 'enter']"
-        @shortkey="request()"
-    >
-        <h2>{{ $t("search_search_params") }}</h2>
-        <base-params :form_type="form_type" v-model="params" />
-        <button type="submit" class="btn btn-success btn-block">
-            <font-awesome-icon icon="search"></font-awesome-icon>
-            <span>{{ $t("srch_srch_btn") }}</span>
-        </button>
-    </form>
-</template>
 <script>
 import BaseParams from "./BaseParams.vue";
 import apiCalls from "../../request/index.js";
@@ -58,3 +44,17 @@ export default {
     },
 };
 </script>
+<template>
+    <form
+        @submit.prevent="request"
+        v-shortkey="['shift', 'enter']"
+        @shortkey="request()"
+    >
+        <h2>{{ $t("search_search_params") }}</h2>
+        <base-params :form_type="form_type" v-model="params" />
+        <button type="submit" class="btn btn-success btn-block">
+            <font-awesome-icon icon="search"></font-awesome-icon>
+            <span>{{ $t("srch_srch_btn") }}</span>
+        </button>
+    </form>
+</template>

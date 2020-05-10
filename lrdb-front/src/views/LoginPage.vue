@@ -1,3 +1,26 @@
+<script>
+import BaseInputField from "../components/search/input_items/BaseInputField.vue";
+
+export default {
+    name: "LoginPage",
+    data: function() {
+        return {
+            t: true,
+            login: "",
+            password: "",
+            sended: false,
+        };
+    },
+    components: {
+        BaseInputField,
+    },
+    methods: {
+        validate: function() {
+            this.sended = true;
+        },
+    },
+};
+</script>
 <template>
     <div>
         <h1 class="hidden">{{ $t("login_login") }}</h1>
@@ -28,26 +51,3 @@
         </form>
     </div>
 </template>
-<script>
-import BaseInputField from "../components/search/input_items/BaseInputField.vue";
-
-export default {
-    name: "LoginPage",
-    data: function() {
-        return {
-            t: true,
-            login: "",
-            password: "",
-            sended: false,
-        };
-    },
-    components: {
-        BaseInputField,
-    },
-    methods: {
-        validate: function() {
-            this.sended = true;
-        },
-    },
-};
-</script>

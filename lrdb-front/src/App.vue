@@ -1,3 +1,148 @@
+<script>
+// import "./node_modules/reset-css/reset.css";
+import "./assets/css/main.css";
+import "bootstrap-css-only";
+import UI_logo from "./assets/images/IU_logo_black.png";
+import BaseDropdown from "./components/search/input_items/BaseDropdown.vue"
+
+export default {
+    name: "App",
+    props: {
+        user_id: {
+            type: Number,
+            default: 23,
+        },
+        logout_link: {
+            type: String,
+            default: "#",
+        },
+        img_link: {
+            type: String,
+            default: UI_logo,
+        },
+    },
+    data: function() {
+        return {
+            selected_lang: "EN",
+            alt: "$t('alt_logo')",
+            navs: ["my", "search", "load"],
+            languages: [
+                {val:"EN", text: "EN", index: 0}, 
+                {val:"RU", text: "RU", index: 1},
+                {val:"TAT", text: "TAT", index: 2}
+            ]
+        };
+    },
+    watch: {
+        selected_lang:  function(new_l, old_l){
+            this.$i18n.locale = new_l.toLowerCase();
+            // change language of the web page
+            document
+                .getElementsByTagName("html")[0]
+                .setAttribute("lang", this.$i18n.locale);
+        }
+    },
+    methods: {
+        changeTab: function(event){
+            const current = this.$router.currentRoute.name;
+            const index = this.navs.indexOf(current) === -1 ? 2 : this.navs.indexOf(current);
+            
+            if (event.srcKey ==="left"){
+                console.log("true")
+                this.$router.push({name : this.navs[(index-1) >= 0 ? (index - 1) : 2]});
+            } else {
+                this.$router.push({name : this.navs[(index+1)%this.navs.length]});
+            }
+        },
+        goToMy: function(){
+            this.$router.push({name : "my"});
+        }
+    },
+    created: function() {
+        // set language as default language of the user's browser
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang[0] === "r") {
+            this.selected_lang = "RU";
+        } else {
+            this.selected_lang = "EN";
+        }
+        this.$i18n.locale = this.selected_lang.toLowerCase();
+    },
+    components: {
+        BaseDropdown
+    }
+};
+</script>
+<template>
+    <div>
+        <header>
+            <nav class="symbolic">
+                <ul
+                    class="container d-flex flex-wrap justify-content-between align-items-baseline"
+                >
+                    <li class="burger clickbel">
+                        <span>
+                            <font-awesome-icon icon="bars"></font-awesome-icon>
+                        </span>
+                        <ul class="burger_list shadow-lg">
+                            <router-link
+                                class="dropdown-item rounded-lg"
+                                active-class="burger_active"
+                                tag="li"
+                                v-for="nav in navs"
+                                :to="{ name: nav }"
+                                :key="nav"
+                                >{{ $t(nav) }}</router-link
+                            >
+                            <li class="dropdown-item rounded-lg">
+                                <a :href="logout_link" class="logout">
+                                    {{ $t("logout") }}
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img @click="goToMy" class="iu_logo" :src="img_link" :alt="alt" />
+                    </li>
+                    <router-link
+                        tag="li"
+                        v-for="nav in navs"
+                        active-class="active"
+                        class="clickbel navigation"
+                        :to="{ name: nav }"
+                        :key="nav"
+                        >
+                        {{ $t(nav) }}
+                    </router-link>
+                    <li class="clickbel navigation">
+                        <a :href="logout_link" class="logout">
+                            {{ $t("logout") }}
+                        </a>
+                         
+                    </li>
+                    <li class="selector">
+                        <span class="active transparent">
+                            H
+                        </span>
+                        <span class="navigation"
+                            >{{ $t("lang_text") }} : 
+                        </span>
+                        <base-dropdown class="navigation lang-control"
+                            v-model="selected_lang" 
+                            :options="languages"
+                        >
+                        </base-dropdown>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="container" v-shortkey="{right: ['ctrl','arrowright'], left: ['ctrl','arrowleft']}"  @shortkey="changeTab">
+            <router-view></router-view>
+        </main>
+        <footer class="symbolic"></footer>
+    </div>
+</template>
 <style>
 .btn-success {
     /*UI style*/
@@ -126,149 +271,3 @@ select.custom-select {
     }
 }
 </style>
-<template>
-    <div>
-        <header>
-            <nav class="symbolic">
-                <ul
-                    class="container d-flex flex-wrap justify-content-between align-items-baseline"
-                >
-                    <li class="burger clickbel">
-                        <span>
-                            <font-awesome-icon icon="bars"></font-awesome-icon>
-                        </span>
-                        <ul class="burger_list shadow-lg">
-                            <router-link
-                                class="dropdown-item rounded-lg"
-                                active-class="burger_active"
-                                tag="li"
-                                v-for="nav in navs"
-                                :to="{ name: nav }"
-                                :key="nav"
-                                >{{ $t(nav) }}</router-link
-                            >
-                            <li class="dropdown-item rounded-lg">
-                                <a :href="logout_link" class="logout">
-                                    {{ $t("logout") }}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img @click="goToMy" class="iu_logo" :src="img_link" :alt="alt" />
-                    </li>
-                    <router-link
-                        tag="li"
-                        v-for="nav in navs"
-                        active-class="active"
-                        class="clickbel navigation"
-                        :to="{ name: nav }"
-                        :key="nav"
-                        >
-                        {{ $t(nav) }}
-                    </router-link>
-                    <li class="clickbel navigation">
-                        <a :href="logout_link" class="logout">
-                            {{ $t("logout") }}
-                        </a>
-                         
-                    </li>
-                    <li class="selector">
-                        <span class="active transparent">
-                            H
-                        </span>
-                        <span class="navigation"
-                            >{{ $t("lang_text") }} : 
-                        </span>
-                        <base-dropdown class="navigation lang-control"
-                            v-model="selected_lang" 
-                            :options="languages"
-                        >
-                        </base-dropdown>
-                        </select>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <main class="container" v-shortkey="{right: ['ctrl','arrowright'], left: ['ctrl','arrowleft']}"  @shortkey="changeTab">
-            <router-view></router-view>
-        </main>
-        <footer class="symbolic"></footer>
-    </div>
-</template>
-<script>
-
-// import "./node_modules/reset-css/reset.css";
-import "./assets/css/main.css";
-import "bootstrap-css-only";
-import UI_logo from "./assets/images/IU_logo_black.png";
-import BaseDropdown from "./components/search/input_items/BaseDropdown.vue"
-
-export default {
-    name: "App",
-    props: {
-        user_id: {
-            type: Number,
-            default: 23,
-        },
-        logout_link: {
-            type: String,
-            default: "#",
-        },
-        img_link: {
-            type: String,
-            default: UI_logo,
-        },
-    },
-    data: function() {
-        return {
-            selected_lang: "EN",
-            alt: "$t('alt_logo')",
-            navs: ["my", "search", "load"],
-            languages: [
-                {val:"EN", text: "EN", index: 0}, 
-                {val:"RU", text: "RU", index: 1},
-                {val:"TAT", text: "TAT", index: 2}
-            ]
-        };
-    },
-    watch: {
-        selected_lang:  function(new_l, old_l){
-            this.$i18n.locale = new_l.toLowerCase();
-            // change language of the web page
-            document
-                .getElementsByTagName("html")[0]
-                .setAttribute("lang", this.$i18n.locale);
-        }
-    },
-    methods: {
-        changeTab: function(event){
-            const current = this.$router.currentRoute.name;
-            const index = this.navs.indexOf(current) === -1 ? 2 : this.navs.indexOf(current);
-            
-            if (event.srcKey ==="left"){
-                console.log("true")
-                this.$router.push({name : this.navs[(index-1) >= 0 ? (index - 1) : 2]});
-            } else {
-                this.$router.push({name : this.navs[(index+1)%this.navs.length]});
-            }
-        },
-        goToMy: function(){
-            this.$router.push({name : "my"});
-        }
-    },
-    created: function() {
-        // set language as default language of the user's browser
-        const userLang = navigator.language || navigator.userLanguage;
-        if (userLang[0] === "r") {
-            this.selected_lang = "RU";
-        } else {
-            this.selected_lang = "EN";
-        }
-        this.$i18n.locale = this.selected_lang.toLowerCase();
-    },
-    components: {
-        BaseDropdown
-    }
-};
-</script>

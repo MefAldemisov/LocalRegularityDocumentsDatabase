@@ -1,3 +1,10 @@
+<script>
+import BaseTip from "./base/BaseTip.vue";
+export default {
+    name: "TheNavTip",
+    components: { BaseTip },
+};
+</script>
 <template>
     <base-tip type="nav">
         {{ $t("hotkeys") }}
@@ -13,10 +20,3 @@
         {{ $t("to_nav_sect") }}
     </base-tip>
 </template>
-<script>
-import BaseTip from "./base/BaseTip.vue";
-export default {
-    name: "TheNavTip",
-    components: { BaseTip },
-};
-</script>
