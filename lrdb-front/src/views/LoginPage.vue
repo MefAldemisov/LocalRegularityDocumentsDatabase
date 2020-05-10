@@ -8,13 +8,13 @@
             @shortkey="validate()"
         >
             <h2 class="px-4 pb-4">{{ $t("login_title") }}</h2>
-            <input_field
+            <base-input-field
                 v-model="login"
                 name="login_login"
                 type="text"
                 :required="t"
             />
-            <input_field
+            <base-input-field
                 v-model="password"
                 name="login_password"
                 type="password"
@@ -29,10 +29,10 @@
     </div>
 </template>
 <script>
-import input_field from "../components/search/input_items/input_field.vue";
+import BaseInputField from "../components/search/input_items/BaseInputField.vue";
 
 export default {
-    name: "LoginForm",
+    name: "LoginPage",
     data: function() {
         return {
             t: true,
@@ -42,7 +42,7 @@ export default {
         };
     },
     components: {
-        input_field,
+        BaseInputField,
     },
     methods: {
         validate: function() {

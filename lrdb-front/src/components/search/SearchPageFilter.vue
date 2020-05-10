@@ -22,10 +22,10 @@ label {
                         </span>
                     </button>
                 </div>
-                <select-dropdown
+                <base-dropdown
                     v-model="criteria"
                     :options="filter_options"
-                ></select-dropdown>
+                ></base-dropdown>
                 <div class="input-group-append">
                     <button class="btn btn-success" @click.prevent="done">
                         {{ $t("next_request_btn") }}
@@ -33,19 +33,19 @@ label {
                 </div>
             </div>
         </form>
-        <Representation :response="resp" />
+        <doc-list :response="resp" />
     </div>
 </template>
 <script>
-import Representation from "../represent/doc_representation.vue";
+import DocList from "../represent/DocList.vue";
 import comparator from "../../plugins/comparator.js";
-import selectDropdown from "../search/input_items/select_dropdown.vue";
+import BaseDropdown from "../search/input_items/BaseDropdown.vue";
 
 export default {
-    name: "FilterPage",
+    name: "SearchPageFilter",
     components: {
-        Representation,
-        selectDropdown,
+        DocList,
+        BaseDropdown,
     },
     props: { resp: { required: true } },
     data: function() {

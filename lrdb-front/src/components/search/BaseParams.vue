@@ -11,7 +11,7 @@
         <!-- in any case -->
         <h3 class="pt-4">{{ $t("main_params") }}</h3>
         <div class="row">
-            <input_field
+            <base-input-field
                 v-model="val.name"
                 name="srch_name"
                 type="text"
@@ -21,14 +21,14 @@
         </div>
         <!-- in any type except upload-->
         <div v-if="form_type !== 'load'" class="row">
-            <input_field
+            <base-input-field
                 v-model="val.owner"
                 name="srch_owner"
                 type="text"
                 :required="required"
                 @input="handleInput"
             />
-            <input_field
+            <base-input-field
                 v-if="form_type !== 'upload'"
                 v-model="val.id"
                 name="srch_id"
@@ -47,13 +47,13 @@
 
         <!-- in case of  search-->
         <div v-if="form_type === 'search'" class="row">
-            <date-range
+            <base-date-range
                 v-model="val.created"
                 name="srch_create"
                 :required="required"
                 @input="handleInput"
             />
-            <date-range
+            <base-date-range
                 v-model="val.last_update"
                 name="srch_last"
                 :required="required"
@@ -61,13 +61,13 @@
             />
         </div>
         <div v-if="form_type === 'search'" class="row">
-            <date-range
+            <base-date-range
                 v-model="val.effect_date"
                 name="srch_start"
                 :required="required"
                 @input="handleInput"
             />
-            <date-range
+            <base-date-range
                 v-model="val.expiration_date"
                 name="srch_end"
                 :required="required"
@@ -76,7 +76,7 @@
         </div>
         <!-- in case of change and upload -->
         <div v-if="form_type !== 'search'" class="row rounded">
-            <date-range
+            <base-date-range
                 v-model="val.effect_date"
                 name="srch_start"
                 :range="f"
@@ -84,7 +84,7 @@
                 @input="handleInput"
                 :error="error_data"
             />
-            <date-range
+            <base-date-range
                 v-model="val.expiration_date"
                 name="srch_end"
                 :range="f"
@@ -96,34 +96,34 @@
 
         <h3 class="pt-4">{{ $t("srch_dep") }}</h3>
         <div class="pb-4 d-flex flex-wrap justify-content-around">
-            <check
+            <base-check-item
                 v-for="dep in departments"
                 v-model="select_list[dep.index]"
                 :key="dep.val"
                 @input="handleInput"
-                >{{ $t(dep.val) }}</check
+                >{{ $t(dep.val) }}</base-check-item
             >
         </div>
         <!-- for upload and change -->
         <div v-if="form_type !== 'search'">
             <h3>{{ $t("selct_file") }}</h3>
-            <input_file v-model="val.file" @input="handleInput" />
+            <base-input-file v-model="val.file" @input="handleInput" />
         </div>
     </div>
 </template>
 <script>
-import input_field from "./input_items/input_field.vue";
-import check from "./input_items/check_item.vue";
-import DateRange from "./input_items/input_date_range.vue";
-import input_file from "./input_items/input_file.vue";
+import BaseInputField from "./input_items/BaseInputField.vue";
+import BaseCheckItem from "./input_items/BaseCheckItem.vue";
+import BaseDateRange from "./input_items/BaseDateRange.vue";
+import BaseInputFile from "./input_items/BaseInputFile.vue";
 
 export default {
-    name: "Params",
+    name: "BaseParams",
     components: {
-        input_field,
-        check,
-        DateRange,
-        input_file,
+        BaseInputField,
+        BaseCheckItem,
+        BaseDateRange,
+        BaseInputFile,
     },
     props: {
         required: {

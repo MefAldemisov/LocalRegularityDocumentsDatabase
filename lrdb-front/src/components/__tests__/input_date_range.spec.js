@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import DateRange from "../search/input_items/input_date_range.vue";
+import BaseDateRange from "../search/input_items/BaseDateRange.vue";
 import VueI18n from "vue-i18n";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
@@ -16,7 +16,7 @@ const languages_in_dp = [
     ["en", "en"],
 ];
 
-describe("DateRange", () => {
+describe("BaseDateRange", () => {
     let val = "23.04.2000";
     let props = {
         name: "srch_create",
@@ -24,7 +24,7 @@ describe("DateRange", () => {
         value: val,
         error: false,
     };
-    const wrapper = mount(DateRange, {
+    const wrapper = mount(BaseDateRange, {
         localVue,
         i18n,
         VueCtkDateTimePicker,
@@ -49,7 +49,7 @@ describe("DateRange", () => {
     it(`language in data-picker changes`, () => {
         for (let l of languages_in_dp) {
             i18n.locale = l[0];
-            const wr = mount(DateRange, {
+            const wr = mount(BaseDateRange, {
                 localVue,
                 i18n,
                 VueCtkDateTimePicker,

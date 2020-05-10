@@ -20,7 +20,7 @@ label {
 </template>
 <script>
 export default {
-    name: "InputField",
+    name: "BaseInputField",
     props: {
         type: {
             default: "text",

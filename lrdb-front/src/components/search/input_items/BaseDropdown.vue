@@ -55,7 +55,7 @@ ul {
 </template>
 <script>
 export default {
-    name: "selectDropdown",
+    name: "BaseDropdown",
     props: {
         value: {
             required: true,

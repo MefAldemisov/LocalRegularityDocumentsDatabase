@@ -1,9 +1,9 @@
 import { mount } from "@vue/test-utils";
-import check from "../search/input_items/check_item.vue";
+import BaseCheckItem from "../search/input_items/BaseCheckItem.vue";
 
-describe("Check", () => {
+describe("BaseCheckItem", () => {
     let val = "";
-    const wrapper = mount(check, { props: { value: val } });
+    const wrapper = mount(BaseCheckItem, { props: { value: val } });
     it(`initially, the check id off`, () => {
         expect(wrapper.find("label").classes()).not.toContain("active");
     });

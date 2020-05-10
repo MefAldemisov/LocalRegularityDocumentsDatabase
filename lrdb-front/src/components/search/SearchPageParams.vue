@@ -5,7 +5,7 @@
         @shortkey="request()"
     >
         <h2>{{ $t("search_search_params") }}</h2>
-        <Params :form_type="form_type" v-model="params" />
+        <base-params :form_type="form_type" v-model="params" />
         <button type="submit" class="btn btn-success btn-block">
             <font-awesome-icon icon="search"></font-awesome-icon>
             <span>{{ $t("srch_srch_btn") }}</span>
@@ -13,11 +13,11 @@
     </form>
 </template>
 <script>
-import Params from "./param_selector.vue";
+import BaseParams from "./BaseParams.vue";
 import apiCalls from "../../request/index.js";
 
 export default {
-    name: "Search",
+    name: "SearchPageParams",
     data: function() {
         return {
             params: "",
@@ -25,7 +25,7 @@ export default {
         };
     },
     components: {
-        Params,
+        BaseParams,
     },
     props: {
         form_type: {

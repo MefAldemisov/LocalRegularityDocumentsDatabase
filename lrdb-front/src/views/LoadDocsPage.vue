@@ -48,10 +48,9 @@ h2 {
     </div>
 </template>
 <script>
-import tip from "../components/tips/tips.vue";
-import tipContainer from "../components/tips/tip_container.vue";
+import TipContainer from "../components/tips/TipContainer.vue";
 export default {
-    name: "DocLoader",
+    name: "LoadDocsPage",
     data: function() {
         return {
             load_modes: [
@@ -69,8 +68,7 @@ export default {
         },
     },
     components: {
-        tip,
-        tipContainer,
+        TipContainer,
     },
 };
 </script>

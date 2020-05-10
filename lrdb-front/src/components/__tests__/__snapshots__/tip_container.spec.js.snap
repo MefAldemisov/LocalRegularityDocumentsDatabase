@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoList should render to a snapshot when tips list has items 1`] = `
+exports[`TipContainer should render to a snapshot when tips list has items 1`] = `
 <aside>
-  <load-tip-stub />
+  <the-load-tip-stub />
    
   <!---->
    
@@ -12,9 +12,9 @@ exports[`TodoList should render to a snapshot when tips list has items 1`] = `
 </aside>
 `;
 
-exports[`TodoList the order of elements in the props shouldn't affect fie behaviour 1`] = `
+exports[`TipContainer the order of elements in the props shouldn't affect fie behaviour 1`] = `
 <aside>
-  <load-tip-stub />
+  <the-load-tip-stub />
    
   <!---->
    

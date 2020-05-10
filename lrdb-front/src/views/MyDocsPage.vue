@@ -4,23 +4,23 @@
         <tip-container :tips="tips"></tip-container>
         <section>
             <h2>{{ $t("docs_name_ment") }}</h2>
-            <Representation :response="mentioned" />
+            <doc-list :response="mentioned" />
         </section>
         <section>
             <h2>{{ $t("my") }}</h2>
             <!-- make a carousel -->
-            <Representation :response="mentioned" />
+            <doc-list :response="mentioned" />
         </section>
     </div>
 </template>
 <script>
-import Representation from "../components/represent/doc_representation.vue";
+import DocList from "../components/represent/DocList.vue";
 import apiCalls from "../request/index.js";
-import tipContainer from "../components/tips/tip_container.vue";
+import TipContainer from "../components/tips/TipContainer.vue";
 
 export default {
-    name: "MyDocs",
-    components: { Representation, tipContainer },
+    name: "MyDocsPage",
+    components: { DocList, TipContainer },
     data: function() {
         return {
             id: 1,

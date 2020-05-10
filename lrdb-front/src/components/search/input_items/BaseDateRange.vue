@@ -28,7 +28,7 @@
 </template>
 <script>
 export default {
-    name: "DateRange",
+    name: "BaseDateRange",
     props: {
         name: {
             required: true,

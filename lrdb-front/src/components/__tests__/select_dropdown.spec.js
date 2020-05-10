@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import SelectDropdown from "../search/input_items/select_dropdown.vue";
+import BaseDropdown from "../search/input_items/BaseDropdown.vue";
 import VueI18n from "vue-i18n";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
 
@@ -10,7 +10,7 @@ localVue.use(require("vue-shortkey"), { prevent: ["input", "textarea"] });
 
 let i18n = new VueI18n(i18n_obj);
 
-describe("SelectDropdown", () => {
+describe("BaseDropdown", () => {
     // required props are set
     let val = "";
     const opt = [
@@ -21,7 +21,7 @@ describe("SelectDropdown", () => {
         { val: "effect_date", text: "srch_start", index: 4 },
     ];
     const props = { value: val, options: opt };
-    const wrapper = mount(SelectDropdown, { localVue, i18n, propsData: props });
+    const wrapper = mount(BaseDropdown, { localVue, i18n, propsData: props });
     // handle input
     it(`function "handleInput()" propagates the data`, () => {
         const initialPosition = { selected_index: 0 };

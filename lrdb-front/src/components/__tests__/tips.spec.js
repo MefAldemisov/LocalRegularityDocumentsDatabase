@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
-import Tip from "../tips/tips.vue";
+import BaseTip from "../tips/templates/base/BaseTip.vue";
 import VueI18n from "vue-i18n";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
 import store from "../../store/store.js";
@@ -11,13 +11,13 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueI18n);
 
-describe("Tip", () => {
+describe("BaseTip", () => {
     let i18n = new VueI18n(i18n_obj);
 
     it(`initially the prop should be visible`, () => {
         tip_types.forEach((t) => {
             const props = { type: t };
-            const wrapper = mount(Tip, {
+            const wrapper = mount(BaseTip, {
                 store,
                 localVue,
                 i18n,
@@ -33,7 +33,7 @@ describe("Tip", () => {
     it(`if tip is clicked, then its hidden`, () => {
         tip_types.forEach(async (t) => {
             const props = { type: t };
-            const wrapper = mount(Tip, {
+            const wrapper = mount(BaseTip, {
                 store,
                 localVue,
                 i18n,

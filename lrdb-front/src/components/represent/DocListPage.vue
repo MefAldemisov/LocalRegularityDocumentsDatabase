@@ -1,6 +1,6 @@
 <template>
     <div class="page-content">
-        <DocumentVuewer
+        <doc-list-page-item
             v-for="i in info"
             :key="i.id"
             class="my-lg-3 shadow-sm my-5"
@@ -9,12 +9,12 @@
     </div>
 </template>
 <script>
-import DocumentVuewer from "./doc_vuewer.vue";
+import DocListPageItem from "./DocListPageItem.vue";
 
 export default {
-    name: "Page",
+    name: "DocListPage",
     components: {
-        DocumentVuewer,
+        DocListPageItem,
     },
     props: {
         info: {

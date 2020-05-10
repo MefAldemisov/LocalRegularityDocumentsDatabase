@@ -27,7 +27,7 @@ span {
 </template>
 <script>
 export default {
-    name: "tip",
+    name: "BaseTip",
     data() {
         return {
             was_clicked: false,

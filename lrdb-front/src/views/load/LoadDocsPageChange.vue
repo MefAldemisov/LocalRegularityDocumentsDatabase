@@ -2,7 +2,7 @@
     <div>
         <form v-if="value" @submit.prevent>
             <!-- TODO: write function + hotkeys to submit -->
-            <Params
+            <base-params
                 form_type="upload"
                 :required="req"
                 v-model="value"
@@ -22,7 +22,7 @@
             v-shortkey="['shift', 'enter']"
             @shortkey="searchDoc()"
         >
-            <input_field
+            <base-input-field
                 v-model="val_id"
                 class="my-4"
                 name="srch_id"
@@ -36,17 +36,17 @@
                         </button>
                     </div>
                 </template>
-            </input_field>
+            </base-input-field>
         </form>
     </div>
 </template>
 <script>
-import Params from "../../components/search/param_selector.vue";
-import input_field from "../../components/search/input_items/input_field.vue";
+import BaseParams from "../../components/search/BaseParams.vue";
+import BaseInputField from "../../components/search/input_items/BaseInputField.vue";
 import apiCalls from "../../request/index.js";
 
 export default {
-    name: "ChangeDoc",
+    name: "LoadDocsPageChange",
     data: function() {
         return {
             val_id: "",
@@ -56,8 +56,8 @@ export default {
         };
     },
     components: {
-        Params,
-        input_field,
+        BaseParams,
+        BaseInputField,
     },
     methods: {
         searchDoc: async function() {

@@ -180,11 +180,11 @@ select.custom-select {
                         <span class="navigation"
                             >{{ $t("lang_text") }} : 
                         </span>
-                        <select-dropdown class="navigation lang-control"
+                        <base-dropdown class="navigation lang-control"
                             v-model="selected_lang" 
                             :options="languages"
                         >
-                        </select-dropdown>
+                        </base-dropdown>
                         </select>
                     </li>
                 </ul>
@@ -202,7 +202,7 @@ select.custom-select {
 import "./assets/css/main.css";
 import "bootstrap-css-only";
 import UI_logo from "./assets/images/IU_logo_black.png";
-import selectDropdown from "./components/search/input_items/select_dropdown.vue"
+import BaseDropdown from "./components/search/input_items/BaseDropdown.vue"
 
 export default {
     name: "App",
@@ -268,7 +268,7 @@ export default {
         this.$i18n.locale = this.selected_lang.toLowerCase();
     },
     components: {
-        selectDropdown
+        BaseDropdown
     }
 };
 </script>

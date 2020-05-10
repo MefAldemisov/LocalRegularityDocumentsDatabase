@@ -11,28 +11,28 @@
     <div>
         <tip-container :tips="tips"></tip-container>
         <h1 class="hidden">{{ $t("doc_search_page") }}</h1>
-        <Search
+        <search-page-params
             form_type="search"
             v-if="search_mode"
             @input="changeMode"
             v-model="resp"
         />
-        <FilterPage v-else @done="changeMode" :resp="resp" />
+        <search-page-filter v-else @done="changeMode" :resp="resp" />
     </div>
 </template>
 
 <script>
-import Search from "../components/search/search_docs_page.vue";
-import FilterPage from "../components/search/filter.vue";
+import SearchPageParams from "../components/search/SearchPageParams.vue";
+import SearchPageFilter from "../components/search/SearchPageFilter.vue";
 const RESP = require("../assets/test_data.json");
-import tipContainer from "../components/tips/tip_container.vue";
+import TipContainer from "../components/tips/TipContainer.vue";
 
 export default {
     name: "SearchDocs",
     components: {
-        Search,
-        FilterPage,
-        tipContainer,
+        SearchPageParams,
+        SearchPageFilter,
+        TipContainer,
     },
     data: function() {
         return {

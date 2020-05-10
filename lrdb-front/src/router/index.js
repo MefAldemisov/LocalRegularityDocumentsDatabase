@@ -19,40 +19,40 @@ const routes = [
     {
         path: "/my_docs",
         name: "my",
-        component: loadView("my_docs"),
+        component: loadView("MyDocsPage"),
     },
     {
         path: "/search",
         name: "search",
-        component: loadView("search_docs"),
+        component: loadView("SearchPage"),
     },
     {
         path: "/",
         name: "login",
-        component: loadView("login"),
+        component: loadView("LoginPage"),
     },
     {
         path: "/load",
         name: "load",
-        component: loadView("load_docs"),
+        component: loadView("LoadDocsPage"),
         redirect: "load/new",
         children: [
             {
                 path: "/load/new",
                 name: "new",
-                component: loadView("load/new_doc"),
+                component: loadView("load/LoadDocsPageNew"),
             },
             {
                 path: "/load/change",
                 name: "change",
-                component: loadView("load/change_doc"),
+                component: loadView("load/LoadDocsPageChange"),
             },
         ],
     },
     {
         path: "/history/:id",
         name: "History",
-        component: loadView("history"),
+        component: loadView("HistoryPage"),
         props: true,
     },
 ];

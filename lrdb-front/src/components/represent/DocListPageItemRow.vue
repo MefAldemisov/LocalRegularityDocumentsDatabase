@@ -26,7 +26,7 @@
 </template>
 <script>
 export default {
-    name: "DocDescRow",
+    name: "DocListPageItemRow",
     props: {
         text: {
             requred: true,

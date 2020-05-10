@@ -1,16 +1,16 @@
 <template>
-    <tip type="submit">
+    <base-tip type="submit">
         {{ $t("hotkeys") }}
         <br />
         <span class="border rounded">shift</span>+
         <span class="border rounded">enter</span>
         {{ $t("to_sbm_fm") }}
-    </tip>
+    </base-tip>
 </template>
 <script>
-import tip from "../tips.vue";
+import BaseTip from "./base/BaseTip.vue";
 export default {
-    name: "submitTip",
-    components: { tip },
+    name: "TheSubmitTip",
+    components: { BaseTip },
 };
 </script>

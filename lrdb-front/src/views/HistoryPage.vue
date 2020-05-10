@@ -4,17 +4,17 @@
             {{ $t("history") }} <br />
             &laquo;{{ $route.params.name }}&raquo;
         </h1>
-        <Representation :response="response" />
+        <doc-list :response="response" />
     </div>
 </template>
 <script>
-import Representation from "../components/represent/doc_representation.vue";
+import DocList from "../components/represent/DocList.vue";
 import comparator from "../plugins/comparator.js";
 
 export default {
     name: "History",
     components: {
-        Representation,
+        DocList,
     },
     data: function() {
         return {

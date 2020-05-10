@@ -4,17 +4,17 @@
         v-shortkey="['shift', 'enter']"
         @shortkey="postData()"
     >
-        <Params form_type="load" :required="req" v-model="value" />
+        <base-params form_type="load" :required="req" v-model="value" />
         <button type="submit" class="btn btn-success btn-block">
             {{ $t("upl_doc_data") }}
         </button>
     </form>
 </template>
 <script>
-import Params from "../../components/search/param_selector.vue";
+import BaseParams from "../../components/search/BaseParams.vue";
 import apiCalls from "../../request/index.js";
 export default {
-    name: "NewDoc",
+    name: "LoadDocsPageNew",
     data: function() {
         return {
             req: true,
@@ -22,7 +22,7 @@ export default {
         };
     },
     components: {
-        Params,
+        BaseParams,
     },
     methods: {
         postData: async function() {

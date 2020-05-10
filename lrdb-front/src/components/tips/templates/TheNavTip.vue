@@ -1,5 +1,5 @@
 <template>
-    <tip type="nav">
+    <base-tip type="nav">
         {{ $t("hotkeys") }}
         <br />
         <span class="border rounded">ctrl</span>+
@@ -11,12 +11,12 @@
             ><font-awesome-icon icon="arrow-right"></font-awesome-icon
         ></span>
         {{ $t("to_nav_sect") }}
-    </tip>
+    </base-tip>
 </template>
 <script>
-import tip from "../tips.vue";
+import BaseTip from "./base/BaseTip.vue";
 export default {
-    name: "navTip",
-    components: { tip },
+    name: "TheNavTip",
+    components: { BaseTip },
 };
 </script>

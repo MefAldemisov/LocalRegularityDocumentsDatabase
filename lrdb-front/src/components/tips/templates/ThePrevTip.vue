@@ -1,5 +1,5 @@
 <template>
-    <tip type="prev">
+    <base-tip type="prev">
         {{ $t("hotkeys") }}
         <span class="border rounded">ctrl</span>+<span class="border rounded"
             >shift</span
@@ -12,12 +12,12 @@
             ><font-awesome-icon icon="arrow-right"></font-awesome-icon
         ></span>
         {{ $t("to_nav_pg") }}
-    </tip>
+    </base-tip>
 </template>
 <script>
-import tip from "../tips.vue";
+import BaseTip from "./base/BaseTip.vue";
 export default {
-    name: "prevTip",
-    components: { tip },
+    name: "ThePrevTip",
+    components: { BaseTip },
 };
 </script>

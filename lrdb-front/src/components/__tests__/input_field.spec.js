@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import InputField from "../search/input_items/input_field.vue";
+import BaseInputField from "../search/input_items/BaseInputField.vue";
 import VueI18n from "vue-i18n";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
 
@@ -19,7 +19,7 @@ const forbiddenNumChars = [
     ["-", "-54"],
 ];
 
-describe("InputField", () => {
+describe("BaseInputField", () => {
     let val = "";
     const props = {
         type: "number",
@@ -27,7 +27,7 @@ describe("InputField", () => {
         value: val,
         name: "srch_name",
     };
-    const wrapper = mount(InputField, { localVue, i18n, propsData: props });
+    const wrapper = mount(BaseInputField, { localVue, i18n, propsData: props });
     it(`input is handled in appropriate way for both data types`, () => {
         diffDataTypes.forEach((dt) => {
             // arguments passing

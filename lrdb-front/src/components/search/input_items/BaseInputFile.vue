@@ -26,7 +26,7 @@ input[type="file"] {
 </template>
 <script>
 export default {
-    name: "input_file",
+    name: "BaseInputFile",
     props: {
         value: {
             required: true,

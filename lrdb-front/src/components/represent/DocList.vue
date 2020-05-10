@@ -20,7 +20,7 @@
         @mouseout="setActCours(false)"
         :class="{ act: cursor_active }"
     >
-        <Page
+        <doc-list-page
             :key="info[currentPage - 1].index"
             :info="info[currentPage - 1].info"
         />
@@ -61,14 +61,14 @@
     </div>
 </template>
 <script>
-import Page from "./doc_page.vue";
+import DocListPage from "./DocListPage.vue";
 
 // const RESPONSE = require("../../assets/test_data.json");
 
 export default {
-    name: "Representation",
+    name: "DocList",
     components: {
-        Page,
+        DocListPage,
     },
     props: {
         response: {

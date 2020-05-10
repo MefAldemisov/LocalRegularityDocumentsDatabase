@@ -21,21 +21,51 @@
     <article class="row">
         <div class="col-lg">
             <div class="my-2 mx-2 my-auto">
-                <doc_desc_row text="version" :controller="info.version" />
-                <doc_desc_row text="commit" :controller="info.commit" />
-                <doc_desc_row text="srch_name" :controller="info.name" />
-                <doc_desc_row text="srch_owner" :controller="info.owner" />
-                <doc_desc_row text="srch_create" :controller="dt_created" />
-                <doc_desc_row text="srch_upd" :controller="dt_last_update" />
-                <doc_desc_row text="srch_start" :controller="dt_effect_date" />
-                <doc_desc_row
+                <doc-list-page-item-row
+                    text="version"
+                    :controller="info.version"
+                />
+                <doc-list-page-item-row
+                    text="commit"
+                    :controller="info.commit"
+                />
+                <doc-list-page-item-row
+                    text="srch_name"
+                    :controller="info.name"
+                />
+                <doc-list-page-item-row
+                    text="srch_owner"
+                    :controller="info.owner"
+                />
+                <doc-list-page-item-row
+                    text="srch_create"
+                    :controller="dt_created"
+                />
+                <doc-list-page-item-row
+                    text="srch_upd"
+                    :controller="dt_last_update"
+                />
+                <doc-list-page-item-row
+                    text="srch_start"
+                    :controller="dt_effect_date"
+                />
+                <doc-list-page-item-row
                     text="srch_end"
                     :controller="dt_expiration_date"
                 />
-                <doc_desc_row text="srch_id" :controller="info.id" />
-                <doc_desc_row text="srt_dep" :controller="info.department" />
-                <doc_desc_row text="srt_size" :controller="info.doc_size" />
-                <doc_desc_row text="srch_type" :controller="info.doc_format" />
+                <doc-list-page-item-row text="srch_id" :controller="info.id" />
+                <doc-list-page-item-row
+                    text="srt_dep"
+                    :controller="info.department"
+                />
+                <doc-list-page-item-row
+                    text="srt_size"
+                    :controller="info.doc_size"
+                />
+                <doc-list-page-item-row
+                    text="srch_type"
+                    :controller="info.doc_format"
+                />
                 <div class="my-sm-2 row input-group input-group-sm">
                     <button class="col-sm py-sm-1 btn btn-success mr-1">
                         <span class="btn_content"
@@ -70,16 +100,16 @@
     </article>
 </template>
 <script>
-import doc_desc_row from "./doc_desc_row.vue";
+import DocListPageItemRow from "./DocListPageItemRow.vue";
 export default {
-    name: "DocumentVuewer",
+    name: "DocListPageItem",
     data: function() {
         return {
             doc_file: "https://vuejs.org",
         };
     },
     components: {
-        doc_desc_row,
+        DocListPageItemRow,
     },
     props: { info: { type: Object, required: true } },
     computed: {

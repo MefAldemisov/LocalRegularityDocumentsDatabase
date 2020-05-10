@@ -34,7 +34,7 @@ label:hover {
 </template>
 <script>
 export default {
-    name: "check",
+    name: "BaseCheckItem",
     data: function() {
         return {
             selected: false,
