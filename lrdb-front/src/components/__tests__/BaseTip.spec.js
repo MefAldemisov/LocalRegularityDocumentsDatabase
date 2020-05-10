@@ -12,6 +12,22 @@ localVue.use(Vuex);
 localVue.use(VueI18n);
 
 describe("BaseTip", () => {
+    const test_props = [
+        ["nav", true],
+        ["load", true],
+        ["submit", true],
+        ["prev", true],
+        ["some", false],
+    ];
+
+    it(`input is checked correctly`, () => {
+        test_props.forEach((option) => {
+            const tester = BaseTip.props;
+            const res = tester.type.validator(option[0]);
+            expect(res).toBe(option[1]);
+        });
+    });
+
     let i18n = new VueI18n(i18n_obj);
 
     it(`initially the prop should be visible`, () => {

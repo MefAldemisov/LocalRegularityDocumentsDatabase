@@ -13,6 +13,9 @@ export default {
         type: {
             reqired: true,
             type: String,
+            validator(t) {
+                return ["load", "nav", "prev", "submit"].includes(t);
+            },
         },
     },
     methods: {

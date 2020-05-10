@@ -9,6 +9,21 @@ export default {
         options: {
             required: true,
             type: Array,
+            validator(val) {
+                if (val.length > 0) {
+                    let res = true;
+                    for (let v of val) {
+                        const { index: i, text: t } = v;
+                        res = res && typeof i === typeof 10;
+                        res = res && i >= 0;
+                        res = res && i < val.length;
+                        res = res && typeof t === typeof "c";
+                    }
+                    return res;
+                } else {
+                    return false;
+                }
+            },
         },
     },
     data() {
@@ -67,7 +82,7 @@ export default {
                 class="dropdown-item rounded"
                 v-for="op in options"
                 :class="{ 'bg-success': selected_index === op.index }"
-                value="op.val"
+                :key="op.index"
                 @click="changeSelected(op)"
             >
                 {{ $t(op.text) }}

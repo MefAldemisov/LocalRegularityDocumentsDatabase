@@ -5,6 +5,9 @@ export default {
         type: {
             default: "text",
             type: String,
+            validator(t) {
+                return ["text", "number"].includes(t);
+            },
         },
         name: {
             required: true,

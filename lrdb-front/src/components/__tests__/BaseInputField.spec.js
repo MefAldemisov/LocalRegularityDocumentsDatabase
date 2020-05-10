@@ -20,6 +20,20 @@ const forbiddenNumChars = [
 ];
 
 describe("BaseInputField", () => {
+    const test_props = [
+        ["number", true],
+        ["text", true],
+        ["something", false],
+    ];
+
+    it(`input is checked correctly`, () => {
+        test_props.forEach((option) => {
+            const tester = BaseInputField.props;
+            const res = tester.type.validator(option[0]);
+            expect(res).toBe(option[1]);
+        });
+    });
+
     let val = "";
     const props = {
         type: "number",
@@ -27,6 +41,7 @@ describe("BaseInputField", () => {
         value: val,
         name: "srch_name",
     };
+
     const wrapper = mount(BaseInputField, { localVue, i18n, propsData: props });
     it(`input is handled in appropriate way for both data types`, () => {
         diffDataTypes.forEach((dt) => {

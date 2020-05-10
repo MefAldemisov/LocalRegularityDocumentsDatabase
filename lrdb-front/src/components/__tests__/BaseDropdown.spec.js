@@ -30,6 +30,25 @@ describe("BaseDropdown", () => {
         const inputEvents = wrapper.emitted().input;
         expect(inputEvents[inputEvents.length - 1][0]).toBe(opt[0].val);
     });
+    // inut checking works
+
+    const false_options = [
+        [],
+        [2, 3],
+        [{ text: "4", name: "som" }],
+        [{ text: 3, index: "d" }],
+        [{ text: 3, index: 3 }],
+        [{ text: "a", index: "a" }],
+        [{ text: "b", index: "dk" }],
+    ];
+
+    it(`input is checked correctly`, () => {
+        false_options.forEach((option) => {
+            const tester = BaseDropdown.props;
+            const res = tester.options.validator(option);
+            expect(res).toBe(false);
+        });
+    });
     // selected changes the ouptut value
     it(`value of selector changes correctly after the click 
         on some item from the list`, () => {
