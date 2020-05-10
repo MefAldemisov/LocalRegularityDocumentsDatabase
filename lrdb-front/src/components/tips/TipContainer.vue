@@ -9,6 +9,13 @@ export default {
         tips: {
             type: Array,
             required: false,
+            validator(arr) {
+                let res = true;
+                arr.forEach((el) => {
+                    res = res && ["load", "nav", "prev", "submit"].includes(el);
+                });
+                return res;
+            },
         },
     },
     components: {
