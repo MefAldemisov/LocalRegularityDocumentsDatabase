@@ -154,7 +154,7 @@ export default {
         </div>
         <div class="col-lg full_height shadow p-4 my-1 bg-white rounded">
             <div id="target" class="mx-1 full_height">
-                <img class="iframe" :src="doc_file" title="$t(preview)" />
+                <img class="iframe" :src="doc_file" alt="$t(preview)" />
             </div>
         </div>
     </article>
