@@ -1,16 +1,56 @@
 <script>
 import DocListPageItemRow from "./DocListPageItemRow.vue";
+import prev from "../../assets/images/prev.jpg";
 export default {
     name: "DocListPageItem",
-    data: function() {
-        return {
-            doc_file: "https://vuejs.org",
-        };
-    },
+    // data: function() {
+    //     return {
+    //         doc_file: prev,
+    //     };
+    // },
     components: {
         DocListPageItemRow,
     },
-    props: { info: { type: Object, required: true } },
+    props: {
+        doc_file: {
+            default: prev,
+            required: false,
+        },
+        info: {
+            type: Object,
+            required: true,
+            validator(val) {
+                // keys are valid
+                const keys = Object.keys(val);
+                let res = true;
+                [
+                    "created",
+                    "last_update",
+                    "effect_date",
+                    "expiration_date",
+                    "name",
+                    "id",
+                ].forEach((f) => {
+                    res = res && keys.includes(f);
+                });
+                if (!res) {
+                    return res;
+                }
+                // date in appropriate format
+                const regexp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.*$/;
+                [
+                    "created",
+                    "last_update",
+                    "effect_date",
+                    "expiration_date",
+                ].forEach((f) => {
+                    const local_res = val[f].match(regexp) != null;
+                    res = res && local_res;
+                });
+                return res;
+            },
+        },
+    },
     computed: {
         dt_created: function() {
             return this.excludeDate(this.info.created);
@@ -86,12 +126,14 @@ export default {
                 />
                 <div class="my-sm-2 row input-group input-group-sm">
                     <button class="col-sm py-sm-1 btn btn-success mr-1">
-                        <span class="btn_content"
-                            >{{ $t("download") }}
-                            <font-awesome-icon
-                                icon="download"
-                            ></font-awesome-icon>
-                        </span>
+                        <a :href="doc_file" download="document.pdf">
+                            <span class="btn_content"
+                                >{{ $t("download") }}
+                                <font-awesome-icon
+                                    icon="download"
+                                ></font-awesome-icon>
+                            </span>
+                        </a>
                     </button>
                     <router-link
                         class="ml-1 col-sm py-1 btn btn-success"
@@ -112,7 +154,7 @@ export default {
         </div>
         <div class="col-lg full_height shadow p-4 my-1 bg-white rounded">
             <div id="target" class="mx-1 full_height">
-                <iframe class="iframe" :src="doc_file" title="$t(preview)" />
+                <img class="iframe" :src="doc_file" title="$t(preview)" />
             </div>
         </div>
     </article>

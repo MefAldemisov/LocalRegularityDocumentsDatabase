@@ -4,6 +4,7 @@ export default {
     props: {
         text: {
             requred: true,
+            type: String,
         },
         controller: {
             retured: true,

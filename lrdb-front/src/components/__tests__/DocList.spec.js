@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import DocList from "../represent/DocList.vue";
-
 import VueI18n from "vue-i18n";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
 

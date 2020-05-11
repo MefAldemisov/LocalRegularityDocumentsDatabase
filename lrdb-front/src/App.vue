@@ -144,7 +144,8 @@ export default {
     </div>
 </template>
 <style>
-.btn-success {
+.btn-success,
+.btn-success > * {
     /*UI style*/
     /* background-color: #15b012;  */
     /* Accessability low treshhold */
@@ -160,6 +161,14 @@ export default {
 }
 .hidden {
     display: none;
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
 }
 </style>
 <style scoped>
@@ -181,12 +190,6 @@ ul.container > li {
     height: 100%;
     padding: 0.5rem;
     display: inline-block;
-}
-.logout:link,
-.logout:visited,
-.logout:hover,
-.logout:active {
-    text-decoration: none;
 }
 .logout {
     color: inherit;
