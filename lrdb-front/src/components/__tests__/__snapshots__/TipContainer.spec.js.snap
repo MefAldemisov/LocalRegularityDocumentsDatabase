@@ -8,7 +8,7 @@ exports[`TipContainer should render to a snapshot when tips list has items 1`] =
    
   <!---->
    
-  <!---->
+  <the-submit-tip-stub />
 </aside>
 `;
 
@@ -20,6 +20,6 @@ exports[`TipContainer the order of elements in the props shouldn't affect fie be
    
   <!---->
    
-  <!---->
+  <the-submit-tip-stub />
 </aside>
 `;

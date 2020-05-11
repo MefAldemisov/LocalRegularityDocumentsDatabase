@@ -16,6 +16,9 @@ export default {
         n_docs: {
             default: 2,
             type: Number,
+            validator(n) {
+                return n > 0;
+            },
         },
     },
     data: function() {
@@ -49,7 +52,6 @@ export default {
             if (pageNum > 0 && pageNum < this.pages + 1) {
                 this.currentPage = pageNum;
             }
-            // TODO: add disabled class
         },
         changeKeyPage(event) {
             if (this.cursor_active) {

@@ -19,13 +19,13 @@ describe("TipContainer", () => {
     });
 
     it("should render to a snapshot when tips list has items", () => {
-        const propsData = { tips: ["search", "load"] };
+        const propsData = { tips: ["submit", "load"] };
         const wrapper = shallowMount(TipContainer, { propsData });
         expect(wrapper.element).toMatchSnapshot();
     });
 
     it("the order of elements in the props shouldn't affect fie behaviour", () => {
-        const propsData = { tips: ["load", "search"] };
+        const propsData = { tips: ["load", "submit"] };
         const wrapper = shallowMount(TipContainer, { propsData });
         expect(wrapper.element).toMatchSnapshot();
     });
