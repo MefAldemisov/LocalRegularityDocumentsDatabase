@@ -20,6 +20,9 @@ export default {
         form_type: {
             default: "search", // other values: edit, upload
             type: String,
+            validator(val) {
+                return ["search", "load", "upload"].includes(val);
+            },
         },
         value: {
             required: true,
@@ -33,7 +36,6 @@ export default {
     },
     data: function() {
         return {
-            active_select: false,
             f: false,
             departments: [
                 { val: "dep1", index: 0 },
@@ -56,54 +58,44 @@ export default {
                 dep: "",
             },
             select_list: [false, false, false, false, false, false, false],
-            error_data: false,
         };
     },
     created: function() {
         this.val.name = this.initial.name;
         this.val.owner = this.initial.owner;
     },
-    methods: {
-        validateForm() {
-            // clear array of errors
-            this.errors = [];
-            if (this.form_type !== "search") {
-                if (
-                    this.val.effect_date &&
-                    this.val.expiration_date &&
-                    this.val.effect_date > this.val.expiration_date
-                ) {
-                    this.error_data = true;
-                } else {
-                    this.error_data = false;
-                }
-            }
+    computed: {
+        error_in_date: function() {
+            return (
+                this.form_type !== "search" &&
+                this.val.effect_date &&
+                this.val.expiration_date &&
+                this.val.effect_date > this.val.expiration_date
+            );
         },
-        filterSelected: function() {
+    },
+    methods: {
+        filterSelected: function(obj) {
             let used = {};
-            for (let key of Object.keys(this.val)) {
-                if (this.val[key]) {
-                    used[key] = this.val[key];
+            for (let key of Object.keys(obj)) {
+                if (obj[key]) {
+                    used[key] = obj[key];
                 }
             }
             return used;
         },
-        changeActive: function() {
-            this.active_select = !this.active_select;
+        extractDepId(dep_list) {
+            const dep_indexes = Array.from(Array(dep_list.length).keys());
+            let sl = dep_list;
+            let res = dep_indexes.filter(function(val) {
+                return sl[val];
+            });
+            return res.length > 0 ? res : "";
         },
         handleInput: function(e) {
-            if (this.validateForm()) {
-                // configure department id
-                const dep_indexes = Array.from(
-                    Array(this.select_list.length).keys()
-                );
-                let sl = this.select_list;
-                this.val.dep = dep_indexes.filter(function(val) {
-                    return sl[val];
-                });
-                this.val.dep = this.val.dep.length > 0 ? this.val.dep : "";
-                // selection of used only data
-                this.$emit("input", this.filterSelected());
+            if (!this.error_in_date) {
+                this.val.dep = this.extractDepId(this.select_list);
+                this.$emit("input", this.filterSelected(this.val));
             }
         },
     },
@@ -143,7 +135,10 @@ export default {
 
         <h3 class="pt-4">
             {{ $t("dates") }}
-            <span class="error-msg" v-if="form_type !== 'search' && error_data">
+            <span
+                class="error-msg"
+                v-if="form_type !== 'search' && error_in_date"
+            >
                 {{ $t("error_effect") }}
             </span>
         </h3>
@@ -185,7 +180,7 @@ export default {
                 :range="f"
                 :required="required"
                 @input="handleInput"
-                :error="error_data"
+                :error="error_in_date"
             />
             <base-date-range
                 v-model="val.expiration_date"
@@ -193,7 +188,7 @@ export default {
                 :range="f"
                 :required="required"
                 @input="handleInput"
-                :error="error_data"
+                :error="error_in_date"
             />
         </div>
 
