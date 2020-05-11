@@ -149,9 +149,9 @@ export default {
     /* background-color: #15b012;  */
     /* Accessability low treshhold */
     color: #fff;
-    background-color: #0f870d;
+    background-color: #0f870d !important; 
 }
-.bg-success {
+div.bg-success {
     color: #fff;
     background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
 }
@@ -165,7 +165,12 @@ a,
 a:link,
 a:visited,
 a:hover,
-a:active {
+a:active,
+a.btn-success,
+a.btn-success:link,
+a.btn-success:visited,
+a.btn-success:hover,
+a.btn-success:active {
     text-decoration: none;
     color: inherit;
 }
