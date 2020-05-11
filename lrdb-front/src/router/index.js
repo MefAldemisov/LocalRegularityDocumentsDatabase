@@ -50,7 +50,7 @@ const routes = [
     {
         path: "/*",
         redirect: "/",
-        name: "login",
+        name: "404",
         component: loadView("LoginPage"),
     },
 ];

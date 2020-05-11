@@ -5,6 +5,7 @@ import { i18n_obj } from "../../plugins/i18n_constant.js";
 
 const localVue = createLocalVue();
 localVue.use(VueI18n);
+localVue.use(require("vue-shortkey"), { prevent: ["input", "textarea"] });
 let i18n = new VueI18n(i18n_obj);
 
 describe(`LoginPage`, () => {

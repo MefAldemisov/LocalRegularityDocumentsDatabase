@@ -1,7 +1,7 @@
 <script>
 // import "./node_modules/reset-css/reset.css";
 import "./assets/css/main.css";
-import "bootstrap-css-only";
+// import "bootstrap-css-only";
 import UI_logo from "./assets/images/IU_logo_black.png";
 import BaseDropdown from "./components/search/input_items/BaseDropdown.vue"
 
@@ -48,10 +48,9 @@ export default {
             const index = this.navs.indexOf(current) === -1 ? 2 : this.navs.indexOf(current);
             
             if (event.srcKey ==="left"){
-                console.log("true")
-                this.$router.push({name : this.navs[(index-1) >= 0 ? (index - 1) : 2]});
-            } else {
-                this.$router.push({name : this.navs[(index+1)%this.navs.length]});
+                this.$router.push({name : this.navs[(index - 1) >= 0 ? (index - 1) : (this.navs.length - 1)]});
+            } else { 
+                this.$router.push({name : this.navs[(index + 1) % this.navs.length]});
             }
         },
         goToMy: function(){

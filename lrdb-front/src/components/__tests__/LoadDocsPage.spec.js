@@ -9,6 +9,7 @@ const localVue = createLocalVue();
 localVue.use(VueI18n);
 localVue.use(VueRouter);
 let i18n = new VueI18n(i18n_obj);
+localVue.use(require("vue-shortkey"), { prevent: ["input", "textarea"] });
 // const router = new VueRouter();
 
 describe(`LoadDocsPage`, () => {

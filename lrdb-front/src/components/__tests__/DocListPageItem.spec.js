@@ -1,11 +1,14 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import DocListPageItem from "../represent/DocListPageItem.vue";
 import VueI18n from "vue-i18n";
+import VueRouter from "vue-router";
 import { i18n_obj } from "../../plugins/i18n_constant.js";
+import router from "../../router/index.js";
+import "../../plugins/fontawersome.js";
 
 const localVue = createLocalVue();
-
 localVue.use(VueI18n);
+localVue.use(VueRouter);
 let i18n = new VueI18n(i18n_obj);
 
 describe("DocListPageItem", () => {
@@ -90,6 +93,7 @@ describe("DocListPageItem", () => {
                 localVue,
                 i18n,
                 propsData: props,
+                router,
             });
             data_fields.forEach((f) => {
                 expect(w.vm["dt_" + f]).toBe(extracter(data[f]));
