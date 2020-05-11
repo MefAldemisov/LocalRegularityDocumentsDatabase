@@ -1,7 +1,7 @@
 <script>
 // import "./node_modules/reset-css/reset.css";
 import "./assets/css/main.css";
-// import "bootstrap-css-only";
+import "bootstrap-css-only";
 import UI_logo from "./assets/images/IU_logo_black.png";
 import BaseDropdown from "./components/search/input_items/BaseDropdown.vue"
 
