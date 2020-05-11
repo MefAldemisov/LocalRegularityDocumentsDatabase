@@ -32,10 +32,8 @@ export default {
             this.setVal(val);
         },
         setVal: function(val) {
-            console.log("set");
             this.value = val;
             this.propogate = { name: val.name, owner: val.owner };
-            console.log(this.propogate);
         },
     },
 };

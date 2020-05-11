@@ -14,10 +14,10 @@ export default {
         BaseParams,
     },
     props: {
-        form_type: {
-            default: "search",
-            type: String,
-        },
+        // form_type: {
+        //     default: "search",
+        //     type: String,
+        // },
         value: {
             required: true,
         },
@@ -51,7 +51,7 @@ export default {
         @shortkey="request()"
     >
         <h2>{{ $t("search_search_params") }}</h2>
-        <base-params :form_type="form_type" v-model="params" />
+        <base-params form_type="search" v-model="params" />
         <button type="submit" class="btn btn-success btn-block">
             <font-awesome-icon icon="search"></font-awesome-icon>
             <span>{{ $t("srch_srch_btn") }}</span>
