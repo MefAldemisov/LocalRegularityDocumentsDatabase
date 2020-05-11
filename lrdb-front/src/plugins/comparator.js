@@ -1,5 +1,5 @@
 export default {
-    compareValues: function(key, order = "asc") {
+    compareValues: function(key) {
         return function innerSort(a, b) {
             if (!a[key] || !b[key]) {
                 // property doesn't exist on either object
@@ -15,7 +15,7 @@ export default {
             } else if (varA < varB) {
                 comparison = -1;
             }
-            return order === "desc" ? comparison * -1 : comparison;
+            return comparison;
         };
     },
 };
