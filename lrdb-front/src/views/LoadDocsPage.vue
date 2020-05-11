@@ -13,7 +13,6 @@ export default {
     },
     methods: {
         changeMode: function(event) {
-            console.log("hi");
             const index = event.srcKey === "left" ? 0 : 1;
             this.$router.push({ name: this.load_modes[index].name });
         },
