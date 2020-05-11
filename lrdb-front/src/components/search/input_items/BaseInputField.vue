@@ -6,7 +6,7 @@ export default {
             default: "text",
             type: String,
             validator(t) {
-                return ["text", "number"].includes(t);
+                return ["text", "number", "password"].includes(t);
             },
         },
         name: {

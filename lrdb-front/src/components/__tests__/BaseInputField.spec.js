@@ -24,6 +24,7 @@ describe("BaseInputField", () => {
         ["number", true],
         ["text", true],
         ["something", false],
+        ["password", true],
     ];
 
     it(`input is checked correctly`, () => {

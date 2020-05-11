@@ -1,18 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import SearchDocs from "../views/search_docs.vue";
-// import MyDocs from "../views/my_docs.vue";
-// import DocLoader from "../views/load_docs.vue";
-// import LoginForm from "../views/login.vue";
-// import History from "../views/history.vue";
-// import NewDoc from "../views/load/new_doc.vue";
-// import ChangeDoc from "../views/load/change_doc.vue";
 
 Vue.use(VueRouter);
 
 function loadView(view) {
-    return () =>
-        import(/* webpackChunkName: "view-[request]" */ `../views/${view}.vue`);
+    return () => import(`../views/${view}.vue`);
 }
 
 const routes = [
@@ -28,6 +20,12 @@ const routes = [
     },
     {
         path: "/",
+        name: "login",
+        component: loadView("LoginPage"),
+    },
+    {
+        path: "/*",
+        redirect: "/",
         name: "login",
         component: loadView("LoginPage"),
     },
