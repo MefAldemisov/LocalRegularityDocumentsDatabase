@@ -24,12 +24,6 @@ const routes = [
         component: loadView("LoginPage"),
     },
     {
-        path: "/*",
-        redirect: "/",
-        name: "login",
-        component: loadView("LoginPage"),
-    },
-    {
         path: "/load",
         name: "load",
         component: loadView("LoadDocsPage"),
@@ -52,6 +46,12 @@ const routes = [
         name: "History",
         component: loadView("HistoryPage"),
         props: true,
+    },
+    {
+        path: "/*",
+        redirect: "/",
+        name: "login",
+        component: loadView("LoginPage"),
     },
 ];
 
