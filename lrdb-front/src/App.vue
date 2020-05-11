@@ -151,7 +151,8 @@ export default {
     color: #fff;
     background-color: #0f870d !important; 
 }
-div.bg-success {
+div.bg-success,
+.bg-success {
     color: #fff;
     background-color: #0f870d !important; /*bootstrap uses important, thus to rewrite it...*/
 }
