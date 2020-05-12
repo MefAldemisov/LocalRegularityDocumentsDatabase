@@ -10,7 +10,7 @@ export default {
             val_id: "",
             req: true,
             value: "",
-            propogate: "",
+            propagate: "",
         };
     },
     components: {
@@ -33,7 +33,7 @@ export default {
         },
         setVal: function(val) {
             this.value = val;
-            this.propogate = { name: val.name, owner: val.owner };
+            this.propagate = { name: val.name, owner: val.owner };
         },
     },
 };
@@ -46,7 +46,7 @@ export default {
                 form_type="upload"
                 :required="req"
                 v-model="value"
-                :initial="propogate"
+                :initial="propagate"
             />
             <button
                 type="submit"
