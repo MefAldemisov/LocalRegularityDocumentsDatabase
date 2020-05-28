@@ -15,28 +15,36 @@ export default {
     },
     methods: {
         setMentioned: function(res) {
-            this.mentioned = res;
-            this.$store.commit("setMyDocs", res);
+            if (res) {
+                this.mentioned = res;
+                this.$store.commit("setMyDocs", res);
+            } else {
+                this.mentioned = this.$store.getters.my_documents;
+            }
         },
-    },
-    created: async function() {
-        // let st = this.$store.getters;
-        let mentioned = [];
-        if (!this.$store.getters.my_documents) {
+        getData: async function() {
+            let res = [];
             await apiCalls
                 .getOwnersDocuments("Третьяков Владимир Владимирович/")
                 .then(function(data) {
                     console.log("My data:", data);
-                    mentioned = data.data;
+                    res = data.data;
                 })
                 .catch(function(error) {
-                    mentioned = require("../assets/test_data.json");
                     console.log("Some error occured");
+                    res = require("../assets/test_data.json");
                 });
+            return res;
+        },
+    },
+    created: async function() {
+        const storage_data = this.$store.getters.my_documents;
+        if (!storage_data) {
+            const d = await this.getData();
+            this.setMentioned(d);
         } else {
-            mentioned = this.$store.getters.my_documents;
+            this.mentioned = storage_data;
         }
-        this.setMentioned(mentioned);
     },
 };
 </script>
