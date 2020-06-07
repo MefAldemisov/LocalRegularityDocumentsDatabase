@@ -25,7 +25,7 @@ SECRET_KEY = '_$eg^hr*+qxrxr%ji30cu9u6fm4*94e%t^=5n61s^-nry=rw!m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.147.17.97', '10.147.17.84', '10.147.17.16', '127.0.0.1']
+ALLOWED_HOSTS = ['10.147.17.97', '10.147.17.84', '10.147.17.16', '127.0.0.1', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -52,6 +52,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'corsheaders',

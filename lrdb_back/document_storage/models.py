@@ -1,12 +1,13 @@
 from django.db import models
-import os
+import os, datetime
+from django.contrib.auth.models import User
 
 def get_upload_path(instance, filename):
     """
     Makes directories for each files with different names, thus allows to query history
     """
     return os.path.join(
-        "%s" % instance.name, filename
+        "%s" % datetime.datetime.year, "%s" % instance.name, filename
     )
 
 # Create your models here.

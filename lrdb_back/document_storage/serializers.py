@@ -1,16 +1,17 @@
+from base64 import encodebytes
+
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from pathlib import Path
 import os
 import urllib.parse
-from base64 import encodebytes
-from lrdb_back.settings import MEDIA_ROOT, BASE_DIR
+from lrdb_back.settings import MEDIA_ROOT
 from .models import Document, Owner, DocumentHistory
 
 def getpath(data):
     path = data['document']
     path = path.split("/")
     path = urllib.parse.unquote(os.path.join(os.path.join(MEDIA_ROOT, data['name']), path[-1]))
-    # print(path)
     return path
 
 class OwnerSerializer(serializers.ModelSerializer):
@@ -25,6 +26,8 @@ class DocumentPostSerializer(serializers.ModelSerializer):
     """
     Documents setter serializer
     """
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = Document
         fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']
@@ -36,7 +39,6 @@ class DocumentPostSerializer(serializers.ModelSerializer):
         """
         data = super().to_representation(instance)
         path = getpath(data)
-        # data['document'] = 'OK'
         data['doc_size'] = Path(path).stat().st_size
         instance.doc_size = Path(path).stat().st_size
         instance.save()
@@ -55,15 +57,13 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         This function swaps path from the "document" field
         with the binary data of the file, encoded to BASE-64
         """
-        # print(os.path.join(BASE_DIR, 'media'))
         data = super().to_representation(instance)
-        # print(MEDIA_ROOT)
         path = getpath(data)
         f = open(path, "rb")
         f = f.read()
         f = encodebytes(f)
         data['doc_size'] = Path(path).stat().st_size
-        # data['document'] = f
+        data['document'] = f
         instance.document = path
         instance.save()
         return data
@@ -75,3 +75,9 @@ class DocumentHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = DocumentHistory
         fields = ['id', 'cur_dock', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['id', 'username']
