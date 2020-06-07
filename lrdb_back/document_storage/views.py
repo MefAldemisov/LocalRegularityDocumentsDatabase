@@ -14,7 +14,7 @@ class DocumentsList(generics.ListCreateAPIView):
     """
     Create a new document
     """
-    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

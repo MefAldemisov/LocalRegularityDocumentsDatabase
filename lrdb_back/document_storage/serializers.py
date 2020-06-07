@@ -7,6 +7,7 @@ import os
 import urllib.parse
 from lrdb_back.settings import MEDIA_ROOT
 from .models import Document, Owner, DocumentHistory
+from urllib.parse import unquote
 
 def getpath(data):
     path = data['document']
@@ -14,13 +15,13 @@ def getpath(data):
     path = urllib.parse.unquote(os.path.join(os.path.join(MEDIA_ROOT, data['name']), path[-1]))
     return path
 
-class OwnerSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the test version of the Owners model
-    """
-    class Meta:
-        model = Owner
-        fields = ['id', 'name', 'mail']
+# class OwnerSerializer(serializers.ModelSerializer):
+#     """
+#     Serializer for the test version of the Owners model
+#     """
+#     class Meta:
+#         model = Owner
+#         fields = ['id', 'name', 'mail']
 
 class DocumentPostSerializer(serializers.ModelSerializer):
     """
@@ -29,6 +30,7 @@ class DocumentPostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
+
         model = Document
         fields = ['id', 'owner', 'name', 'doc_size', 'doc_format', 'created', 'last_update', 'effect_date', 'expiration_date', 'department', 'mentioned_people', 'document']
 
@@ -38,8 +40,11 @@ class DocumentPostSerializer(serializers.ModelSerializer):
         with 'OK' message
         """
         data = super().to_representation(instance)
-        path = getpath(data)
+        path = unquote(data['document'])
+        path = path.split('/', 4)[4]
+        path = os.path.join(MEDIA_ROOT, path)
         data['doc_size'] = Path(path).stat().st_size
+        data['document'] = 'OK'
         instance.doc_size = Path(path).stat().st_size
         instance.save()
         return data
@@ -58,7 +63,9 @@ class DocumentGetSerializer(serializers.ModelSerializer):
         with the binary data of the file, encoded to BASE-64
         """
         data = super().to_representation(instance)
-        path = getpath(data)
+        path = unquote(data['document'])
+        path = path.split('\\', 3)[2]
+        path = MEDIA_ROOT + path
         f = open(path, "rb")
         f = f.read()
         f = encodebytes(f)

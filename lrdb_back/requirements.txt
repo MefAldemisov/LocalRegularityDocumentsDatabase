@@ -1,3 +1,4 @@
 django == 3.0.5
 djangorestframework == 3.11.0
-django-cors-headers == 3.2.1
+django-cors-headers == 3.3.0
+drf-oidc-auth == 0.10.0
