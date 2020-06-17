@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .serializers import DocumentPostSerializer, DocumentGetSerializer, OwnerSerializer, DocumentHistorySerializer, \
+from .serializers import DocumentPostSerializer, DocumentGetSerializer, DocumentHistorySerializer, \
     UserSerializer
 from .models import Document, Owner, DocumentHistory
 from rest_framework import generics, status
@@ -35,19 +35,20 @@ class DocumentDetails(generics.RetrieveUpdateDestroyAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-class OwnerList(generics.ListCreateAPIView):
-    """
-    Create a new owner
-    """
-    queryset = Owner.objects.all()
-    serializer_class = OwnerSerializer
-
-class OwnerDetails(generics.RetrieveUpdateDestroyAPIView):
-    """
-    Retrieve, update or delete an owner instance.
-    """
-    queryset = Owner.objects.all()
-    serializer_class = OwnerSerializer
+#
+# class OwnerList(generics.ListCreateAPIView):
+#     """
+#     Create a new owner
+#     """
+#     queryset = Owner.objects.all()
+#     serializer_class = OwnerSerializer
+#
+# class OwnerDetails(generics.RetrieveUpdateDestroyAPIView):
+#     """
+#     Retrieve, update or delete an owner instance.
+#     """
+#     queryset = Owner.objects.all()
+#     serializer_class = OwnerSerializer
 
 class DocumentOwnerView(generics.ListAPIView):
     """
@@ -56,7 +57,7 @@ class DocumentOwnerView(generics.ListAPIView):
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
     serializer_class = DocumentGetSerializer
     def get_queryset(self):
-        return Document.objects.filter(owner=self.kwargs['pk'])
+        return Document.objects.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -84,7 +85,9 @@ class DocumentUpdate(APIView):
                                effect_date=cur.effect_date, expiration_date=cur.expiration_date,
                                department=cur.department, document=cur.document)
         hist.save()
-        serializer = DocumentGetSerializer(cur, data=request.data)
+        data = request.data
+        data['owner'] = User.objects.get(username = self.request.user).pk
+        serializer = DocumentGetSerializer(cur, data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

@@ -22,7 +22,7 @@ class Document(models.Model):
     """
     Documents model
     """
-    owner = models.ForeignKey('auth.User', related_name='snippets', on_delete=models.CASCADE)
+    owner = models.ForeignKey('auth.User', related_name='document_owner', on_delete=models.CASCADE)
     name = models.TextField()
     doc_size = models.IntegerField(blank=True, null=True)
     doc_format = models.TextField()
