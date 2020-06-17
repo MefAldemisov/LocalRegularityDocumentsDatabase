@@ -1,6 +1,7 @@
 import io
 from rest_framework import views
 from rest_framework.parsers import FormParser, JSONParser
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer, HTMLFormRenderer
 from document_storage.models import Document
 from rest_framework.response import Response
@@ -10,6 +11,8 @@ from document_storage.serializers import DocumentGetSerializer
 # Create your views here.
 
 class SearchEngineView(views.APIView):
+
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
 
@@ -25,7 +28,7 @@ class SearchEngineView(views.APIView):
             i=i+1
 
         try:
-            documents = documents.filter(owner__contains=data['owner'])
+            documents = documents.filter(owner__username__startswith=data['owner'])
         except KeyError:
             i=i+1
 
@@ -61,5 +64,7 @@ class SearchEngineView(views.APIView):
         if i == 8:
             return Response(status=status.HTTP_400_BAD_REQUEST) # No fields were passed
         else:
+            for doc in documents:
+                print(doc.document)
             serializer = DocumentGetSerializer(documents, many=True)
             return Response(serializer.data)

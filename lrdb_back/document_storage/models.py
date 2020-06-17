@@ -1,12 +1,13 @@
 from django.db import models
-import os
+import os, datetime
+from django.contrib.auth.models import User
 
 def get_upload_path(instance, filename):
     """
     Makes directories for each files with different names, thus allows to query history
     """
     return os.path.join(
-        "%s" % instance.name, filename
+        "%s" % datetime.datetime.now().strftime("%Y"),  "%s" % datetime.datetime.now().strftime("%m"), "%s" % instance.name, filename
     )
 
 # Create your models here.
@@ -21,7 +22,7 @@ class Document(models.Model):
     """
     Documents model
     """
-    owner = models.TextField()
+    owner = models.ForeignKey('auth.User', related_name='document_owner', on_delete=models.CASCADE)
     name = models.TextField()
     doc_size = models.IntegerField(blank=True, null=True)
     doc_format = models.TextField()

@@ -7,7 +7,7 @@ class SearchHistory(models.Model):
     Model for storing history of searches to the database
     """
     document_name = models.CharField(blank=True, null=True, max_length=100)
-    owner = models.CharField(blank=True, null=True, max_length=100)
+    owner = models.ForeignKey('auth.User', related_name='history_owner', on_delete=models.CASCADE)
     doc_id = models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(blank=True, null=True)
     last_update = models.DateTimeField(blank=True, null=True)
