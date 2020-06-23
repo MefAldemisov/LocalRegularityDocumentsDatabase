@@ -8,13 +8,16 @@ lrdb_back/media/
 lrdb_back/media/*
 lrdb_back/Database.txt
 lrdb_back/db.sqlite3
+
 .coverage
 .coverage.*
 lrdb-front/coverage/* 
 lrdb-front/coverage/
 
-lrdb_back/**/migrations/*
-lrdb_back/**/migrations
+lrdb_back/*/migrations/*
+lrdb_back/*/migrations
+lrdb_back/*/migrations/
 
-lrdb_back/venv
+lrdb_back/venv/
 lrdb_back/venv/*
+lrdb_back/document_storage/migrations/0001_initial.py
