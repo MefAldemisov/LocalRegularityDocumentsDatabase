@@ -40,4 +40,15 @@ export default {
         }
         return apiClient.post(`/search/`, fd);
     },
+    putDocument(data) {
+        let fd = new FormData();
+        fd.append("name", data.name);
+        fd.append("department", 1); 
+        fd.append("document", data.file);
+        fd.append("doc_format", data.file.name.split(".")[1]); // TODO
+        return apiClient.put(`/update/1/`, fd);
+    },
+    getHistory(doc_id) {
+        return apiClient.get(`/update/${doc_id}/`)
+    }
 };
