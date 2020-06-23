@@ -20,4 +20,5 @@ lrdb_back/*/migrations/
 
 lrdb_back/venv/
 lrdb_back/venv/*
-lrdb_back/document_storage/migrations/0001_initial.py
+# lrdb_back/document_storage/migrations/*
+# lrdb_back/document_storage/migrations
