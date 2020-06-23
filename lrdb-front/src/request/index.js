@@ -1,13 +1,4 @@
-// import Vue from "vue";
-import axios from "axios";
 import apiClient from "./client.js";
-// import VueAxios from "vue-axios";
-
-// Vue.use(VueAxios, axios);
-// axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-// const apiClient = axios.create({
-//     baseURL: "http://10.147.17.97:1488",
-// });
 
 export default {
     getOwnersDocuments(name) {

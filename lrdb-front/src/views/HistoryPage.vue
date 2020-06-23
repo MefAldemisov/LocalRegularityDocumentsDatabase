@@ -1,6 +1,5 @@
 <script>
 import DocList from "../components/represent/DocList.vue";
-import comparator from "../plugins/comparator.js";
 import apiCalls from "../request/index.js";
 
 export default {

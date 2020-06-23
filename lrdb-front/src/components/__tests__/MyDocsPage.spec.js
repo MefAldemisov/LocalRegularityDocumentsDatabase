@@ -6,7 +6,6 @@ import { i18n_obj } from "../../plugins/i18n_constant.js";
 import "../../plugins/fontawersome.js";
 import router from "../../router/index.js";
 import axios from "axios";
-import apiCalls from "../../request/index.js";
 import store from "../../store/store.js";
 
 // import MockAdapter from "axios-mock-adapter";
@@ -23,8 +22,6 @@ jest.mock("axios");
 global.API_URL =
     "http://10.147.17.97:1488/docowner/" + "Третьяков Владимир Владимирович/";
 describe("LoadDocsPageNew", async () => {
-    const results = [];
-    const mockAxiosSpreadResult = jest.fn();
 
     beforeAll(() => {
         // axios.get.mockClear();
