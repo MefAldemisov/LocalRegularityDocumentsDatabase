@@ -8,6 +8,16 @@ export default {
     components: {
         DocList
     },
+    props: {
+        id: {
+            required: true,
+            dtype: Number
+        },
+        name: {
+            required: false,
+            default: ""
+        }
+    },
     data: function() {
         return {
             response: {}
@@ -19,10 +29,8 @@ export default {
         },
         getData: async function() {
             let res = [];
-            let id = 1;
-            // $route.params.id;
             await apiCalls
-                .getHistory(id)
+                .getHistory(this.id)
                 .then(function(data) {
                     console.log("Histry data:", data);
                     res = data.data;
