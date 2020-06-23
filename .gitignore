@@ -12,3 +12,9 @@ lrdb_back/db.sqlite3
 .coverage.*
 lrdb-front/coverage/* 
 lrdb-front/coverage/
+
+lrdb_back/**/migrations/*
+lrdb_back/**/migrations
+
+lrdb_back/venv
+lrdb_back/venv/*
